@@ -21,7 +21,7 @@ button{width:100%; padding:12px; background:green; color:white; border:none; mar
 <div class="box">
 <h2>🍕 Royal Pizza Home</h2>
 
-<form action="https://formsubmit.co/YOURGMAIL@gmail.com" method="POST" onsubmit="return checkPayment()">
+<form id="orderForm" action="https://formsubmit.co/amitsingh3312509@gmail.com" method="POST" onsubmit="return checkPayment()">
 
 <label>Name / नाम</label>
 <input type="text" name="Name" id="name" required>
@@ -62,7 +62,7 @@ button{width:100%; padding:12px; background:green; color:white; border:none; mar
 <input type="hidden" name="AdvancePaid" id="advanceInput">
 <input type="hidden" name="ReceiptNo" id="receiptInput">
 
-<button type="button" onclick="pay()">Pay Advance / अग्रिम भुगतान करें</button>
+<button type="button" id="payBtn" onclick="pay()">Pay Advance / अग्रिम भुगतान करें</button>
 
 <div class="qr">
 <p>Click QR To Pay / QR दबाकर भुगतान करें</p>
@@ -72,15 +72,15 @@ button{width:100%; padding:12px; background:green; color:white; border:none; mar
 </div>
 
 <div class="note">
-🔹 कृपया Pay Advance दबाने के बाद Payment App में Payment Complete करें। <br>
+🔹 कृपया Pay Advance करके “I Paid” दबाएँ।<br>
 🔹 Payment complete होने के बाद Submit Order दबाएं।
 </div>
 
-<button type="submit">Submit Order / ऑर्डर भेजें</button>
+<button type="button" id="paidBtn" onclick="confirmPaid()">I Paid / मैंने भुगतान किया</button>
+<button type="submit" id="submitBtn" disabled>Submit Order / ऑर्डर भेजें</button>
 </form>
 
 <button onclick="downloadReceipt()">Download Receipt / रसीद डाउनलोड करें</button>
-
 </div>
 
 <script>
@@ -102,8 +102,8 @@ document.getElementById("advance").innerText=adv;
 document.getElementById("totalInput").value=total;
 document.getElementById("advanceInput").value=adv;
 
-// Boosted UPI payment link
-let upi="upi://pay?pa=7309277213@upi&pn=RoyalPizzaHome&am="+adv+"&cu=INR&tn=Royal Pizza Advance Payment";
+// Boosted UPI link
+let upi="upi://pay?pa=7309277213@ibl&pn=RoyalPizzaHome&am="+adv+"&cu=INR&tn=Royal Pizza Advance Payment";
 let qr="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+encodeURIComponent(upi);
 document.getElementById("qrimg").src=qr;
 document.getElementById("paylink").href=upi;
@@ -112,14 +112,19 @@ document.getElementById("paylink").href=upi;
 function pay(){
 let adv=document.getElementById("advance").innerText;
 if(adv==0){ alert("Add pizza first / पिज़्ज़ा जोड़ें"); return; }
-let upi="upi://pay?pa=7309277213@upi&pn=RoyalPizzaHome&am="+adv+"&cu=INR&tn=Royal Pizza Advance Payment";
+let upi="upi://pay?pa=7309277213@ibl&pn=RoyalPizzaHome&am="+adv+"&cu=INR&tn=Royal Pizza Advance Payment";
 window.location.href=upi;
+alert("Payment app open हो गया है। कृपया UPI PIN डालकर payment complete करें। फिर ‘I Paid’ दबाएँ।");
+}
+
+function confirmPaid(){
 paid=true;
-alert("Payment app open हो गया है। कृपया UPI PIN डालकर payment complete करें। Payment के बाद Submit Order दबाएं।");
+document.getElementById("submitBtn").disabled=false;
+alert("Payment confirmed! Now you can submit the order / भुगतान की पुष्टि हुई! अब ऑर्डर भेजें।");
 }
 
 function checkPayment(){
-if(!paid){ alert("Please pay advance first / कृपया अग्रिम भुगतान करें"); return false; }
+if(!paid){ alert("Please confirm payment first / कृपया पहले भुगतान की पुष्टि करें"); return false; }
 document.getElementById("receiptInput").value=document.getElementById("receipt").innerText;
 return true;
 }
