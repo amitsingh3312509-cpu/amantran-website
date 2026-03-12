@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Royal Pizza Home Order</title>
+<title>Royal Pizza Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -13,7 +14,7 @@ margin:0;
 }
 
 .container{
-max-width:520px;
+max-width:550px;
 margin:20px auto;
 background:white;
 padding:20px;
@@ -61,6 +62,33 @@ color:white;
 background:gray;
 }
 
+.contactbtn{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.contactbtn a{
+flex:1;
+text-align:center;
+padding:10px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:6px;
+}
+
+.call{
+background:#007bff !important;
+}
+
+.total{
+text-align:center;
+font-size:18px;
+color:green;
+font-weight:bold;
+}
+
 .info{
 background:#f2f2f2;
 padding:10px;
@@ -68,15 +96,7 @@ border-radius:6px;
 margin:10px 0;
 }
 
-.total{
-font-size:18px;
-color:green;
-font-weight:bold;
-text-align:center;
-}
-
 </style>
-
 </head>
 
 <body>
@@ -88,10 +108,10 @@ text-align:center;
 <form action="https://formsubmit.co/amitsingh3312509@gmail.com" method="POST">
 
 <label>Name / नाम</label>
-<input type="text" name="Customer Name" required>
+<input type="text" name="Name" required>
 
 <label>Mobile Number / मोबाइल नंबर</label>
-<input type="tel" name="Mobile Number" required>
+<input type="tel" name="Mobile" required>
 
 <label>Village / गांव</label>
 <input type="text" name="Village">
@@ -102,38 +122,25 @@ text-align:center;
 
 <option value="">Select</option>
 
-<option value="150">
-Margherita Pizza / मार्घेरिटा ₹150
-</option>
-
-<option value="180">
-Veg Pizza / वेज पिज़्ज़ा ₹180
-</option>
-
-<option value="200">
-Paneer Pizza / पनीर पिज़्ज़ा ₹200
-</option>
-
-<option value="250">
-Farmhouse Pizza / फार्महाउस ₹250
-</option>
+<option value="150">Margherita / मार्घेरिटा ₹150</option>
+<option value="180">Veg Pizza / वेज पिज़्ज़ा ₹180</option>
+<option value="200">Paneer Pizza / पनीर ₹200</option>
+<option value="250">Farmhouse / फार्महाउस ₹250</option>
 
 </select>
 
 <label>Quantity / मात्रा</label>
 <input type="number" id="qty" value="1" min="1" onchange="calculate()" name="Quantity">
 
-<label>Unit / प्रकार</label>
+<label>Piece / Plate</label>
 
 <select name="Unit">
-
 <option>Piece / पीस</option>
 <option>Plate / प्लेट</option>
-
 </select>
 
 <div class="total">
-Total Amount ₹ <span id="total">0</span>
+Total ₹ <span id="total">0</span>
 </div>
 
 <div class="total">
@@ -155,13 +162,13 @@ Advance 50% ₹ <span id="advance">0</span>
 <input type="hidden" name="Date" id="dateInput">
 <input type="hidden" name="Time" id="timeInput">
 <input type="hidden" name="Day" id="dayInput">
-<input type="hidden" name="Receipt No" id="receiptInput">
+<input type="hidden" name="Receipt" id="receiptInput">
 
 <h3>UPI Payment</h3>
 
-<p>UPI ID: 6307177262@ibl</p>
+<p>UPI ID :6307177262@ibl</p>
 
-<button type="button" class="pay" onclick="payNow()">
+<button type="button" class="pay" onclick="payUPI()">
 Pay 50% Advance
 </button>
 
@@ -171,29 +178,41 @@ Place Order
 
 </form>
 
+<div class="contactbtn">
+
+<a href="https://wa.me/9151041867">
+WhatsApp
+</a>
+
+<a href="tel:7309277213" class="call">
+Call
+</a>
+
+</div>
+
 </div>
 
 <script>
 
 function calculate(){
 
-var pizza=document.getElementById("pizza").value;
+var price=document.getElementById("pizza").value;
 var qty=document.getElementById("qty").value;
 
-var total=pizza*qty;
+var total=price*qty;
 
-document.getElementById("total").innerHTML=total;
+document.getElementById("total").innerText=total;
 
 var adv=Math.round(total/2);
 
-document.getElementById("advance").innerHTML=adv;
+document.getElementById("advance").innerText=adv;
 
 document.getElementById("totalInput").value=total;
 document.getElementById("advanceInput").value=adv;
 
 }
 
-function payNow(){
+function payUPI(){
 
 var adv=document.getElementById("advanceInput").value;
 
@@ -211,7 +230,7 @@ window.location.href=upi;
 
 setTimeout(function(){
 
-alert("Payment done. Now place order.");
+alert("Payment done, now place order");
 
 document.getElementById("submitBtn").disabled=false;
 
