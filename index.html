@@ -4,25 +4,24 @@
 <head>
 <title>Royal Pizza Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
 body{font-family:Arial; background:#f5f5f5;}
 .box{max-width:550px; margin:auto; background:white; padding:20px; border-radius:10px;}
 h2{text-align:center; color:red;}
 input,select{width:100%; padding:10px; margin:6px 0;}
-button{width:100%; padding:12px; background:green; color:white; border:none; margin-top:8px;}
+button{width:100%; padding:12px; background:green; color:white; border:none; margin-top:8px; cursor:pointer;}
 .cart{background:#f2f2f2; padding:10px; margin-top:10px; border-radius:8px;}
 .info{text-align:center; font-size:18px; color:green;}
 .qr{text-align:center; margin-top:15px;}
+.note{color:blue; font-size:14px; text-align:center; margin-top:10px;}
 </style>
 </head>
 
 <body>
 <div class="box">
-
 <h2>🍕 Royal Pizza Home</h2>
 
-<form action="https://formsubmit.co/amitsingh3312509@gmail.com" method="POST" onsubmit="return checkPayment()">
+<form action="https://formsubmit.co/YOURGMAIL@gmail.com" method="POST" onsubmit="return checkPayment()">
 
 <label>Name / नाम</label>
 <input type="text" name="Name" id="name" required>
@@ -52,40 +51,35 @@ button{width:100%; padding:12px; background:green; color:white; border:none; mar
 <div id="cart"></div>
 </div>
 
-<div class="info">
-Total ₹ <span id="total">0</span>
-</div>
-<div class="info">
-Advance 50% ₹ <span id="advance">0</span>
-</div>
-<div class="info">
-Receipt No : <span id="receipt"></span>
-</div>
-<div class="info">
-Date : <span id="date"></span>
-</div>
-<div class="info">
-Time : <span id="time"></span>
-</div>
-<div class="info">
-Day : <span id="day"></span>
-</div>
+<div class="info">Total ₹ <span id="total">0</span></div>
+<div class="info">Advance 50% ₹ <span id="advance">0</span></div>
+<div class="info">Receipt No : <span id="receipt"></span></div>
+<div class="info">Date : <span id="date"></span></div>
+<div class="info">Time : <span id="time"></span></div>
+<div class="info">Day : <span id="day"></span></div>
 
 <input type="hidden" name="TotalAmount" id="totalInput">
 <input type="hidden" name="AdvancePaid" id="advanceInput">
 <input type="hidden" name="ReceiptNo" id="receiptInput">
 
-<button type="button" onclick="pay()">Pay Advance</button>
+<button type="button" onclick="pay()">Pay Advance / अग्रिम भुगतान करें</button>
 
 <div class="qr">
 <p>Click QR To Pay / QR दबाकर भुगतान करें</p>
-<a id="paylink"><img id="qrimg" width="200"></a>
+<a id="paylink" target="_blank">
+<img id="qrimg" width="200">
+</a>
+</div>
+
+<div class="note">
+🔹 कृपया Pay Advance दबाने के बाद Payment App में Payment Complete करें। <br>
+🔹 Payment complete होने के बाद Submit Order दबाएं।
 </div>
 
 <button type="submit">Submit Order / ऑर्डर भेजें</button>
 </form>
 
-<button onclick="downloadReceipt()">Download Receipt</button>
+<button onclick="downloadReceipt()">Download Receipt / रसीद डाउनलोड करें</button>
 
 </div>
 
@@ -99,7 +93,7 @@ let price=pizza.value;
 let name=pizza.options[pizza.selectedIndex].text;
 let qty=document.getElementById("qty").value;
 let itemTotal=price*qty;
-if(itemTotal==0){ alert("Select pizza first"); return; }
+if(itemTotal==0){ alert("Select pizza first / पिज़्ज़ा चुनें"); return; }
 total+=itemTotal;
 document.getElementById("cart").innerHTML+=name+" x "+qty+" = ₹"+itemTotal+"<br>";
 document.getElementById("total").innerText=total;
@@ -107,7 +101,9 @@ let adv=Math.round(total/2);
 document.getElementById("advance").innerText=adv;
 document.getElementById("totalInput").value=total;
 document.getElementById("advanceInput").value=adv;
-let upi="upi://pay?pa=7309277213&pn=RoyalPizzaHome&am="+adv+"&cu=INR";
+
+// Boosted UPI payment link
+let upi="upi://pay?pa=7309277213@upi&pn=RoyalPizzaHome&am="+adv+"&cu=INR&tn=Royal Pizza Advance Payment";
 let qr="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+encodeURIComponent(upi);
 document.getElementById("qrimg").src=qr;
 document.getElementById("paylink").href=upi;
@@ -115,10 +111,11 @@ document.getElementById("paylink").href=upi;
 
 function pay(){
 let adv=document.getElementById("advance").innerText;
-if(adv==0){ alert("Add pizza first"); return; }
-let upi="upi://pay?pa=7309277213&pn=RoyalPizzaHome&am="+adv+"&cu=INR";
+if(adv==0){ alert("Add pizza first / पिज़्ज़ा जोड़ें"); return; }
+let upi="upi://pay?pa=7309277213@upi&pn=RoyalPizzaHome&am="+adv+"&cu=INR&tn=Royal Pizza Advance Payment";
 window.location.href=upi;
 paid=true;
+alert("Payment app open हो गया है। कृपया UPI PIN डालकर payment complete करें। Payment के बाद Submit Order दबाएं।");
 }
 
 function checkPayment(){
@@ -134,7 +131,6 @@ document.getElementById("time").innerText=d.toLocaleTimeString();
 document.getElementById("day").innerText=d.toLocaleDateString('en-US',{weekday:'long'});
 document.getElementById("receipt").innerText="RP"+Math.floor(Math.random()*100000);
 }
-
 setTime();
 
 function downloadReceipt(){
@@ -154,6 +150,5 @@ link.download="pizza_receipt.txt";
 link.click();
 }
 </script>
-
 </body>
   </html>
