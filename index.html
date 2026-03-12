@@ -9,21 +9,21 @@
 
 body{
 font-family:Arial;
-background:linear-gradient(135deg,#ff512f,#dd2476);
-margin:0;
+background:#f2f2f2;
 }
 
-.container{
-max-width:520px;
-margin:20px auto;
+.box{
+max-width:450px;
+margin:auto;
 background:white;
 padding:20px;
 border-radius:10px;
+margin-top:20px;
 }
 
 h2{
 text-align:center;
-color:#dd2476;
+color:red;
 }
 
 label{
@@ -39,29 +39,17 @@ margin:6px 0;
 button{
 width:100%;
 padding:12px;
-border:none;
-margin-top:10px;
-font-size:16px;
-}
-
-.pay{
 background:green;
 color:white;
+border:none;
+font-size:16px;
+margin-top:8px;
 }
 
-.submit{
-background:#dd2476;
-color:white;
-}
-
-.submit:disabled{
-background:gray;
-}
-
-.total{
-font-size:18px;
-color:green;
+.info{
+font-size:16px;
 text-align:center;
+color:green;
 }
 
 </style>
@@ -69,75 +57,73 @@ text-align:center;
 
 <body>
 
-<div class="container">
+<div class="box">
 
 <h2>🍕 Royal Pizza Home</h2>
 
-<form action="https://formsubmit.co/amitsingh3312509@gmail.com" method="POST">
-
 <label>Name / नाम</label>
-<input type="text" name="Name" required>
+<input type="text" id="name">
 
-<label>Mobile / मोबाइल</label>
-<input type="tel" name="Mobile" required>
+<label>Mobile Number / मोबाइल नंबर</label>
+<input type="number" id="mobile">
 
-<label>Village / गांव</label>
-<input type="text" name="Village">
+<label>Village / गाँव</label>
+<input type="text" id="village">
 
-<label>Select Pizza / पिज़्ज़ा</label>
-
-<select id="pizza" onchange="calculate()" name="Pizza">
+<label>Select Pizza / पिज़्ज़ा चुनें</label>
+<select id="pizza" onchange="calculate()">
 
 <option value="">Select</option>
-<option value="2">Margherita ₹2</option>
-<option value="180">Veg Pizza ₹180</option>
-<option value="200">Paneer Pizza ₹200</option>
-<option value="250">Farmhouse ₹250</option>
+
+<option value="20">Margherita Pizza / मार्गेरिटा पिज़्ज़ा ₹20</option>
+<option value="2">Veg Pizza / वेज पिज़्ज़ा ₹2</option>
+<option value="200">Paneer Pizza / पनीर पिज़्ज़ा ₹200</option>
+<option value="250">Farmhouse Pizza / फार्महाउस पिज़्ज़ा ₹250</option>
 
 </select>
 
 <label>Quantity / मात्रा</label>
-<input type="number" id="qty" value="1" min="1" onchange="calculate()" name="Quantity">
+<input type="number" id="qty" value="1" min="1" onchange="calculate()">
 
-<label>Unit</label>
-
-<select name="Unit">
-<option>Piece / पीस</option>
-<option>Plate / प्लेट</option>
+<label>Piece / Plate</label>
+<select>
+<option>Piece</option>
+<option>Plate</option>
 </select>
 
-<div class="total">
+<div class="info">
+Date: <span id="date"></span>
+</div>
+
+<div class="info">
+Time: <span id="time"></span>
+</div>
+
+<div class="info">
+Day: <span id="day"></span>
+</div>
+
+<div class="info">
+Receipt No: <span id="receipt"></span>
+</div>
+
+<div class="info">
 Total ₹ <span id="total">0</span>
 </div>
 
-<div class="total">
-Advance ₹ <span id="advance">0</span>
+<div class="info">
+Advance 50% ₹ <span id="advance">0</span>
 </div>
 
-<input type="hidden" name="Total Amount" id="totalInput">
-<input type="hidden" name="Advance Payment" id="advanceInput">
+<button onclick="payUPI()">Pay Advance / एडवांस पेमेंट</button>
 
-<p><b>Date:</b> <span id="date"></span></p>
-<p><b>Time:</b> <span id="time"></span></p>
-<p><b>Day:</b> <span id="day"></span></p>
-<p><b>Receipt No:</b> <span id="receipt"></span></p>
+<a href="tel:7309277213">
+<button type="button">Call / कॉल करें</button>
+</a>
 
-<input type="hidden" name="Date" id="dateInput">
-<input type="hidden" name="Time" id="timeInput">
-<input type="hidden" name="Day" id="dayInput">
-<input type="hidden" name="Receipt" id="receiptInput">
-
-<p>UPI ID : 7309277213@ibl</p>
-
-<button type="button" class="pay" onclick="payUPI()">
-Pay Advance
-</button>
-
-<button type="submit" class="submit" id="submitBtn" disabled>
-Place Order
-</button>
-
-</form>
+<a href="https://wa.me/917309277213">
+<button type="button">WhatsApp Order</button>
+</a>
 
 </div>
 
@@ -156,9 +142,6 @@ let adv=Math.round(total/2);
 
 document.getElementById("advance").innerText=adv;
 
-document.getElementById("totalInput").value=total;
-document.getElementById("advanceInput").value=adv;
-
 }
 
 function payUPI(){
@@ -173,36 +156,27 @@ return;
 
 }
 
-let upi="upi://pay?pa=7309277213@ibl&pn=RoyalPizzaHome&am="+amount+"&cu=INR";
+let upi="upi://pay?pa=7309277213&pn=RoyalPizzaHome&am="+amount+"&cu=INR";
 
 window.location.href=upi;
 
-setTimeout(function(){
-
-alert("Payment done. Now place order");
-
-document.getElementById("submitBtn").disabled=false;
-
-},3000);
-
 }
+
+function setDateTime(){
 
 let d=new Date();
 
-let days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
 document.getElementById("date").innerText=d.toLocaleDateString();
+
 document.getElementById("time").innerText=d.toLocaleTimeString();
-document.getElementById("day").innerText=days[d.getDay()];
 
-document.getElementById("dateInput").value=d.toLocaleDateString();
-document.getElementById("timeInput").value=d.toLocaleTimeString();
-document.getElementById("dayInput").value=days[d.getDay()];
+document.getElementById("day").innerText=d.toLocaleDateString('en-US',{weekday:'long'});
 
-let receipt="RP"+Math.floor(Math.random()*1000000);
+document.getElementById("receipt").innerText="RP"+Math.floor(Math.random()*100000);
 
-document.getElementById("receipt").innerText=receipt;
-document.getElementById("receiptInput").value=receipt;
+}
+
+setDateTime();
 
 </script>
 
