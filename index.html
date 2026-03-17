@@ -33,24 +33,23 @@ animation:scroll 12s linear infinite;
 .container{
 max-width:800px;margin:20px auto;background:white;
 padding:20px;border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
 input,select{
 width:100%;padding:10px;margin:6px 0;
+border-radius:5px;border:1px solid #ccc;
 }
 
 button{
 padding:12px;background:#2a9d8f;color:white;
-border:none;width:100%;border-radius:6px;
-margin-top:6px;
+border:none;width:100%;border-radius:6px;margin-top:6px;
 }
 
-.cart{background:#eee;padding:10px;margin-top:10px;}
-.remove{background:red;font-size:12px;}
+.cart{background:#eee;padding:10px;margin-top:10px;border-radius:6px;}
+.remove{background:red;font-size:12px;padding:3px 8px;}
 
-.note{
-color:red;font-weight:bold;
-}
+.note{color:red;font-weight:bold;text-align:center;}
 
 .bottom-support{
 position:fixed;bottom:15px;left:50%;
@@ -73,9 +72,7 @@ text-decoration:none;font-size:14px;
 <div class="header">🍕 Royal Pizza Home</div>
 
 <div class="marquee">
-<span>
-Royal Pizza Home Bansdih Ballia | रॉयल पिज़्ज़ा होम बांसडीह बलिया
-</span>
+<span>Royal Pizza Home | रॉयल पिज़्ज़ा होम</span>
 </div>
 
 <div class="container">
@@ -103,16 +100,16 @@ Royal Pizza Home Bansdih Ballia | रॉयल पिज़्ज़ा हो�
 <p>Advance 50% / अग्रिम ₹ <span id="advance">0</span></p>
 </div>
 
-<form id="orderForm" action="https://formsubmit.co/amitsingh3312509@gmail.com" method="POST">
+<form id="orderForm" action="https://formsubmit.co/YOUR-EMAIL@gmail.com" method="POST">
 
 <input type="hidden" name="_captcha" value="false">
 
 <h2>Customer Details / ग्राहक जानकारी</h2>
 
-<label>Full Name / पूरा नाम</label>
+<label>Name / नाम</label>
 <input type="text" id="name" name="Name" required>
 
-<label>Mobile Number / मोबाइल नंबर</label>
+<label>Mobile / मोबाइल</label>
 <input type="number" id="mobile" name="Mobile" required>
 
 <label>Village / गांव</label>
@@ -122,42 +119,35 @@ Royal Pizza Home Bansdih Ballia | रॉयल पिज़्ज़ा हो�
 <input type="hidden" name="Total Amount" id="totalInput">
 <input type="hidden" name="Advance Amount" id="advanceInput">
 
-<h2>Payment Details / भुगतान जानकारी</h2>
+<h2>Payment / भुगतान</h2>
 
-<p><b>UPI Number / यूपीआई नंबर:</b> 7309277213</p>
+<p><b>UPI Number:</b> 7309277213</p>
 
 <p class="note">
 ⚠️ 50% Advance Payment Compulsory  
 ⚠️ 50% अग्रिम भुगतान अनिवार्य है
 </p>
 
-<button type="button" onclick="payUPI()">
-💳 Pay 50% Advance / 50% अग्रिम भुगतान करें
-</button>
+<button type="button" onclick="payUPI()">Pay 50%</button>
 
 <label>Transaction ID / ट्रांजैक्शन आईडी</label>
 <input type="text" id="txn" name="TransactionID" required>
 
 <h2>Receipt / रसीद</h2>
 
-<p>Receipt No / रसीद नंबर: <span id="receipt"></span></p>
-<p>Date / तारीख: <span id="date"></span></p>
-<p>Time / समय: <span id="time"></span></p>
-<p>Day / दिन: <span id="day"></span></p>
+<p>No: <span id="receipt"></span></p>
+<p>Date: <span id="date"></span></p>
+<p>Time: <span id="time"></span></p>
+<p>Day: <span id="day"></span></p>
 
-<button type="submit">
-✅ Submit Order / ऑर्डर भेजें
-</button>
+<button type="submit">Submit Order</button>
 
 </form>
 
-<button onclick="downloadPDF()">
-📄 Download Receipt / रसीद डाउनलोड
-</button>
+<button onclick="downloadPDF()">Download Full Receipt</button>
 
 </div>
 
-<!-- Bottom Buttons -->
 <div class="bottom-support">
 <a class="whatsapp" href="https://wa.me/917309277213">WhatsApp</a>
 <a class="call" href="tel:7309277213">Call</a>
@@ -204,11 +194,11 @@ let paid=false;
 function payUPI(){
 let adv=Math.round(total/2);
 if(adv==0){alert("Select Pizza First");return;}
-window.location.href="upi://pay?pa=7309277213@upi&pn=RoyalPizzaHome&am="+adv+"&cu=INR";
+window.location.href="upi://pay?pa=7309277213@upi&am="+adv+"&cu=INR";
 paid=true;
 }
 
-/* RECEIPT */
+/* RECEIPT DATA */
 let r="RP"+Math.floor(Math.random()*100000);
 let d=new Date();
 
@@ -217,7 +207,7 @@ document.getElementById("date").innerText=d.toLocaleDateString();
 document.getElementById("time").innerText=d.toLocaleTimeString();
 document.getElementById("day").innerText=d.toLocaleDateString('en-US',{weekday:'long'});
 
-/* FORM SUBMIT */
+/* SUBMIT */
 document.getElementById("orderForm").addEventListener("submit",function(e){
 
 if(!paid){
@@ -230,35 +220,53 @@ document.getElementById("pizzaInput").value=JSON.stringify(cart);
 document.getElementById("totalInput").value=total;
 document.getElementById("advanceInput").value=Math.round(total/2);
 
-/* WhatsApp Auto */
-let name=document.getElementById("name").value;
-let mobile=document.getElementById("mobile").value;
-let village=document.getElementById("village").value;
-
+/* WhatsApp */
 let msg="🍕 New Order\n";
-msg+="Name: "+name+"\n";
-msg+="Mobile: "+mobile+"\n";
-msg+="Village: "+village+"\n";
-msg+="Order: "+JSON.stringify(cart)+"\n";
-msg+="Total: ₹"+total;
+msg+="Name:"+document.getElementById("name").value+"\n";
+msg+="Mobile:"+document.getElementById("mobile").value+"\n";
+msg+="Village:"+document.getElementById("village").value+"\n";
+msg+="Order:"+JSON.stringify(cart)+"\n";
+msg+="Total ₹"+total;
 
-let url="https://wa.me/917309277213?text="+encodeURIComponent(msg);
-
-window.open(url,"_blank");
+window.open("https://wa.me/917309277213?text="+encodeURIComponent(msg));
 
 });
 
-/* PDF */
+/* FULL RECEIPT PDF */
 function downloadPDF(){
+
 const {jsPDF}=window.jspdf;
 let pdf=new jsPDF();
 
-pdf.text("Royal Pizza Home Receipt",20,20);
-pdf.text("Receipt No: "+r,20,40);
-pdf.text("Total: ₹"+total,20,60);
-pdf.text("Advance: ₹"+Math.round(total/2),20,70);
+let y=20;
+
+pdf.text("Royal Pizza Home Receipt",20,y); y+=10;
+
+pdf.text("Receipt No: "+r,20,y); y+=8;
+pdf.text("Date: "+d.toLocaleDateString(),20,y); y+=8;
+pdf.text("Time: "+d.toLocaleTimeString(),20,y); y+=8;
+pdf.text("Day: "+d.toLocaleDateString('en-US',{weekday:'long'}),20,y); y+=10;
+
+pdf.text("Name: "+document.getElementById("name").value,20,y); y+=8;
+pdf.text("Mobile: "+document.getElementById("mobile").value,20,y); y+=8;
+pdf.text("Village: "+document.getElementById("village").value,20,y); y+=10;
+
+pdf.text("Order Details:",20,y); y+=8;
+
+cart.forEach((c)=>{
+pdf.text(c.name+" x"+c.q+" = ₹"+(c.price*c.q),20,y);
+y+=8;
+});
+
+y+=5;
+pdf.text("Total: ₹"+total,20,y); y+=8;
+pdf.text("Advance: ₹"+Math.round(total/2),20,y); y+=8;
+pdf.text("Transaction ID: "+document.getElementById("txn").value,20,y); y+=10;
+
+pdf.text("Thank You!",20,y);
 
 pdf.save("Receipt_"+r+".pdf");
+
 }
 
 </script>
