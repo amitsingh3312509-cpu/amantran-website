@@ -77,7 +77,7 @@ text-decoration:none;font-size:14px;
 <div class="cart">
 <div id="cart"></div>
 <p>Total ₹ <span id="total">0</span></p>
-<p>Advance ₹ <span id="adv">0</span></p>
+<p>Advance (50%) ₹ <span id="adv">0</span></p>
 </div>
 
 <h3>Customer Details / ग्राहक जानकारी</h3>
@@ -87,14 +87,15 @@ text-decoration:none;font-size:14px;
 <input id="village" placeholder="Village / गांव">
 
 <p class="note">
-⚠️ Open app and pay manually  
-⚠️ ऐप खोलकर खुद भुगतान करें (कम से कम 50%)
+⚠️ पहले Payment App खोलें और कम से कम 50% भुगतान करें  
+⚠️ Open app and pay minimum 50%
 </p>
 
 <h3>Payment</h3>
 
-<button onclick="openGpay()">📱 Open Google Pay</button>
-<button onclick="openPhonePe()">📱 Open PhonePe</button>
+<button onclick="openGpay()">📱 Google Pay</button>
+<button onclick="openPhonePe()">📱 PhonePe</button>
+<button onclick="openUPI()">💳 Any UPI</button>
 
 <p style="text-align:center;">
 UPI ID: <b>7309277213@ibl</b><br>
@@ -146,21 +147,29 @@ document.getElementById("adv").innerText=Math.round(total/2);
 
 /* REMOVE */
 function removeItem(i){
-total-=cart[i].price*carts[i]?.q || 0;
+total-=cart[i].price*cart[i].q;
 cart.splice(i,1);
 showCart();
 }
 
-/* OPEN APPS */
+/* PAYMENT OPEN */
+
 function openGpay(){
-window.location.href="tez://";
+window.location.href="intent://pay?pa=7309277213@ibl#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end;";
+setTimeout(()=>{openUPI();},1500);
 }
 
 function openPhonePe(){
-window.location.href="phonepe://";
+window.location.href="intent://pay?pa=7309277213@ibl#Intent;scheme=upi;package=com.phonepe.app;end;";
+setTimeout(()=>{openUPI();},1500);
+}
+
+function openUPI(){
+window.location.href="upi://pay?pa=7309277213@ibl&pn=RoyalPizzaHome&cu=INR";
 }
 
 /* ORDER */
+
 function submitOrder(){
 
 let name=document.getElementById("name").value;
@@ -185,6 +194,7 @@ window.open("https://wa.me/917309277213?text="+encodeURIComponent(msg));
 }
 
 /* PDF */
+
 function downloadPDF(){
 const {jsPDF}=window.jspdf;
 let pdf=new jsPDF();
