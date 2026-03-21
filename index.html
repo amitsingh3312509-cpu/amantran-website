@@ -42,6 +42,11 @@ border:none;border-radius:6px;color:white;
 
 .msg{color:green;text-align:center;font-weight:bold;margin-top:10px;}
 
+.remove-btn{
+background:red;color:white;border:none;
+padding:3px 8px;border-radius:4px;margin-left:5px;
+}
+
 </style>
 
 </head>
@@ -52,7 +57,7 @@ border:none;border-radius:6px;color:white;
 
 <div class="container">
 
-<form id="form" action="https://formsubmit.co/YOUR-EMAIL@gmail.com" method="POST">
+<form id="form" action="https://formsubmit.co/amitsingh3312509@gmail.com" method="POST">
 
 <h3>🍕 Pizza Menu</h3>
 
@@ -109,15 +114,7 @@ border:none;border-radius:6px;color:white;
 
 <input name="TransactionID" id="txn" placeholder="Transaction ID" required>
 
-<!-- Hidden Email Data -->
 <input type="hidden" name="OrderDetails" id="orderData">
-<input type="hidden" name="Total" id="totalData">
-<input type="hidden" name="Advance" id="advData">
-<input type="hidden" name="DeliveryCharge" id="delData">
-<input type="hidden" name="DeliveryTime" id="timeData">
-<input type="hidden" name="Date" id="dateData">
-<input type="hidden" name="Day" id="dayData">
-<input type="hidden" name="Time" id="clockData">
 
 <button type="submit" class="submit-btn">Submit Order</button>
 
@@ -133,7 +130,7 @@ border:none;border-radius:6px;color:white;
 
 let cart=[],total=0,delivery=0,time="";
 
-/* CART */
+/* ADD */
 function addCart(){
 let p=document.getElementById("pizza");
 let name=p.options[p.selectedIndex].text;
@@ -150,8 +147,11 @@ update();
 /* UPDATE */
 function update(){
 document.getElementById("cart").innerHTML="";
-cart.forEach(c=>{
-document.getElementById("cart").innerHTML+=c.name+" x"+c.q+" ₹"+(c.price*c.q)+"<br>";
+
+cart.forEach((c,index)=>{
+document.getElementById("cart").innerHTML+=
+c.name+" x"+c.q+" ₹"+(c.price*c.q)+
+" <button class='remove-btn' onclick='removeItem("+index+")'>X</button><br>";
 });
 
 document.getElementById("total").innerText=total;
@@ -160,6 +160,13 @@ document.getElementById("delivery").innerText=delivery;
 let final=total+delivery;
 document.getElementById("final").innerText=final;
 document.getElementById("adv").innerText=Math.round(final/2);
+}
+
+/* REMOVE */
+function removeItem(index){
+total -= cart[index].price * cart[index].q;
+cart.splice(index,1);
+update();
 }
 
 /* VILLAGE */
@@ -179,7 +186,7 @@ function openUPI(){
 window.location.href="upi://pay?pa=7309277213@ibl&pn=RoyalPizzaHome&cu=INR";
 }
 
-/* SUBMIT WITH 20 SEC MESSAGE */
+/* SUBMIT FULL MESSAGE */
 document.getElementById("form").addEventListener("submit",function(e){
 
 e.preventDefault();
@@ -190,34 +197,14 @@ let village=v.value;
 let time=v.options[v.selectedIndex].getAttribute("data-time");
 let charge=v.options[v.selectedIndex].getAttribute("data-charge");
 
-let d=new Date();
-
-/* EMAIL DATA */
-let items="";
-cart.forEach(c=>{
-items+=c.name+" x"+c.q+" ₹"+(c.price*c.q)+" | ";
-});
-
-let final=total+delivery;
-let adv=Math.round(final/2);
-
-document.getElementById("orderData").value=items;
-document.getElementById("totalData").value=final;
-document.getElementById("advData").value=adv;
-document.getElementById("delData").value=delivery;
-document.getElementById("timeData").value=time+" min";
-document.getElementById("dateData").value=d.toLocaleDateString();
-document.getElementById("dayData").value=d.toLocaleDateString('en-US',{weekday:'long'});
-document.getElementById("clockData").value=d.toLocaleTimeString();
-
-/* MESSAGE */
-document.getElementById("msg").innerText=
+/* FULL MESSAGE */
+document.getElementById("msg").innerText =
 "✅ Order Submitted Successfully\n\n" +
-"🏡 Village: "+village+"\n\n" +
+"🏡 Village: " + village + "\n\n" +
 "⏱️ Correct Time is Delivered by Royal Pizza Home\n" +
-"📦 Parcel will reach your home in "+time+" minutes\n\n" +
-"💰 Delivery Charge: ₹"+charge+"\n\n" +
-"🙏 Thank You!";
+"📦 Parcel will reach your home in " + time + " minutes\n\n" +
+"💰 Delivery Charge: ₹" + charge + "\n\n" +
+"🙏 Thank You for Ordering!";
 
 /* 20 sec delay */
 setTimeout(()=>{
@@ -241,10 +228,10 @@ let d=new Date();
 let final=total+delivery;
 let adv=Math.round(final/2);
 
-/* Pink watermark */
+/* SMALL PINK WATERMARK */
 pdf.setTextColor(255,182,193);
-pdf.setFontSize(35);
-pdf.text("Royal Pizza Home Bansdih",10,100,{angle:45});
+pdf.setFontSize(22);
+pdf.text("Royal Pizza Home Bansdih",20,120,{angle:45});
 
 pdf.setTextColor(0,0,0);
 pdf.setFontSize(12);
@@ -268,7 +255,6 @@ pdf.text("Delivery: ₹"+delivery,20,y); y+=8;
 pdf.text("Txn ID: "+txn,20,y); y+=8;
 
 pdf.text("Date: "+d.toLocaleDateString(),20,y); y+=8;
-pdf.text("Day: "+d.toLocaleDateString('en-US',{weekday:'long'}),20,y); y+=8;
 pdf.text("Time: "+d.toLocaleTimeString(),20,y); y+=8;
 
 pdf.text("Delivery Time: "+time+" min",20,y);
