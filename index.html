@@ -7,220 +7,258 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
-    min-height:100vh;
-    padding:20px;
+background:linear-gradient(-45deg,#2193b0,#6dd5ed,#4facfe,#00f2fe);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+padding:20px;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .container{
-    max-width:600px;
-    margin:auto;
-    background:#fff;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+max-width:650px;
+margin:auto;
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,.2);
 }
 
-h1{
-    text-align:center;
-    color:#0d47a1;
-    margin-bottom:10px;
+.marquee{
+background:#0d47a1;
+color:#fff;
+padding:10px;
+border-radius:8px;
+font-weight:bold;
+margin-bottom:15px;
 }
 
-.subtitle{
-    text-align:center;
-    color:#666;
-    margin-bottom:25px;
+.creator{
+text-align:center;
+color:#0d47a1;
+margin-bottom:15px;
+font-weight:bold;
+}
+
+.step{
+display:none;
+}
+
+.step.active{
+display:block;
 }
 
 label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:5px;
-    font-weight:bold;
+display:block;
+margin-top:12px;
+font-weight:bold;
 }
 
-input, textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
-}
-
-textarea{
-    resize:none;
+input,textarea,select{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:8px;
 }
 
 .photo-preview{
-    width:120px;
-    height:120px;
-    border:2px dashed #999;
-    border-radius:10px;
-    margin:15px auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    color:#777;
+width:130px;
+height:130px;
+margin:15px auto;
+border:2px dashed #777;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+border-radius:10px;
 }
 
 .photo-preview img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 button{
-    width:100%;
-    margin-top:25px;
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    background:#0d47a1;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
+margin-top:20px;
+width:100%;
+padding:12px;
+background:#0d47a1;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
 }
 
 button:hover{
-    background:#08306b;
+background:#063970;
 }
 
 footer{
-    text-align:center;
-    margin-top:20px;
-    color:white;
-}
-
-@media(max-width:600px){
-    .container{
-        padding:20px;
-    }
+margin-top:20px;
+text-align:center;
+font-weight:bold;
+color:white;
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
-    <h1>📚 My Library</h1>
-    <p class="subtitle">Student Registration Form</p>
+<div class="marquee">
+<marquee>
+📚 Welcome To My Library Registration Form | Created By Er. Amit Kumar Singh 📚
+</marquee>
+</div>
 
-    <!-- Apna email yahan daalein -->
-    <form action="https://formsubmit.co/amitsingh3312509@gmail.com"
-          method="POST"
-          enctype="multipart/form-data">
+<h2 style="text-align:center;color:#0d47a1;">
+Library Registration Form
+</h2>
 
-        <label>Student Name</label>
-        <input type="text"
-               name="Student Name"
-               placeholder="Enter Student Name"
-               required>
+<p class="creator">
+Created by <b>Er. Amit Kumar Singh</b>
+</p>
 
-        <label>Student Email</label>
-        <input type="email"
-               name="Student Email"
-               placeholder="Enter Email Address"
-               required>
+<form action="https://formsubmit.co/amitsingh3312509@gmail.com"
+method="POST"
+enctype="multipart/form-data">
 
-        <label>Mobile Number</label>
-        <input type="tel"
-               name="Mobile Number"
-               placeholder="Enter Mobile Number"
-               pattern="[0-9]{10}"
-               required>
+<div class="step active" id="step1">
 
-        <label>Alternate Mobile Number</label>
-        <input type="tel"
-               name="Alternate Number"
-               placeholder="Enter Alternate Number"
-               pattern="[0-9]{10}">
+<label>Student Name</label>
+<input type="text" name="Student Name" required>
 
-        <label>Father Name</label>
-        <input type="text"
-               name="Father Name"
-               placeholder="Enter Father Name"
-               required>
+<label>Email</label>
+<input type="email" name="Email" required>
 
-        <label>Mother Name</label>
-        <input type="text"
-               name="Mother Name"
-               placeholder="Enter Mother Name"
-               required>
+<label>Mobile Number</label>
+<input type="tel" name="Mobile" pattern="[0-9]{10}" required>
 
-        <label>Address</label>
-        <textarea name="Address"
-                  rows="4"
-                  placeholder="Enter Full Address"
-                  required></textarea>
+<label>Father Name</label>
+<input type="text" name="Father Name" required>
 
-        <label>Upload Student Photo</label>
+<label>Mother Name</label>
+<input type="text" name="Mother Name" required>
 
-        <div class="photo-preview" id="preview">
-            Photo Preview
-        </div>
+<label>Address</label>
+<textarea name="Address" rows="3"></textarea>
 
-        <input type="file"
-               id="photo"
-               name="Student Photo"
-               accept="image/*"
-               required>
+<label>Student Photo</label>
 
-        <!-- FormSubmit Settings -->
-        <input type="hidden"
-               name="_subject"
-               value="New Library Registration">
+<div class="photo-preview" id="preview">
+Photo Preview
+</div>
 
-        <input type="hidden"
-               name="_template"
-               value="table">
+<input type="file" id="photo" accept="image/*" required>
 
-        <input type="hidden"
-               name="_captcha"
-               value="false">
+<button type="button" onclick="nextStep()">
+Next →
+</button>
 
-        <input type="hidden"
-               name="_autoresponse"
-               value="Dear Student, your registration in our library has been successfully completed. Thank you for joining our library.">
+</div>
 
-        <button type="submit">Register Now</button>
+<div class="step" id="step2">
 
-    </form>
+<label>Qualification</label>
+
+<select name="Qualification">
+
+<option>High School</option>
+
+<option>Intermediate</option>
+
+<option>Diploma</option>
+
+<option>B.Tech</option>
+
+<option>B.Sc</option>
+
+<option>M.Tech</option>
+
+<option>Other</option>
+
+</select>
+
+<label>School / College Name</label>
+
+<input type="text" name="College">
+
+<label>Course</label>
+
+<input type="text" name="Course">
+
+<label>Year / Semester</label>
+
+<input type="text" name="Year">
+
+<label>Roll Number</label>
+
+<input type="text" name="Roll Number">
+
+<label>Percentage / CGPA</label>
+
+<input type="text" name="Percentage">
+
+<input type="hidden" name="_subject"
+value="New Library Registration">
+
+<input type="hidden"
+name="_template"
+value="table">
+
+<input type="hidden"
+name="_captcha"
+value="false">
+
+<button type="submit">
+Submit Registration
+</button>
+
+</div>
+
+</form>
 
 </div>
 
 <footer>
-    © 2026 My Library | All Rights Reserved
+Created by <b>Er. Amit Kumar Singh</b> © 2026
 </footer>
 
 <script>
-const photo = document.getElementById("photo");
-const preview = document.getElementById("preview");
+function nextStep(){
+document.getElementById("step1").classList.remove("active");
+document.getElementById("step2").classList.add("active");
+}
 
-photo.addEventListener("change", function() {
+const photo=document.getElementById("photo");
+const preview=document.getElementById("preview");
 
-    const file = this.files[0];
-
-    if(file){
-        const reader = new FileReader();
-
-        reader.addEventListener("load", function(){
-            preview.innerHTML =
-            `<img src="${this.result}" alt="Photo">`;
-        });
-
-        reader.readAsDataURL(file);
-    }
-});
+photo.onchange=function(){
+const file=this.files[0];
+if(file){
+const reader=new FileReader();
+reader.onload=function(){
+preview.innerHTML="<img src='"+reader.result+"'>";
+}
+reader.readAsDataURL(file);
+}
+}
 </script>
 
 </body>
-  </html>
+</html>
