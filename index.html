@@ -2,261 +2,165 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Library Registration Form</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Apps</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:linear-gradient(-45deg,#2193b0,#6dd5ed,#4facfe,#00f2fe);
-background-size:400% 400%;
-animation:bg 10s ease infinite;
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(180deg,#0b3d4d,#1a7d89);
+color:white;
+}
+
+.header{
 padding:20px;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-.container{
-max-width:650px;
-margin:auto;
-background:#fff;
-padding:25px;
-border-radius:15px;
-box-shadow:0 0 20px rgba(0,0,0,.2);
-}
-
-.marquee{
-background:#0d47a1;
-color:#fff;
-padding:10px;
-border-radius:8px;
-font-weight:bold;
-margin-bottom:15px;
-}
-
-.creator{
-text-align:center;
-color:#0d47a1;
-margin-bottom:15px;
+font-size:35px;
 font-weight:bold;
 }
 
-.step{
-display:none;
-}
-
-.step.active{
-display:block;
-}
-
-label{
-display:block;
-margin-top:12px;
-font-weight:bold;
-}
-
-input,textarea,select{
-width:100%;
-padding:10px;
-margin-top:5px;
-border:1px solid #ccc;
-border-radius:8px;
-}
-
-.photo-preview{
-width:130px;
-height:130px;
-margin:15px auto;
-border:2px dashed #777;
+.tabs{
 display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-border-radius:10px;
+gap:20px;
+padding:0 20px;
+font-size:25px;
+font-weight:bold;
 }
 
-.photo-preview img{
-width:100%;
-height:100%;
-object-fit:cover;
+.active{
+border-bottom:4px solid white;
+padding-bottom:8px;
 }
 
-button{
-margin-top:20px;
-width:100%;
-padding:12px;
-background:#0d47a1;
-color:#fff;
-border:none;
-border-radius:8px;
-font-size:18px;
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+padding:25px;
+}
+
+.app{
+text-align:center;
 cursor:pointer;
 }
 
-button:hover{
-background:#063970;
+.icon{
+width:70px;
+height:70px;
+background:white;
+border-radius:20px;
+margin:auto;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:35px;
 }
 
-footer{
-margin-top:20px;
-text-align:center;
-font-weight:bold;
-color:white;
+.name{
+margin-top:8px;
+font-size:16px;
+}
+
+.search{
+position:fixed;
+bottom:20px;
+left:15px;
+right:15px;
+background:white;
+border-radius:40px;
+padding:15px;
+}
+
+.search input{
+width:100%;
+border:none;
+outline:none;
+font-size:20px;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="header">Apps</div>
 
-<div class="marquee">
-<marquee>
-📚 Welcome To My Library Registration Form | Created By Er. Amit Kumar Singh 📚
-</marquee>
+<div class="tabs">
+<div class="active">Apps</div>
+<div style="opacity:.5">Newsfeed</div>
 </div>
 
-<h2 style="text-align:center;color:#0d47a1;">
-Library Registration Form
-</h2>
+<div class="grid">
 
-<p class="creator">
-Created by <b>Er. Amit Kumar Singh</b>
-</p>
-
-<form action="https://formsubmit.co/amitsingh3312509@gmail.com"
-method="POST"
-enctype="multipart/form-data">
-
-<div class="step active" id="step1">
-
-<label>Student Name</label>
-<input type="text" name="Student Name" required>
-
-<label>Email</label>
-<input type="email" name="Email" required>
-
-<label>Mobile Number</label>
-<input type="tel" name="Mobile" pattern="[0-9]{10}" required>
-
-<label>Father Name</label>
-<input type="text" name="Father Name" required>
-
-<label>Mother Name</label>
-<input type="text" name="Mother Name" required>
-
-<label>Address</label>
-<textarea name="Address" rows="3"></textarea>
-
-<label>Student Photo</label>
-
-<div class="photo-preview" id="preview">
-Photo Preview
+<div class="app" onclick="openApp('Camera')">
+<div class="icon">📷</div>
+<div class="name">Camera</div>
 </div>
 
-<input type="file" id="photo" accept="image/*" required>
-
-<button type="button" onclick="nextStep()">
-Next →
-</button>
-
+<div class="app" onclick="openApp('ChatGPT')">
+<div class="icon">🤖</div>
+<div class="name">ChatGPT</div>
 </div>
 
-<div class="step" id="step2">
+<div class="app" onclick="openApp('Clock')">
+<div class="icon">🕒</div>
+<div class="name">Clock</div>
+</div>
 
-<label>Qualification</label>
+<div class="app" onclick="openApp('Contacts')">
+<div class="icon">👤</div>
+<div class="name">Contacts</div>
+</div>
 
-<select name="Qualification">
+<div class="app" onclick="openApp('Facebook')">
+<div class="icon">📘</div>
+<div class="name">Facebook</div>
+</div>
 
-<option>High School</option>
+<div class="app" onclick="openApp('Instagram')">
+<div class="icon">📸</div>
+<div class="name">Instagram</div>
+</div>
 
-<option>Intermediate</option>
+<div class="app" onclick="openApp('WhatsApp')">
+<div class="icon">💬</div>
+<div class="name">WhatsApp</div>
+</div>
 
-<option>Diploma</option>
+<div class="app" onclick="openApp('YouTube')">
+<div class="icon">▶️</div>
+<div class="name">YouTube</div>
+</div>
 
-<option>B.Tech</option>
+<div class="app" onclick="openApp('Play Store')">
+<div class="icon">🛒</div>
+<div class="name">Play Store</div>
+</div>
 
-<option>B.Sc</option>
+<div class="app" onclick="openApp('Phone')">
+<div class="icon">📞</div>
+<div class="name">Phone</div>
+</div>
 
-<option>M.Tech</option>
+<div class="app" onclick="openApp('Gallery')">
+<div class="icon">🖼️</div>
+<div class="name">Gallery</div>
+</div>
 
-<option>Other</option>
-
-</select>
-
-<label>School / College Name</label>
-
-<input type="text" name="College">
-
-<label>Course</label>
-
-<input type="text" name="Course">
-
-<label>Year / Semester</label>
-
-<input type="text" name="Year">
-
-<label>Roll Number</label>
-
-<input type="text" name="Roll Number">
-
-<label>Percentage / CGPA</label>
-
-<input type="text" name="Percentage">
-
-<input type="hidden" name="_subject"
-value="New Library Registration">
-
-<input type="hidden"
-name="_template"
-value="table">
-
-<input type="hidden"
-name="_captcha"
-value="false">
-
-<button type="submit">
-Submit Registration
-</button>
+<div class="app" onclick="openApp('Settings')">
+<div class="icon">⚙️</div>
+<div class="name">Settings</div>
+</div>
 
 </div>
 
-</form>
-
+<div class="search">
+<input placeholder="Search Apps">
 </div>
-
-<footer>
-Created by <b>Er. Amit Kumar Singh</b> © 2026
-</footer>
 
 <script>
-function nextStep(){
-document.getElementById("step1").classList.remove("active");
-document.getElementById("step2").classList.add("active");
-}
-
-const photo=document.getElementById("photo");
-const preview=document.getElementById("preview");
-
-photo.onchange=function(){
-const file=this.files[0];
-if(file){
-const reader=new FileReader();
-reader.onload=function(){
-preview.innerHTML="<img src='"+reader.result+"'>";
-}
-reader.readAsDataURL(file);
-}
+function openApp(name){
+alert(name+" Open");
 }
 </script>
 
