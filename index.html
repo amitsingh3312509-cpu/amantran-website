@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Library Registration</title>
+<!-- Scrolling Banner -->
+
+<div class="scrolling-banner">
+
+<marquee direction="left" scrollamount="6">
+
+📚 The Most Popular Library in This City or Village | 
+Best Study Environment | 
+Online Library Registration Available | 
+Created by Amit Kumar Singh
+
+</marquee>
+
+</div>
+
+
+<div class="created">
+
+✨ Created by Amit Kumar Singh ✨
+
+</div>
+
 
 <style>
+
+.scrolling-banner{
+width:90%;
+max-width:700px;
+margin:20px auto;
+background:#003366;
+color:white;
+padding:12px;
+font-size:18px;
+font-weight:bold;
+border-radius:10px;
+}
+
+
+.created{
+width:90%;
+max-width:700px;
+margin:10px auto;
+background:#007bff;
+color:white;
+text-align:center;
+padding:15px;
+font-size:17px;
+font-weight:bold;
+border-radius:10px;
+}
+
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Library Registration Form</title>
+
+<style>
+
 *{
 margin:0;
 padding:0;
@@ -14,268 +68,1221 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(-45deg,#2193b0,#6dd5ed,#4facfe,#00f2fe);
-background-size:400% 400%;
-animation:bg 8s infinite;
-min-height:100vh;
-padding:20px;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+background:#eaf4ff;
 }
 
 .container{
-max-width:650px;
-margin:auto;
-background:#fff;
-padding:30px;
-border-radius:15px;
-box-shadow:0 0 20px rgba(0,0,0,.3);
+
+width:90%;
+max-width:700px;
+margin:30px auto;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 15px #aaa;
+
 }
 
-.page{
-display:none;
-}
+h2{
 
-.page.active{
-display:block;
-}
-
-h1{
 text-align:center;
-color:#1565C0;
-margin-bottom:15px;
-}
-
-marquee{
-background:#1565C0;
-color:#fff;
-padding:10px;
-border-radius:8px;
+color:#003366;
 margin-bottom:20px;
-font-weight:bold;
+
 }
 
-input,textarea{
+.progress{
+
+height:10px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+height:100%;
+width:20%;
+background:#007bff;
+transition:.5s;
+
+}
+
+
+.step{
+
+display:none;
+
+}
+
+
+.step.active{
+
+display:block;
+
+}
+
+
+h3{
+
+color:#007bff;
+margin:20px 0;
+
+}
+
+
+input,select,textarea{
+
 width:100%;
 padding:12px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:8px;
-font-size:16px;
+margin:8px 0 15px;
+border:1px solid #aaa;
+border-radius:6px;
+
 }
+
+
+.btn-box{
+
+display:flex;
+justify-content:space-between;
+
+}
+
 
 button{
-width:100%;
-padding:12px;
-background:#1565C0;
+
+padding:12px 25px;
+background:#007bff;
 color:white;
 border:none;
-border-radius:8px;
-font-size:18px;
-cursor:pointer;
+border-radius:6px;
+font-size:16px;
+
 }
 
 button:hover{
-background:#0D47A1;
+
+background:#0056b3;
+
 }
 
-.footer{
-text-align:center;
-margin-top:20px;
-color:#1565C0;
-font-weight:bold;
-}
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-<marquee>
-📚 Engineer Amit Kumar Singh | All Student Registration Fees Free | According to Er. Amit Kumar Singh
-</marquee>
 
-<div id="loginPage" class="page active">
+<h2>📚 Library Registration Form</h2>
 
-<h1>Library Login</h1>
 
-<input type="text" id="username" placeholder="Enter Username">
+<div class="progress">
 
-<input type="password" id="password" placeholder="Enter Password">
+<div class="progress-bar" id="progress"></div>
 
-<button onclick="login()">LOGIN</button>
+</div>
 
-<div class="footer">
-Created by Er. Amit Kumar Singh
+<form id="form" action="https://formsubmit.co/amitsingh3312509@gmail.com" method="POST">
+ 
+<!-- STEP 1 -->
+
+<div class="step active">
+
+
+<h3>Step 1 - Personal Details</h3>
+
+
+<input type="text" placeholder="Full Name" required>
+
+
+<input type="text" placeholder="Father Name">
+
+
+<input type="date">
+
+
+<select>
+
+<option>Select Gender</option>
+
+<option>Male</option>
+
+<option>Female</option>
+
+<option>Other</option>
+
+</select>
+
+
+<div class="btn-box">
+
+<button type="button" disabled>
+Back
+</button>
+
+
+<button type="button" onclick="nextStep()">
+Next
+</button>
+
+
+</div>
+
+
+</div>
+<!-- STEP 2 -->
+
+<div class="step">
+
+<h3>Step 2 - Contact Details</h3>
+
+<input type="tel" placeholder="Mobile Number">
+
+<input type="email" placeholder="Email Address">
+
+<input type="text" placeholder="Aadhar Number">
+
+<input type="text" placeholder="Occupation">
+
+
+<div class="btn-box">
+
+<button type="button" onclick="prevStep()">
+Back
+</button>
+
+<button type="button" onclick="nextStep()">
+Next
+</button>
+
 </div>
 
 </div>
 
-<div id="formPage" class="page">
 
-<h1>Student Registration</h1>
+<!-- STEP 3 -->
 
-<input type="text" placeholder="Student Name" required>
+<div class="step">
 
-<input type="email" placeholder="Student Email" required>
+<h3>Step 3 - Education Details</h3>
 
-<input type="tel" placeholder="Mobile Number" required>
+<input type="text" placeholder="College / School Name">
 
-<input type="tel" placeholder="Alternate Mobile Number">
+<input type="text" placeholder="Course">
 
-<input type="text" placeholder="Father Name" required>
+<input type="text" placeholder="Branch / Class">
 
-<input type="text" placeholder="Mother Name" required>
+<input type="text" placeholder="Roll Number">
+
+
+<div class="btn-box">
+
+<button type="button" onclick="prevStep()">
+Back
+</button>
+
+<button type="button" onclick="nextStep()">
+Next
+</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 4 -->
+
+<div class="step">
+
+<h3>Step 4 - Address Details</h3>
 
 <textarea placeholder="Full Address"></textarea>
 
-<button type="button" onclick="nextPage()">Next ➜</button>
+<input type="text" placeholder="City">
+
+<input type="text" placeholder="State">
+
+<input type="number" placeholder="PIN Code">
+
+
+<div class="btn-box">
+
+<button type="button" onclick="prevStep()">
+Back
+</button>
+
+<button type="button" onclick="nextStep()">
+Next
+</button>
 
 </div>
-<div id="educationPage" class="page">
 
-<h1>Education Details</h1>
-
-<form action="https://formsubmit.co/amitsingh3312509@gmail.com"
-method="POST"
-enctype="multipart/form-data">
-
-<input type="text" name="Qualification" placeholder="Qualification" required>
-
-<input type="text" name="School College" placeholder="School / College Name" required>
-
-<input type="text" name="Course" placeholder="Course Name" required>
-
-<input type="text" name="Year Semester" placeholder="Year / Semester" required>
-
-<input type="text" name="Roll Number" placeholder="Roll Number">
-
-<input type="text" name="Percentage" placeholder="Percentage / CGPA">
-
-<label><b>Student Photo</b></label>
-
-<div id="preview"
-style="width:130px;height:130px;border:2px dashed #999;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:15px auto;">
-Photo Preview
 </div>
 
-<input type="file"
-id="photo"
-name="Student Photo"
-accept="image/*"
-required>
 
-<input type="hidden" name="_subject" value="New Library Registration">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
+<!-- STEP 5 -->
 
-<button type="button" onclick="backPage()">⬅ Back</button>
+<div class="step">
 
-<button type="submit">Submit Registration</button>
+<h3>Step 5 - Upload & Registration</h3>
+
+
+<label>Student Photo</label>
+
+<input type="file">
+
+
+<label>Student Signature</label>
+
+<input type="file">
+
+
+<h3>Registration Details</h3>
+
+<p>
+Registration No:
+<b id="regNo">LIB20260001</b>
+</p>
+
+
+<p>
+Seat No:
+<b id="seatNo">001</b>
+</p>
+
+
+<p>
+Total Seats:
+<b>200</b>
+</p>
+
+
+<p>
+Available Seats:
+<b id="available">199</b>
+</p>
+
+
+
+<div class="btn-box">
+
+<button type="button" onclick="prevStep()">
+Back
+</button>
+
+
+<button type="submit">
+Submit
+</button>
+
+
+</div>
+
+
+</div>
+
 
 </form>
 
-</div>
 
+</div>
 <script>
 
-function nextPage(){
-document.getElementById("formPage").classList.remove("active");
-document.getElementById("educationPage").classList.add("active");
-}
+let currentStep = 0;
 
-function backPage(){
-document.getElementById("educationPage").classList.remove("active");
-document.getElementById("formPage").classList.add("active");
-}
+const steps = document.querySelectorAll(".step");
 
-const photo=document.getElementById("photo");
-const preview=document.getElementById("preview");
+const progress = document.getElementById("progress");
 
-photo.addEventListener("change",function(){
 
-const file=this.files[0];
+let seat = Number(localStorage.getItem("librarySeat")) || 1;
 
-if(file){
 
-const reader=new FileReader();
+function showStep(step){
 
-reader.onload=function(){
+steps.forEach(function(item,index){
 
-preview.innerHTML="<img src='"+reader.result+"' style='width:100%;height:100%;object-fit:cover;'>";
+item.classList.remove("active");
 
-}
 
-reader.readAsDataURL(file);
+if(index === step){
+
+item.classList.add("active");
 
 }
 
 });
 
-</script>
-<script>
-function login(){
 
-let u=document.getElementById("username").value.trim();
-let p=document.getElementById("password").value.trim();
+let percent = ((step + 1) / steps.length) * 100;
 
-if(u!=="" && p!==""){
-document.getElementById("loginPage").classList.remove("active");
-document.getElementById("formPage").classList.add("active");
-}else{
-alert("Please enter Username and Password");
+progress.style.width = percent + "%";
+
+}
+
+
+function nextStep(){
+
+if(currentStep < steps.length - 1){
+
+currentStep++;
+
+showStep(currentStep);
+
 }
 
 }
-</script>
-<div id="successPage" class="page">
 
-<h1>🎉 Registration Successful</h1>
 
-<h2 id="regNo"></h2>
 
-<h2 id="seatNo"></h2>
+function prevStep(){
 
-<h3 id="seatLeft"></h3>
+if(currentStep > 0){
 
-<button onclick="location.reload()">New Registration</button>
+currentStep--;
 
-</div>
+showStep(currentStep);
 
-<script>
+}
 
-const TOTAL_SEATS=200;
-let currentSeat=Number(localStorage.getItem("librarySeat"))||1;
+}
 
-document.querySelector("form").addEventListener("submit",function(e){
+
+
+let registrationNumber = 
+"LIB2026" + String(seat).padStart(4,"0");
+
+
+
+document.getElementById("regNo").innerHTML =
+registrationNumber;
+
+
+document.getElementById("seatNo").innerHTML =
+seat;
+
+
+
+document.getElementById("available").innerHTML =
+200 - seat;
+
+
+
+document.getElementById("form").addEventListener("submit",function(e){
 
 e.preventDefault();
 
-if(currentSeat>TOTAL_SEATS){
-alert("All 200 Seats are Full");
+
+if(seat > 200){
+
+alert("❌ All 200 Seats Are Filled!");
+
 return;
+
 }
 
-let regNo="LIB2026"+String(currentSeat).padStart(4,"0");
 
-document.getElementById("educationPage").classList.remove("active");
-document.getElementById("successPage").classList.add("active");
 
-document.getElementById("regNo").innerHTML="Registration No : "+regNo;
-document.getElementById("seatNo").innerHTML="Seat No : "+currentSeat;
-document.getElementById("seatLeft").innerHTML="Available Seats : "+(TOTAL_SEATS-currentSeat);
+alert(
+"🎉 Registration Successful!\n\n"+
+"Registration No: "+
+registrationNumber+
+"\nSeat No: "+
+seat
+);
 
-currentSeat++;
-localStorage.setItem("librarySeat",currentSeat);
+
+
+localStorage.setItem(
+"librarySeat",
+seat + 1
+);
+
+
+
+this.reset();
+
+
+location.reload();
+
 
 });
 
-</script>
 
+
+showStep(currentStep);
+
+
+</script>
+<div class="receipt-box" id="receipt">
+
+<h3>📄 Library Registration Receipt</h3>
+
+<p><b>Registration No:</b> 
+<span id="receiptReg"></span>
+</p>
+
+<p><b>Seat No:</b>
+<span id="receiptSeat"></span>
+</p>
+
+<p><b>Name:</b>
+<span id="receiptName"></span>
+</p>
+
+<p><b>Date:</b>
+<span id="receiptDate"></span>
+</p>
+
+<p><b>Status:</b>
+<span style="color:green;">
+Confirmed
+</span>
+</p>
+
+</div>
+
+
+<button type="button" onclick="printReceipt()">
+🖨️ Print Receipt
+</button>
+<!-- ========== PART 5 : STUDENT MANAGEMENT ========== -->
+
+<div class="container">
+
+<h2>📋 Student Management</h2>
+
+<input type="text" id="searchReg" placeholder="Enter Registration Number">
+
+<button onclick="searchStudent()">
+🔍 Search
+</button>
+
+
+<div id="studentResult"></div>
+
+
+<h3>Registered Student List</h3>
+
+<table border="1" width="100%" id="studentTable">
+
+<tr>
+<th>Registration No</th>
+<th>Name</th>
+<th>Seat No</th>
+<th>Date</th>
+</tr>
+
+</table>
+
+
+</div>
+
+
+<script>
+
+let studentData =
+JSON.parse(localStorage.getItem("students")) || [];
+
+
+// Save Student
+
+function saveStudentData(){
+
+let data={
+
+reg:
+document.getElementById("regNo").innerHTML,
+
+name:
+document.querySelector("input").value,
+
+seat:
+document.getElementById("seatNo").innerHTML,
+
+date:
+new Date().toLocaleDateString()
+
+};
+
+
+studentData.push(data);
+
+
+localStorage.setItem(
+"students",
+JSON.stringify(studentData)
+);
+
+
+showList();
+
+}
+
+
+
+// Search Student
+
+function searchStudent(){
+
+let reg =
+document.getElementById("searchReg").value;
+
+
+let found =
+studentData.find(
+x=>x.reg==reg
+);
+
+
+if(found){
+
+
+document.getElementById("studentResult").innerHTML=
+
+`
+<h3>Student Details</h3>
+
+<p>Registration No: ${found.reg}</p>
+
+<p>Name: ${found.name}</p>
+
+<p>Seat No: ${found.seat}</p>
+
+<p>Date: ${found.date}</p>
+
+`;
+
+
+}
+
+else{
+
+document.getElementById("studentResult").innerHTML=
+"❌ Student Not Found";
+
+}
+
+
+}
+
+
+
+// Show List
+
+function showList(){
+
+let table =
+document.getElementById("studentTable");
+
+
+table.innerHTML=
+
+`
+<tr>
+<th>Registration No</th>
+<th>Name</th>
+<th>Seat No</th>
+<th>Date</th>
+</tr>
+`;
+
+
+studentData.forEach(function(s){
+
+
+table.innerHTML +=
+
+`
+<tr>
+
+<td>${s.reg}</td>
+
+<td>${s.name}</td>
+
+<td>${s.seat}</td>
+
+<td>${s.date}</td>
+
+</tr>
+
+`;
+
+
+});
+
+
+}
+
+
+showList();
+
+
+</script>
+<!-- ========== PART 6 : ADMIN PANEL ========== -->
+
+<div class="container">
+
+<h2>🔐 Admin Panel</h2>
+
+<input 
+type="password" 
+id="adminPass" 
+placeholder="Enter Admin Password">
+
+
+<button onclick="adminLogin()">
+Login
+</button>
+
+
+<div id="adminPanel" style="display:none;">
+
+
+<h3>Student Management</h3>
+
+
+<input 
+type="text" 
+id="editReg" 
+placeholder="Registration Number">
+
+
+<button onclick="editStudent()">
+✏️ Edit Student
+</button>
+
+
+<button onclick="changeSeat()">
+💺 Change Seat
+</button>
+
+
+<button onclick="deleteStudent()">
+🗑️ Delete Student
+</button>
+
+
+<div id="adminResult"></div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+let adminPassword = "1234";
+
+
+// Admin Login
+
+function adminLogin(){
+
+let pass =
+document.getElementById("adminPass").value;
+
+
+if(pass==adminPassword){
+
+
+document.getElementById("adminPanel").style.display="block";
+
+
+alert("Admin Login Successful");
+
+
+}
+
+else{
+
+alert("Wrong Password");
+
+}
+
+}
+
+
+
+
+// Edit Student
+
+function editStudent(){
+
+let reg =
+document.getElementById("editReg").value;
+
+
+let student =
+studentData.find(
+x=>x.reg==reg
+);
+
+
+if(student){
+
+
+let newName =
+prompt(
+"Enter New Name",
+student.name
+);
+
+
+student.name=newName;
+
+
+localStorage.setItem(
+"students",
+JSON.stringify(studentData)
+);
+
+
+alert("Student Updated");
+
+
+showList();
+
+
+}
+
+else{
+
+alert("Student Not Found");
+
+}
+
+}
+
+
+
+
+// Change Seat
+
+function changeSeat(){
+
+let reg =
+document.getElementById("editReg").value;
+
+
+let student =
+studentData.find(
+x=>x.reg==reg
+);
+
+
+if(student){
+
+
+let newSeat =
+prompt(
+"Enter New Seat Number",
+student.seat
+);
+
+
+student.seat=newSeat;
+
+
+localStorage.setItem(
+"students",
+JSON.stringify(studentData)
+);
+
+
+alert("Seat Changed");
+
+
+showList();
+
+
+}
+
+else{
+
+alert("Student Not Found");
+
+}
+
+}
+
+
+
+
+// Delete Student
+
+function deleteStudent(){
+
+let reg =
+document.getElementById("editReg").value;
+
+
+studentData =
+studentData.filter(
+x=>x.reg!=reg
+);
+
+
+localStorage.setItem(
+"students",
+JSON.stringify(studentData)
+);
+
+
+alert("Student Deleted");
+
+
+showList();
+
+
+}
+
+
+</script>
+<!-- ========== PART 7 : SEAT DASHBOARD ========== -->
+
+<div class="container">
+
+<h2>📊 Library Seat Dashboard</h2>
+
+
+<div style="padding:20px;background:#eaf4ff;border-radius:10px;">
+
+
+<p>
+<b>Total Seats:</b> 
+<span id="totalSeat">200</span>
+</p>
+
+
+<p>
+<b>Filled Seats:</b> 
+<span id="filledSeat">0</span>
+</p>
+
+
+<p>
+<b>Available Seats:</b> 
+<span id="freeSeat">200</span>
+</p>
+
+
+</div>
+
+
+<br>
+
+
+<button onclick="downloadReceipt()">
+📄 Download Receipt
+</button>
+
+
+</div>
+
+
+
+<script>
+
+
+function updateDashboard(){
+
+
+let total = 200;
+
+
+let filled =
+studentData.length;
+
+
+let available =
+total-filled;
+
+
+document.getElementById("filledSeat").innerHTML=
+filled;
+
+
+document.getElementById("freeSeat").innerHTML=
+available;
+
+
+}
+
+
+
+updateDashboard();
+
+
+
+
+// Receipt Download
+
+function downloadReceipt(){
+
+
+let receipt = `
+
+SMART LIBRARY REGISTRATION
+
+Registration No:
+${document.getElementById("regNo").innerHTML}
+
+
+Seat No:
+${document.getElementById("seatNo").innerHTML}
+
+
+Date:
+${new Date().toLocaleDateString()}
+
+
+Thank You
+
+`;
+
+
+let blob =
+new Blob(
+[receipt],
+{type:"text/plain"}
+);
+
+
+let link =
+document.createElement("a");
+
+
+link.href =
+URL.createObjectURL(blob);
+
+
+link.download =
+"Library_Receipt.txt";
+
+
+link.click();
+
+
+}
+
+
+
+</script>
+<!-- ========== PART 8 : PHOTO PREVIEW & MESSAGE ========== -->
+
+<div class="container">
+
+<h2>👤 Student Photo Preview</h2>
+
+<input 
+type="file" 
+id="studentPhoto"
+accept="image/*"
+onchange="previewPhoto(event)">
+
+
+<br><br>
+
+
+<img 
+id="photoPreview"
+src=""
+width="150"
+style="display:none;border-radius:50%;border:3px solid #007bff;">
+
+
+<br><br>
+
+
+<button onclick="createMessage()">
+📱 Create WhatsApp Message
+</button>
+
+
+<p id="messageBox"></p>
+
+
+</div>
+
+
+
+<script>
+
+
+// Photo Preview
+
+function previewPhoto(event){
+
+let image =
+document.getElementById("photoPreview");
+
+
+image.src =
+URL.createObjectURL(
+event.target.files[0]
+);
+
+
+image.style.display="block";
+
+}
+
+
+
+// WhatsApp Message
+
+function createMessage(){
+
+
+let reg =
+document.getElementById("regNo").innerHTML;
+
+
+let seat =
+document.getElementById("seatNo").innerHTML;
+
+
+
+let message =
+
+"📚 Smart Library Registration\n\n"+
+"Registration No: "+reg+
+"\nSeat No: "+seat+
+"\nStatus: Confirmed"+
+"\nThank You";
+
+
+document.getElementById("messageBox").innerHTML =
+message;
+
+
+}
+
+
+
+</script>
+<!-- ========== PART 9 : STUDENT LOGIN ========== -->
+
+<div class="container">
+
+<h2>🎓 Student Login</h2>
+
+<input 
+type="text" 
+id="loginReg"
+placeholder="Enter Registration Number">
+
+
+<button onclick="studentLogin()">
+Login
+</button>
+
+
+<div id="studentProfile"></div>
+
+
+</div>
+
+
+
+<script>
+
+
+function studentLogin(){
+
+
+let reg =
+document.getElementById("loginReg").value;
+
+
+
+let student =
+studentData.find(
+x=>x.reg==reg
+);
+
+
+
+if(student){
+
+
+document.getElementById("studentProfile").innerHTML=
+
+`
+
+<div style="
+background:#f1f8ff;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+">
+
+
+<h3>📚 Student Profile</h3>
+
+
+<p>
+<b>Registration No:</b>
+${student.reg}
+</p>
+
+
+<p>
+<b>Name:</b>
+${student.name}
+</p>
+
+
+<p>
+<b>Seat No:</b>
+${student.seat}
+</p>
+
+
+<p>
+<b>Registration Date:</b>
+${student.date}
+</p>
+
+
+<p style="color:green;">
+✅ Library Membership Active
+</p>
+
+
+</div>
+
+`;
+
+
+}
+
+else{
+
+
+document.getElementById("studentProfile").innerHTML=
+
+"❌ Registration Number Not Found";
+
+
+}
+
+
+
+}
+
+
+
+</script>
 </body>
 </html>
