@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Library Login</title>
+<title>My Library Registration</title>
 
 <style>
 *{
@@ -17,9 +17,6 @@ body{
 background:linear-gradient(-45deg,#2193b0,#6dd5ed,#4facfe,#00f2fe);
 background-size:400% 400%;
 animation:bg 8s infinite;
-display:flex;
-justify-content:center;
-align-items:center;
 min-height:100vh;
 padding:20px;
 }
@@ -30,11 +27,11 @@ padding:20px;
 100%{background-position:0% 50%;}
 }
 
-.box{
-width:100%;
-max-width:450px;
+.container{
+max-width:650px;
+margin:auto;
 background:#fff;
-padding:25px;
+padding:30px;
 border-radius:15px;
 box-shadow:0 0 20px rgba(0,0,0,.3);
 }
@@ -47,10 +44,19 @@ display:none;
 display:block;
 }
 
-h2{
+h1{
 text-align:center;
-color:#0d47a1;
+color:#1565C0;
 margin-bottom:15px;
+}
+
+marquee{
+background:#1565C0;
+color:#fff;
+padding:10px;
+border-radius:8px;
+margin-bottom:20px;
+font-weight:bold;
 }
 
 input,textarea{
@@ -59,146 +65,102 @@ padding:12px;
 margin:10px 0;
 border:1px solid #ccc;
 border-radius:8px;
+font-size:16px;
 }
 
 button{
 width:100%;
 padding:12px;
-background:#0d47a1;
+background:#1565C0;
 color:white;
 border:none;
 border-radius:8px;
 font-size:18px;
 cursor:pointer;
-margin-top:10px;
 }
 
-.creator{
+button:hover{
+background:#0D47A1;
+}
+
+.footer{
 text-align:center;
-margin-top:15px;
+margin-top:20px;
+color:#1565C0;
 font-weight:bold;
-color:#0d47a1;
 }
 </style>
-
 </head>
+
 <body>
 
-<div class="box">
+<div class="container">
 
-<div id="page1" class="page active">
+<marquee>
+📚 Engineer Amit Kumar Singh | All Student Registration Fees Free | According to Er. Amit Kumar Singh
+</marquee>
 
-<h2>📚 Library Login</h2>
+<div id="loginPage" class="page active">
 
-<input type="text" id="user" placeholder="Enter Username">
+<h1>Library Login</h1>
 
-<input type="password" id="pass" placeholder="Enter Password">
+<input type="text" id="username" placeholder="Enter Username">
 
-<button onclick="login()">Login</button>
+<input type="password" id="password" placeholder="Enter Password">
 
-<p class="creator">
+<button onclick="login()">LOGIN</button>
+
+<div class="footer">
 Created by Er. Amit Kumar Singh
-</p>
+</div>
 
 </div>
 
-<div id="page2" class="page">
+<div id="formPage" class="page">
 
-<h2>Student Registration</h2>
-
-<form>
+<h1>Student Registration</h1>
 
 <input type="text" placeholder="Student Name" required>
 
-<input type="email" placeholder="Email" required>
+<input type="email" placeholder="Student Email" required>
 
 <input type="tel" placeholder="Mobile Number" required>
 
-<input type="text" placeholder="Father Name">
+<input type="tel" placeholder="Alternate Mobile Number">
 
-<input type="text" placeholder="Mother Name">
+<input type="text" placeholder="Father Name" required>
 
-<textarea placeholder="Address"></textarea>
+<input type="text" placeholder="Mother Name" required>
+
+<textarea placeholder="Full Address"></textarea>
 
 <button type="button" onclick="nextPage()">Next ➜</button>
 
-</form>
-
 </div>
+<div id="educationPage" class="page">
 
-</div>
-
-<script>
-
-function login(){
-
-let username=document.getElementById("user").value.trim();
-
-let password=document.getElementById("pass").value.trim();
-
-if(username!=="" && password!==""){
-
-document.getElementById("page1").classList.remove("active");
-
-document.getElementById("page2").classList.add("active");
-
-}else{
-
-alert("Please enter Username and Password");
-
-}
-
-}
-
-function nextPage(){
-
-alert("Education Form अगले भाग में जोड़ेंगे.");
-
-}
-
-</script>
-<!-- ================= PAGE 3 : EDUCATION DETAILS ================= -->
-
-<div id="page3" class="page">
-
-<h2>Education Details</h2>
+<h1>Education Details</h1>
 
 <form action="https://formsubmit.co/amitsingh3312509@gmail.com"
 method="POST"
 enctype="multipart/form-data">
 
-<input type="text"
-name="Qualification"
-placeholder="Qualification"
-required>
+<input type="text" name="Qualification" placeholder="Qualification" required>
 
-<input type="text"
-name="School/College"
-placeholder="School / College Name"
-required>
+<input type="text" name="School College" placeholder="School / College Name" required>
 
-<input type="text"
-name="Library Name"
-placeholder="Library Name"
-required>
+<input type="text" name="Course" placeholder="Course Name" required>
 
-<input type="text"
-name="Year"
-placeholder="Year / Semester"
-required>
+<input type="text" name="Year Semester" placeholder="Year / Semester" required>
 
-<input type="text"
-name="Roll Number"
-placeholder="Roll Number">
+<input type="text" name="Roll Number" placeholder="Roll Number">
 
-<input type="text"
-name="Percentage"
-placeholder="Percentage / CGPA">
+<input type="text" name="Percentage" placeholder="Percentage / CGPA">
 
 <label><b>Student Photo</b></label>
 
 <div id="preview"
-style="width:120px;height:120px;border:2px dashed gray;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:auto;">
+style="width:130px;height:130px;border:2px dashed #999;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:15px auto;">
 Photo Preview
 </div>
 
@@ -208,25 +170,13 @@ name="Student Photo"
 accept="image/*"
 required>
 
-<input type="hidden"
-name="_subject"
-value="New Library Registration">
+<input type="hidden" name="_subject" value="New Library Registration">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
 
-<input type="hidden"
-name="_template"
-value="table">
+<button type="button" onclick="backPage()">⬅ Back</button>
 
-<input type="hidden"
-name="_captcha"
-value="false">
-
-<button type="button" onclick="backPage()">
-⬅ Back
-</button>
-
-<button type="submit">
-Submit Registration
-</button>
+<button type="submit">Submit Registration</button>
 
 </form>
 
@@ -235,25 +185,19 @@ Submit Registration
 <script>
 
 function nextPage(){
-
-document.getElementById("page2").classList.remove("active");
-
-document.getElementById("page3").classList.add("active");
-
+document.getElementById("formPage").classList.remove("active");
+document.getElementById("educationPage").classList.add("active");
 }
 
 function backPage(){
-
-document.getElementById("page3").classList.remove("active");
-
-document.getElementById("page2").classList.add("active");
-
+document.getElementById("educationPage").classList.remove("active");
+document.getElementById("formPage").classList.add("active");
 }
 
 const photo=document.getElementById("photo");
 const preview=document.getElementById("preview");
 
-photo.onchange=function(){
+photo.addEventListener("change",function(){
 
 const file=this.files[0];
 
@@ -271,8 +215,67 @@ reader.readAsDataURL(file);
 
 }
 
-}
+});
 
 </script>
+<script>
+function login(){
+
+let u=document.getElementById("username").value.trim();
+let p=document.getElementById("password").value.trim();
+
+if(u!=="" && p!==""){
+document.getElementById("loginPage").classList.remove("active");
+document.getElementById("formPage").classList.add("active");
+}else{
+alert("Please enter Username and Password");
+}
+
+}
+</script>
+<div id="successPage" class="page">
+
+<h1>🎉 Registration Successful</h1>
+
+<h2 id="regNo"></h2>
+
+<h2 id="seatNo"></h2>
+
+<h3 id="seatLeft"></h3>
+
+<button onclick="location.reload()">New Registration</button>
+
+</div>
+
+<script>
+
+const TOTAL_SEATS=200;
+let currentSeat=Number(localStorage.getItem("librarySeat"))||1;
+
+document.querySelector("form").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+if(currentSeat>TOTAL_SEATS){
+alert("All 200 Seats are Full");
+return;
+}
+
+let regNo="LIB2026"+String(currentSeat).padStart(4,"0");
+
+document.getElementById("educationPage").classList.remove("active");
+document.getElementById("successPage").classList.add("active");
+
+document.getElementById("regNo").innerHTML="Registration No : "+regNo;
+document.getElementById("seatNo").innerHTML="Seat No : "+currentSeat;
+document.getElementById("seatLeft").innerHTML="Available Seats : "+(TOTAL_SEATS-currentSeat);
+
+currentSeat++;
+localStorage.setItem("librarySeat",currentSeat);
+
+});
+
+</script>
+
 </body>
 </html>
