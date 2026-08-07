@@ -537,7 +537,174 @@ englishApplication;
 document.getElementById("output").innerText=finalApplication;
 
 }
+// Copy Application
 
+function copyApplication(){
+
+let text=document.getElementById("output").innerText;
+
+if(text==""){
+
+alert("पहले Application Generate करें");
+
+return;
+
+}
+
+navigator.clipboard.writeText(text);
+
+alert("Application Copied Successfully");
+
+}
+
+
+
+// Print Application
+
+function printApplication(){
+
+let content=document.getElementById("output").innerHTML;
+
+
+let printWindow=window.open("");
+
+
+printWindow.document.write(`
+
+<html>
+
+<head>
+
+<title>Application Print</title>
+
+<style>
+
+body{
+
+font-family:Arial;
+padding:40px;
+line-height:2;
+font-size:18px;
+
+}
+
+h2{
+
+text-align:center;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<h2>Application</h2>
+
+${content}
+
+
+</body>
+
+</html>
+
+`);
+
+
+printWindow.document.close();
+
+printWindow.print();
+
+}
+
+
+
+
+// Download PDF
+
+function downloadPDF(){
+
+
+let text=document.getElementById("output").innerText;
+
+
+if(text==""){
+
+alert("पहले Application Generate करें");
+
+return;
+
+}
+
+
+
+const {jsPDF}=window.jspdf;
+
+
+let pdf=new jsPDF();
+
+
+pdf.setFontSize(12);
+
+
+let lines=pdf.splitTextToSize(text,170);
+
+
+let y=20;
+
+
+lines.forEach(function(line){
+
+if(y>280){
+
+pdf.addPage();
+
+y=20;
+
+}
+
+
+pdf.text(line,20,y);
+
+y+=8;
+
+
+});
+
+
+pdf.save("Professional_Application.pdf");
+
+
+}
+
+
+
+
+
+// Clear Form
+
+function clearForm(){
+
+
+document.querySelectorAll("input,textarea").forEach(function(field){
+
+field.value="";
+
+});
+
+
+document.getElementById("output").innerText=
+
+"Your professional application will appear here...";
+
+
+alert("New Application Ready");
+
+
+}
 </script>
 
 </body>
