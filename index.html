@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Smart Online Application Generator</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href=
+"https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+</script>
+
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -23,320 +39,1153 @@
     font-family:'Poppins',sans-serif;
 }
 
+
+/* =====================================================
+   BODY
+===================================================== */
+
 body{
     background:#eef5ff;
     color:#222;
+    min-height:100vh;
 }
 
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 header{
-    background:linear-gradient(135deg,#003366,#0066ff);
-    color:#fff;
+    background:linear-gradient(
+        135deg,
+        #003366,
+        #0066ff
+    );
+
+    color:white;
     text-align:center;
-    padding:30px;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    padding:25px 15px;
+
+    box-shadow:
+    0 5px 18px
+    rgba(0,0,0,.20);
 }
 
 header h1{
-    font-size:32px;
+    font-size:30px;
+    font-weight:700;
 }
 
 header p{
-    margin-top:8px;
-    font-size:17px;
+    margin-top:7px;
+    font-size:15px;
 }
+
+
+/* =====================================================
+   MOVING BANNER
+===================================================== */
 
 marquee{
     background:#ff6a00;
-    color:#fff;
-    padding:10px;
-    font-weight:bold;
+    color:white;
+    padding:9px;
+    font-weight:600;
+    font-size:14px;
 }
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
 
 .container{
     width:95%;
-    max-width:1100px;
-    margin:25px auto;
-    background:#fff;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    max-width:1150px;
+
+    margin:22px auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.14);
 }
+
+
+/* =====================================================
+   TITLE
+===================================================== */
 
 .title{
     text-align:center;
     color:#003366;
-    margin-bottom:25px;
-    font-size:28px;
+    margin-bottom:20px;
+    font-size:27px;
 }
+
+
+/* =====================================================
+   LANGUAGE BOX
+===================================================== */
+
+.language-box{
+    background:#f2f7ff;
+
+    border:1px solid #d7e5ff;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    margin-bottom:20px;
+}
+
+.language-box h3{
+    color:#003366;
+    margin-bottom:8px;
+    font-size:17px;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
 
 .grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:17px;
 }
 
-@media(max-width:768px){
-    .grid{
-        grid-template-columns:1fr;
-    }
+
+/* =====================================================
+   FULL WIDTH
+===================================================== */
+
+.full{
+    grid-column:1 / 3;
 }
+
+
+/* =====================================================
+   LABEL
+===================================================== */
 
 label{
     display:block;
+
     margin-bottom:6px;
+
     font-weight:600;
+
+    color:#222;
+
+    font-size:14px;
 }
+
+
+/* =====================================================
+   INPUT / SELECT / TEXTAREA
+===================================================== */
 
 input,
 select,
 textarea{
+
     width:100%;
-    padding:13px;
+
+    padding:11px;
+
     border:1px solid #ccc;
-    border-radius:10px;
-    font-size:15px;
+
+    border-radius:9px;
+
+    font-size:14px;
+
     outline:none;
+
+    background:white;
 }
+
 
 input:focus,
 select:focus,
 textarea:focus{
+
     border-color:#0066ff;
+
+    box-shadow:
+    0 0 0 2px
+    rgba(0,102,255,.10);
 }
 
+
+/* =====================================================
+   TEXTAREA
+===================================================== */
+
 textarea{
-    height:120px;
+
+    min-height:100px;
+
     resize:vertical;
 }
 
-.full{
-    grid-column:1/3;
+
+/* =====================================================
+   HINDI PREVIEW
+===================================================== */
+
+.hindi-preview{
+
+    margin-top:5px;
+
+    padding:5px 8px;
+
+    background:#fff8e8;
+
+    border-radius:6px;
+
+    color:#7a5200;
+
+    font-size:12px;
+
+    min-height:25px;
 }
 
-@media(max-width:768px){
-    .full{
-        grid-column:1;
-    }
-}
+
+/* =====================================================
+   GENERATE BUTTON
+===================================================== */
 
 .btn{
+
     width:100%;
-    padding:15px;
+
+    padding:13px;
+
     background:#0066ff;
-    color:#fff;
+
+    color:white;
+
     border:none;
-    border-radius:10px;
-    font-size:18px;
+
+    border-radius:9px;
+
+    font-size:17px;
+
+    font-weight:600;
+
     cursor:pointer;
+
+    transition:.2s;
 }
 
+.btn:hover{
+
+    background:#004dcc;
+
+    transform:translateY(-1px);
+}
+
+
+/* =====================================================
+   BUTTON GROUP
+===================================================== */
+
 .btn-group{
+
     display:flex;
-    gap:10px;
+
+    gap:9px;
+
     flex-wrap:wrap;
 }
 
 .btn-group button{
+
     flex:1;
-    padding:12px;
+
+    min-width:120px;
+
+    padding:11px;
+
     border:none;
-    border-radius:10px;
+
+    border-radius:9px;
+
     background:#0066ff;
+
     color:white;
+
+    cursor:pointer;
+
+    font-size:14px;
 }
+
+.btn-group button:hover{
+
+    background:#004dcc;
+}
+
+
+/* =====================================================
+   OUTPUT
+   COMPACT ONE-PAGE FRIENDLY
+===================================================== */
 
 #output{
-    margin-top:25px;
-    border:2px solid #ddd;
-    padding:30px;
-    min-height:400px;
-    border-radius:10px;
-    line-height:2;
+
+    margin-top:15px;
+
+    border:1px solid #ccc;
+
+    padding:18px;
+
+    min-height:280px;
+
+    border-radius:9px;
+
+    line-height:1.45;
+
     white-space:pre-wrap;
+
+    background:#fff;
+
+    font-size:13px;
+
+    overflow-wrap:break-word;
 }
 
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
 footer{
+
     background:#003366;
+
     color:white;
+
     text-align:center;
-    padding:20px;
-    margin-top:30px;
+
+    padding:18px;
+
+    margin-top:25px;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:23px;
+    }
+
+    .container{
+        padding:17px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:1;
+    }
+
+    .title{
+        font-size:22px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:480px){
+
+    header{
+        padding:20px 10px;
+    }
+
+    header h1{
+        font-size:20px;
+    }
+
+    header p{
+        font-size:13px;
+    }
+
+    .container{
+        width:96%;
+        padding:13px;
+    }
+
+    #output{
+        padding:13px;
+        font-size:12px;
+        line-height:1.4;
+        min-height:240px;
+    }
+
+    .btn-group button{
+        min-width:100px;
+        font-size:13px;
+    }
+
+}
+
+
+/* =====================================================
+   PRINT STYLE
+   FINAL PRINT FUNCTION PART 4 USE करेगा
+===================================================== */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    header,
+    marquee,
+    .language-box,
+    .grid,
+    footer,
+    .title{
+        display:none !important;
+    }
+
+    .container{
+        width:100%;
+        max-width:none;
+        margin:0;
+        padding:0;
+        box-shadow:none;
+        border:none;
+    }
+
+    #output{
+        border:none;
+        padding:10px;
+        margin:0;
+        min-height:0;
+        font-size:12px;
+        line-height:1.35;
+    }
+
+}
+
+
+/* =====================================================
+   APPLICATION COMPACT MODE
+===================================================== */
+
+.application-page{
+
+    font-family:
+    Arial,
+    sans-serif;
+
+    font-size:13px;
+
+    line-height:1.4;
+
+    color:#111;
+
+}
+
+.application-page p{
+
+    margin:3px 0;
+
+}
+
+.application-page .subject{
+
+    margin:7px 0;
+
+    font-weight:bold;
+
+}
+
+.application-page .body{
+
+    margin-top:7px;
+
+    text-align:justify;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+   HEADER
+===================================================== -->
 
 <header>
 
-<h1>📝 Smart Online Application Generator</h1>
+<h1>
+📝 Smart Online Application Generator
+</h1>
 
-<p>Professional Hindi & English Application Maker</p>
+<p>
+Professional Hindi & English Application Maker
+</p>
 
 </header>
 
+
+<!-- =====================================================
+   MOVING BANNER
+===================================================== -->
+
 <marquee>
 
-Hindi | English | 25+ Reasons | PDF | Print | Copy | Professional Application
+Hindi | English | Police | Tehsil | Bank | School |
+College | Government Office | Complaint | Certificate |
+PDF | Print | Copy
 
 </marquee>
 
+
+<!-- =====================================================
+   MAIN CONTAINER
+===================================================== -->
+
 <div class="container">
 
+
 <h2 class="title">
+
 Application Form / आवेदन फॉर्म
+
 </h2>
+
+
+<!-- =====================================================
+   LANGUAGE
+===================================================== -->
+
+<div class="language-box">
+
+<h3>
+🌐 Select Application Language
+</h3>
+
+<select id="language">
+
+<option value="hindi">
+🇮🇳 हिन्दी
+</option>
+
+<option value="english">
+🇬🇧 English
+</option>
+
+</select>
+
+</div>
+
+
+<!-- =====================================================
+   FORM
+===================================================== -->
 
 <div class="grid">
 
-<div>
-<label>Language</label>
 
-<select id="language">
-<option value="hindi">🇮🇳 हिन्दी</option>
-<option value="english">🇬🇧 English</option>
-<option value="both">🌐 Hindi + English</option>
-</select>
-</div>
+<!-- GENDER -->
 
 <div>
-<label>Gender</label>
+
+<label id="genderLabel">
+लिंग / Gender
+</label>
 
 <select id="gender">
-<option value="male">👨 Male</option>
-<option value="female">👩 Female</option>
-<option value="other">⚧ Other</option>
+
+<option value="male">
+👨 पुरुष / Male
+</option>
+
+<option value="female">
+👩 महिला / Female
+</option>
+
+<option value="other">
+⚧ अन्य / Other
+</option>
+
 </select>
-</div>
-
-<div>
-<label>Applicant Name</label>
-<input type="text" id="name">
-</div>
-
-<div>
-<label>Father / Mother Name</label>
-<input type="text" id="father">
-</div>
-
-<div>
-<label>Mobile Number</label>
-<input type="tel" id="mobile">
-</div>
-
-<div>
-<label>Email</label>
-<input type="email" id="email">
-</div>
-<div>
-
-<label>Receiver Name</label>
-<input type="text" id="receiver" placeholder="Principal / Manager / Officer">
 
 </div>
+
+
+<!-- NAME -->
 
 <div>
 
-<label>Department / Office</label>
-<input type="text" id="department" placeholder="Department Name">
+<label id="nameLabel">
+आवेदक का नाम / Applicant Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="अपना नाम लिखें / Enter your name"
+>
+
+<div
+class="hindi-preview"
+id="nameHindi"
+>
+Hindi Preview: -
+</div>
 
 </div>
+
+
+<!-- FATHER -->
+
+<div>
+
+<label id="fatherLabel">
+पिता का नाम / Father Name
+</label>
+
+<input
+type="text"
+id="father"
+placeholder="पिता का नाम लिखें / Enter father's name"
+>
+
+<div
+class="hindi-preview"
+id="fatherHindi"
+>
+Hindi Preview: -
+</div>
+
+</div>
+
+
+<!-- MOTHER -->
+
+<div>
+
+<label id="motherLabel">
+माता का नाम / Mother Name
+</label>
+
+<input
+type="text"
+id="mother"
+placeholder="माता का नाम लिखें / Enter mother's name"
+>
+
+<div
+class="hindi-preview"
+id="motherHindi"
+>
+Hindi Preview: -
+</div>
+
+</div>
+
+
+<!-- MOBILE -->
+
+<div>
+
+<label id="mobileLabel">
+मोबाइल नंबर / Mobile Number
+</label>
+
+<input
+type="tel"
+id="mobile"
+maxlength="10"
+placeholder="10 अंकों का मोबाइल नंबर"
+>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div>
+
+<label id="emailLabel">
+ईमेल / Email
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="example@email.com"
+>
+
+</div>
+
+
+<!-- VILLAGE -->
+
+<div>
+
+<label id="villageLabel">
+ग्राम / गाँव / Village
+</label>
+
+<input
+type="text"
+id="village"
+placeholder="गाँव का नाम लिखें / Enter village"
+>
+
+<div
+class="hindi-preview"
+id="villageHindi"
+>
+Hindi Preview: -
+</div>
+
+</div>
+
+
+<!-- DISTRICT -->
+
+<div>
+
+<label id="districtLabel">
+जिला / District
+</label>
+
+<input
+type="text"
+id="district"
+placeholder="जिले का नाम"
+>
+
+<div
+class="hindi-preview"
+id="districtHindi"
+>
+Hindi Preview: -
+</div>
+
+</div>
+
+
+<!-- =====================================================
+   REASON
+===================================================== -->
 
 <div class="full">
 
-<label>Select Reason</label>
+<label id="reasonLabel">
+आवेदन का कारण / Application Reason
+</label>
 
 <select id="reason">
 
-<option>Leave Application</option>
-<option>Medical Leave</option>
-<option>Sick Leave</option>
-<option>Bank Application</option>
-<option>ATM Card Lost</option>
-<option>New ATM Card</option>
-<option>Passbook Application</option>
-<option>Cheque Book Application</option>
-<option>Scholarship Application</option>
-<option>Fee Waiver</option>
-<option>Transfer Certificate (TC)</option>
-<option>Character Certificate</option>
-<option>Bonafide Certificate</option>
-<option>Migration Certificate</option>
-<option>Job Application</option>
-<option>Resignation Letter</option>
-<option>Complaint Application</option>
-<option>Electricity Complaint</option>
-<option>Water Supply Complaint</option>
-<option>Road Repair Complaint</option>
-<option>Name Correction</option>
-<option>Birth Certificate</option>
-<option>Police Verification</option>
-<option>Gas Connection</option>
-<option>Internet Complaint</option>
-<option>Pension Application</option>
-<option>Other Reason</option>
+
+<!-- POLICE -->
+
+<option value="Police Complaint">
+Police Complaint / पुलिस शिकायत
+</option>
+
+<option value="Police Verification">
+Police Verification / पुलिस सत्यापन
+</option>
+
+<option value="FIR Related Application">
+FIR Related Application / FIR संबंधी आवेदन
+</option>
+
+<option value="Lost Document Report">
+Lost Document Report / दस्तावेज खोने की शिकायत
+</option>
+
+
+<!-- TEHSIL -->
+
+<option value="Tehsil Application">
+Tehsil Application / तहसील आवेदन
+</option>
+
+<option value="Income Certificate">
+Income Certificate / आय प्रमाण पत्र
+</option>
+
+<option value="Caste Certificate">
+Caste Certificate / जाति प्रमाण पत्र
+</option>
+
+<option value="Residence Certificate">
+Residence Certificate / निवास प्रमाण पत्र
+</option>
+
+<option value="Domicile Certificate">
+Domicile Certificate / मूल निवास प्रमाण पत्र
+</option>
+
+<option value="Land Complaint">
+Land Complaint / भूमि संबंधी शिकायत
+</option>
+
+<option value="Revenue Complaint">
+Revenue Complaint / राजस्व संबंधी शिकायत
+</option>
+
+<option value="Encroachment Complaint">
+Encroachment Complaint / अतिक्रमण शिकायत
+</option>
+
+
+<!-- BLOCK -->
+
+<option value="Road Repair Complaint">
+Road Repair Complaint / सड़क मरम्मत शिकायत
+</option>
+
+<option value="Development Complaint">
+Development Complaint / विकास संबंधी शिकायत
+</option>
+
+
+<!-- SCHOOL -->
+
+<option value="Leave Application">
+Leave Application / अवकाश आवेदन
+</option>
+
+<option value="Medical Leave">
+Medical Leave / चिकित्सा अवकाश
+</option>
+
+<option value="Scholarship Application">
+Scholarship Application / छात्रवृत्ति आवेदन
+</option>
+
+<option value="Fee Waiver">
+Fee Waiver / शुल्क में छूट
+</option>
+
+<option value="Transfer Certificate">
+Transfer Certificate / स्थानांतरण प्रमाण पत्र
+</option>
+
+<option value="Character Certificate">
+Character Certificate / चरित्र प्रमाण पत्र
+</option>
+
+<option value="Bonafide Certificate">
+Bonafide Certificate / बोनाफाइड प्रमाण पत्र
+</option>
+
+
+<!-- BANK -->
+
+<option value="Bank Application">
+Bank Application / बैंक आवेदन
+</option>
+
+<option value="ATM Card Lost">
+ATM Card Lost / एटीएम कार्ड खोने का आवेदन
+</option>
+
+<option value="New ATM Card">
+New ATM Card / नया एटीएम कार्ड
+</option>
+
+<option value="Passbook Application">
+Passbook Application / पासबुक आवेदन
+</option>
+
+<option value="Cheque Book Application">
+Cheque Book Application / चेक बुक आवेदन
+</option>
+
+
+<!-- OTHER DEPARTMENTS -->
+
+<option value="Electricity Complaint">
+Electricity Complaint / बिजली शिकायत
+</option>
+
+<option value="Water Supply Complaint">
+Water Supply Complaint / जल आपूर्ति शिकायत
+</option>
+
+<option value="Gas Connection">
+Gas Connection / गैस कनेक्शन आवेदन
+</option>
+
+<option value="Job Application">
+Job Application / नौकरी आवेदन
+</option>
+
+<option value="Name Correction">
+Name Correction / नाम सुधार आवेदन
+</option>
+
+<option value="Birth Certificate">
+Birth Certificate / जन्म प्रमाण पत्र
+</option>
+
+<option value="Pension Application">
+Pension Application / पेंशन आवेदन
+</option>
+
+<option value="Other Reason">
+Other Reason / अन्य कारण
+</option>
 
 </select>
 
 </div>
 
-<div class="full">
 
-<label>Full Address</label>
-
-<textarea id="address" placeholder="Enter Full Address"></textarea>
-
-</div>
-
-<div class="full">
-
-<label>Reason Details</label>
-
-<textarea id="details" placeholder="Write complete details here..."></textarea>
-
-</div>
+<!-- =====================================================
+   RECEIVER
+===================================================== -->
 
 <div>
 
-<label>Place</label>
-<input type="text" id="place">
+<label id="receiverLabel">
+प्राप्तकर्ता / Receiver
+</label>
+
+<input
+type="text"
+id="receiver"
+placeholder="SHO / Tehsildar / Principal"
+>
+
+<div
+class="hindi-preview"
+id="receiverHindi"
+>
+Hindi Preview: -
+</div>
 
 </div>
+
+
+<!-- =====================================================
+   DEPARTMENT
+===================================================== -->
 
 <div>
 
-<label>Date</label>
-<input type="date" id="date">
+<label id="departmentLabel">
+विभाग / कार्यालय / Department
+</label>
+
+<input
+type="text"
+id="department"
+placeholder="Department / Office"
+>
+
+<div
+class="hindi-preview"
+id="departmentHindi"
+>
+Hindi Preview: -
+</div>
 
 </div>
 
+
+<!-- =====================================================
+   ADDRESS
+===================================================== -->
+
 <div class="full">
 
-<button class="btn" onclick="generateApplication()">
+<label id="addressLabel">
+पूरा पता / Full Address
+</label>
+
+<textarea
+id="address"
+placeholder="अपना पूरा पता लिखें / Enter full address"
+></textarea>
+
+<div
+class="hindi-preview"
+id="addressHindi"
+>
+Hindi Preview: -
+</div>
+
+</div>
+
+
+<!-- =====================================================
+   DETAILS
+===================================================== -->
+
+<div class="full">
+
+<label id="detailsLabel">
+आवेदन का पूरा विवरण / Application Details
+</label>
+
+<textarea
+id="details"
+placeholder="अपनी समस्या या आवेदन का पूरा विवरण लिखें..."
+></textarea>
+
+</div>
+
+
+<!-- =====================================================
+   PLACE
+===================================================== -->
+
+<div>
+
+<label id="placeLabel">
+स्थान / Place
+</label>
+
+<input
+type="text"
+id="place"
+placeholder="स्थान का नाम"
+>
+
+<div
+class="hindi-preview"
+id="placeHindi"
+>
+Hindi Preview: -
+</div>
+
+</div>
+
+
+<!-- =====================================================
+   DATE
+===================================================== -->
+
+<div>
+
+<label id="dateLabel">
+दिनांक / Date
+</label>
+
+<input
+type="date"
+id="date"
+>
+
+</div>
+
+
+<!-- =====================================================
+   GENERATE BUTTON
+===================================================== -->
+
+<div class="full">
+
+<button
+class="btn"
+id="generateButton"
+onclick="generateApplication()"
+>
+
 📝 Generate Application
+
 </button>
 
 </div>
 
+
+<!-- =====================================================
+   ACTION BUTTONS
+===================================================== -->
+
 <div class="full btn-group">
 
-<button onclick="copyApplication()">📋 Copy</button>
+<button
+type="button"
+onclick="copyApplication()"
+>
+📋 Copy
+</button>
 
-<button onclick="printApplication()">🖨 Print</button>
+<button
+type="button"
+onclick="printApplication()"
+>
+🖨 Print
+</button>
 
-<button onclick="downloadPDF()">📄 Download PDF</button>
+<button
+type="button"
+onclick="downloadPDF()"
+>
+📄 Download PDF
+</button>
 
-<button onclick="clearForm()">🗑 Clear</button>
+<button
+type="button"
+onclick="clearForm()"
+>
+🗑 Clear
+</button>
 
 </div>
 
+
+<!-- =====================================================
+   OUTPUT
+===================================================== -->
+
 <div class="full">
 
-<h2 style="text-align:center;margin-top:25px;color:#003366;">
+<h2
+style="
+text-align:center;
+margin-top:20px;
+margin-bottom:10px;
+color:#003366;
+font-size:21px;
+"
+>
+
 Application Preview
+
 </h2>
+
 
 <div id="output">
 
@@ -346,76 +1195,1103 @@ Your Professional Application Will Appear Here...
 
 </div>
 
+
 </div>
 
 </div>
+
+
+<!-- =====================================================
+   FOOTER
+===================================================== -->
 
 <footer>
 
-© 2026 Smart Online Application Generator<br>
+© 2026 Smart Online Application Generator
+
+<br>
+
 Created by Amit Kumar Singh
 
 </footer>
 
+
+<!-- =====================================================
+   PART 2, PART 3 AND PART 4
+   WILL BE ADDED BELOW THIS LINE
+===================================================== -->
+
 <script>
+
+/* =========================================================
+   PART 2
+   SMART HINDI + ENGLISH SYSTEM
+   NAME CONVERTER
+   RECEIVER / DEPARTMENT AUTO SYSTEM
+========================================================= */
+
+
+/* =========================================================
+   COMMON INDIAN NAME DICTIONARY
+========================================================= */
+
+const indianNames = {
+
+    amit:"अमित",
+    ankit:"अंकित",
+    anil:"अनिल",
+    sunil:"सुनील",
+    rahul:"राहुल",
+    rohit:"रोहित",
+    mohit:"मोहित",
+    sumit:"सुमित",
+    ravi:"रवि",
+    raj:"राज",
+    rajesh:"राजेश",
+    rakesh:"राकेश",
+    suresh:"सुरेश",
+    naresh:"नरेश",
+    mahesh:"महेश",
+    dinesh:"दिनेश",
+    mukesh:"मुकेश",
+    lokesh:"लोकेश",
+    yogesh:"योगेश",
+    hitesh:"हितेश",
+    jitesh:"जितेश",
+    nitish:"नितीश",
+    manish:"मनीष",
+    ashish:"आशीष",
+    vishal:"विशाल",
+    vikas:"विकास",
+    akash:"आकाश",
+    aakash:"आकाश",
+    sachin:"सचिन",
+    pankaj:"पंकज",
+    deepak:"दीपक",
+    pradeep:"प्रदीप",
+    sandeep:"संदीप",
+    arun:"अरुण",
+    varun:"वरुण",
+    tarun:"तरुण",
+    karan:"करण",
+    kiran:"किरण",
+    vijay:"विजय",
+    ajay:"अजय",
+    sanjay:"संजय",
+    abhay:"अभय",
+    vinay:"विनय",
+    vivek:"विवेक",
+    vimal:"विमल",
+    dharmendra:"धर्मेंद्र",
+    mahendra:"महेंद्र",
+    surendra:"सुरेंद्र",
+    narendra:"नरेंद्र",
+    ravindra:"रविंद्र",
+    devendra:"देवेंद्र",
+    rajendra:"राजेंद्र",
+    virendra:"वीरेंद्र",
+    upendra:"उपेंद्र",
+    rajiv:"राजीव",
+    manoj:"मनोज",
+    sanjeev:"संजीव",
+    sanjiv:"संजीव",
+    ramesh:"रमेश",
+    dhananjay:"धनंजय",
+    shivam:"शिवम",
+    shubham:"शुभम",
+    krishna:"कृष्ण",
+    vishnu:"विष्णु",
+    shiv:"शिव",
+    shankar:"शंकर",
+    omprakash:"ओमप्रकाश",
+    ramprakash:"रामप्रकाश",
+    rajkumar:"राजकुमार",
+    ramkumar:"रामकुमार",
+    ajit:"अजीत",
+    abhishek:"अभिषेक",
+    aditya:"आदित्य",
+    anurag:"अनुराग",
+    mayank:"मयंक",
+    harsh:"हर्ष",
+    harshit:"हर्षित",
+    naveen:"नवीन",
+    pawan:"पवन",
+    roshan:"रोशन",
+    mohan:"मोहन",
+    sohan:"सोहन",
+    gopal:"गोपाल",
+    govind:"गोविंद",
+    santosh:"संतोष",
+    ashok:"अशोक",
+    brajesh:"ब्रजेश",
+    brijesh:"बृजेश",
+    umesh:"उमेश",
+    rishabh:"ऋषभ",
+    ritesh:"रितेश",
+    kamlesh:"कमलेश",
+    raman:"रमन",
+    gaurav:"गौरव",
+    saurabh:"सौरभ",
+    vaibhav:"वैभव",
+    atul:"अतुल",
+    anup:"अनूप",
+    anupam:"अनुपम",
+    alok:"आलोक",
+
+    pooja:"पूजा",
+    puja:"पूजा",
+    neha:"नेहा",
+    rani:"रानी",
+    reena:"रीना",
+    rina:"रीना",
+    seema:"सीमा",
+    meena:"मीना",
+    meera:"मीरा",
+    sunita:"सुनीता",
+    anita:"अनीता",
+    kavita:"कविता",
+    savita:"सविता",
+    mamta:"ममता",
+    rekha:"रेखा",
+    geeta:"गीता",
+    gita:"गीता",
+    sita:"सीता",
+    radha:"राधा",
+    richa:"रिचा",
+    nikita:"निकिता",
+    shweta:"श्वेता",
+    sweta:"श्वेता",
+    priyanka:"प्रियंका",
+    sonam:"सोनम",
+    simran:"सिमरन",
+    sakshi:"साक्षी",
+    anushka:"अनुष्का",
+    neelam:"नीलम",
+    vandana:"वंदना",
+    archana:"अर्चना",
+    anjali:"अंजलि",
+    komal:"कोमल",
+    payal:"पायल",
+    ruchi:"रुचि",
+    smriti:"स्मृति",
+    shruti:"श्रुति",
+    deepika:"दीपिका",
+    divya:"दिव्या",
+    priya:"प्रिया",
+    preeti:"प्रीति",
+    pallavi:"पल्लवी",
+    nisha:"निशा",
+    isha:"ईशा",
+    aarti:"आरती",
+    arti:"आरती",
+
+    singh:"सिंह",
+    kumar:"कुमार",
+    kumari:"कुमारी",
+    sharma:"शर्मा",
+    verma:"वर्मा",
+    gupta:"गुप्ता",
+    yadav:"यादव",
+    mishra:"मिश्र",
+    pandey:"पांडेय",
+    tiwari:"तिवारी",
+    tripathi:"त्रिपाठी",
+    dubey:"दुबे",
+    dube:"दुबे",
+    chauhan:"चौहान",
+    rajput:"राजपूत",
+    thakur:"ठाकुर",
+    patel:"पटेल",
+    jaiswal:"जायसवाल",
+    agarwal:"अग्रवाल",
+    agrawal:"अग्रवाल",
+    srivastava:"श्रीवास्तव",
+    sinha:"सिन्हा",
+    kushwaha:"कुशवाहा",
+    maurya:"मौर्य",
+    soni:"सोनी",
+    sahu:"साहू",
+    saini:"सैनी",
+    rajbhar:"राजभर",
+    pal:"पाल",
+    gujjar:"गुर्जर"
+};
+
+
+/* =========================================================
+   PLACE DICTIONARY
+========================================================= */
+
+const indianPlaces = {
+
+    ballia:"बलिया",
+    bansdih:"बांसडीह",
+    jaunpur:"जौनपुर",
+    varanasi:"वाराणसी",
+    lucknow:"लखनऊ",
+    kanpur:"कानपुर",
+    prayagraj:"प्रयागराज",
+    ayodhya:"अयोध्या",
+    gorakhpur:"गोरखपुर",
+    delhi:"दिल्ली",
+    mumbai:"मुंबई",
+    patna:"पटना",
+    ara:"आरा",
+    chapra:"छपरा",
+    narayanpur:"नारायणपुर",
+    "vidya bhawan":"विद्या भवन",
+    deoria:"देवरिया",
+    mau:"मऊ",
+    azamgarh:"आजमगढ़",
+    ghazipur:"गाज़ीपुर",
+    mirzapur:"मिर्जापुर"
+};
+
+
+/* =========================================================
+   COMMON WORD DICTIONARY
+========================================================= */
+
+const commonWords = {
+
+    village:"गाँव",
+    gaon:"गाँव",
+    post:"पोस्ट",
+    police:"पुलिस",
+    station:"थाना",
+    district:"जिला",
+    tehsil:"तहसील",
+    block:"विकास खंड",
+    road:"सड़क",
+    market:"बाज़ार",
+    school:"विद्यालय",
+    college:"महाविद्यालय",
+    bank:"बैंक",
+    office:"कार्यालय",
+    near:"के पास",
+    house:"मकान",
+    road:"रोड",
+    nagar:"नगर",
+    mohalla:"मोहल्ला",
+    gram:"ग्राम"
+};
+
+
+/* =========================================================
+   PHONETIC CONVERTER
+========================================================= */
+
+function phoneticHindi(word){
+
+    if(!word){
+        return "";
+    }
+
+    let w = word
+        .toLowerCase()
+        .trim();
+
+    if(indianNames[w]){
+        return indianNames[w];
+    }
+
+    if(indianPlaces[w]){
+        return indianPlaces[w];
+    }
+
+    if(commonWords[w]){
+        return commonWords[w];
+    }
+
+
+    /*
+       Long combinations पहले
+    */
+
+    const rules = [
+
+        [/ksh/g,"क्ष"],
+        [/shr/g,"श्र"],
+        [/chh/g,"छ"],
+        [/ch/g,"च"],
+        [/sh/g,"श"],
+        [/th/g,"थ"],
+        [/dh/g,"ध"],
+        [/ph/g,"फ"],
+        [/bh/g,"भ"],
+        [/gh/g,"घ"],
+        [/kh/g,"ख"],
+        [/jh/g,"झ"],
+
+        [/aa/g,"आ"],
+        [/ee/g,"ई"],
+        [/ii/g,"ई"],
+        [/oo/g,"ऊ"],
+        [/uu/g,"ऊ"],
+
+        [/ai/g,"ऐ"],
+        [/au/g,"औ"],
+
+        [/a/g,"अ"],
+        [/i/g,"इ"],
+        [/u/g,"उ"],
+        [/e/g,"ए"],
+        [/o/g,"ओ"],
+
+        [/b/g,"ब"],
+        [/c/g,"क"],
+        [/d/g,"द"],
+        [/f/g,"फ"],
+        [/g/g,"ग"],
+        [/h/g,"ह"],
+        [/j/g,"ज"],
+        [/k/g,"क"],
+        [/l/g,"ल"],
+        [/m/g,"म"],
+        [/n/g,"न"],
+        [/p/g,"प"],
+        [/q/g,"क"],
+        [/r/g,"र"],
+        [/s/g,"स"],
+        [/t/g,"त"],
+        [/v/g,"व"],
+        [/w/g,"व"],
+        [/x/g,"क्स"],
+        [/y/g,"य"],
+        [/z/g,"ज़"]
+
+    ];
+
+
+    let result = w;
+
+
+    rules.forEach(function(rule){
+
+        result =
+            result.replace(
+                rule[0],
+                rule[1]
+            );
+
+    });
+
+
+    return result;
+}
+
+
+/* =========================================================
+   SMART HINDI
+========================================================= */
+
+function smartHindi(text){
+
+    if(!text){
+        return "";
+    }
+
+
+    text = text.trim();
+
+
+    /*
+       अगर पहले से Hindi है
+    */
+
+    if(/[\u0900-\u097F]/.test(text)){
+
+        return text;
+
+    }
+
+
+    let lower =
+        text
+        .toLowerCase()
+        .replace(/\s+/g," ")
+        .trim();
+
+
+    /*
+       पूरा नाम dictionary में
+    */
+
+    if(indianNames[lower]){
+        return indianNames[lower];
+    }
+
+
+    if(indianPlaces[lower]){
+        return indianPlaces[lower];
+    }
+
+
+    if(commonWords[lower]){
+        return commonWords[lower];
+    }
+
+
+    let words =
+        lower.split(/\s+/);
+
+
+    let converted = [];
+
+
+    words.forEach(function(word){
+
+        if(indianNames[word]){
+
+            converted.push(
+                indianNames[word]
+            );
+
+        }
+
+        else if(indianPlaces[word]){
+
+            converted.push(
+                indianPlaces[word]
+            );
+
+        }
+
+        else if(commonWords[word]){
+
+            converted.push(
+                commonWords[word]
+            );
+
+        }
+
+        else{
+
+            converted.push(
+                phoneticHindi(word)
+            );
+
+        }
+
+    });
+
+
+    return converted.join(" ");
+
+}
+
+
+/* =========================================================
+   PREVIEW SETUP
+========================================================= */
+
+function setupHindiPreview(
+    inputId,
+    previewId
+){
+
+    const input =
+        document.getElementById(inputId);
+
+    const preview =
+        document.getElementById(previewId);
+
+
+    if(!input || !preview){
+        return;
+    }
+
+
+    function updatePreview(){
+
+        const value =
+            input.value.trim();
+
+
+        if(value === ""){
+
+            preview.innerText =
+                "Hindi Preview: -";
+
+            return;
+
+        }
+
+
+        preview.innerText =
+            "Hindi Preview: " +
+            smartHindi(value);
+
+    }
+
+
+    input.addEventListener(
+        "input",
+        updatePreview
+    );
+
+
+    updatePreview();
+
+}
+
+
+/* =========================================================
+   RECEIVER DATABASE
+========================================================= */
+
+const receiverDatabase = {
+
+    "Police Complaint":{
+        hi:"थाना प्रभारी",
+        en:"SHO",
+        deptHi:"थाना",
+        deptEn:"Police Station"
+    },
+
+    "Police Verification":{
+        hi:"थाना प्रभारी",
+        en:"SHO",
+        deptHi:"थाना",
+        deptEn:"Police Station"
+    },
+
+    "FIR Related Application":{
+        hi:"थाना प्रभारी",
+        en:"SHO",
+        deptHi:"थाना",
+        deptEn:"Police Station"
+    },
+
+    "Lost Document Report":{
+        hi:"थाना प्रभारी",
+        en:"SHO",
+        deptHi:"थाना",
+        deptEn:"Police Station"
+    },
+
+    "Tehsil Application":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Income Certificate":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Caste Certificate":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Residence Certificate":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Domicile Certificate":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Land Complaint":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Revenue Complaint":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Encroachment Complaint":{
+        hi:"तहसीलदार",
+        en:"Tehsildar",
+        deptHi:"तहसील कार्यालय",
+        deptEn:"Tehsil Office"
+    },
+
+    "Road Repair Complaint":{
+        hi:"खंड विकास अधिकारी",
+        en:"Block Development Officer",
+        deptHi:"विकास खंड",
+        deptEn:"Development Block"
+    },
+
+    "Development Complaint":{
+        hi:"खंड विकास अधिकारी",
+        en:"Block Development Officer",
+        deptHi:"विकास खंड",
+        deptEn:"Development Block"
+    },
+
+    "Leave Application":{
+        hi:"प्रधानाचार्य",
+        en:"Principal",
+        deptHi:"विद्यालय / महाविद्यालय",
+        deptEn:"School / College"
+    },
+
+    "Medical Leave":{
+        hi:"प्रधानाचार्य",
+        en:"Principal",
+        deptHi:"विद्यालय / महाविद्यालय",
+        deptEn:"School / College"
+    },
+
+    "Scholarship Application":{
+        hi:"प्रधानाचार्य",
+        en:"Principal",
+        deptHi:"विद्यालय / महाविद्यालय",
+        deptEn:"School / College"
+    },
+
+    "Fee Waiver":{
+        hi:"प्रधानाचार्य",
+        en:"Principal",
+        deptHi:"विद्यालय / महाविद्यालय",
+        deptEn:"School / College"
+    },
+
+    "Transfer Certificate":{
+        hi:"प्रधानाचार्य",
+        en:"Principal",
+        deptHi:"विद्यालय / महाविद्यालय",
+        deptEn:"School / College"
+    },
+
+    "Character Certificate":{
+        hi:"प्रधानाचार्य",
+        en:"Principal",
+        deptHi:"विद्यालय / महाविद्यालय",
+        deptEn:"School / College"
+    },
+
+    "Bonafide Certificate":{
+        hi:"प्रधानाचार्य",
+        en:"Principal",
+        deptHi:"विद्यालय / महाविद्यालय",
+        deptEn:"School / College"
+    },
+
+    "Bank Application":{
+        hi:"शाखा प्रबंधक",
+        en:"Branch Manager",
+        deptHi:"बैंक शाखा",
+        deptEn:"Bank Branch"
+    },
+
+    "ATM Card Lost":{
+        hi:"शाखा प्रबंधक",
+        en:"Branch Manager",
+        deptHi:"बैंक शाखा",
+        deptEn:"Bank Branch"
+    },
+
+    "New ATM Card":{
+        hi:"शाखा प्रबंधक",
+        en:"Branch Manager",
+        deptHi:"बैंक शाखा",
+        deptEn:"Bank Branch"
+    },
+
+    "Passbook Application":{
+        hi:"शाखा प्रबंधक",
+        en:"Branch Manager",
+        deptHi:"बैंक शाखा",
+        deptEn:"Bank Branch"
+    },
+
+    "Cheque Book Application":{
+        hi:"शाखा प्रबंधक",
+        en:"Branch Manager",
+        deptHi:"बैंक शाखा",
+        deptEn:"Bank Branch"
+    },
+
+    "Electricity Complaint":{
+        hi:"अधिशासी अभियंता",
+        en:"Executive Engineer",
+        deptHi:"विद्युत विभाग",
+        deptEn:"Electricity Department"
+    },
+
+    "Water Supply Complaint":{
+        hi:"जल आपूर्ति अधिकारी",
+        en:"Water Supply Officer",
+        deptHi:"जल विभाग",
+        deptEn:"Water Supply Department"
+    },
+
+    "Gas Connection":{
+        hi:"गैस एजेंसी प्रबंधक",
+        en:"Gas Agency Manager",
+        deptHi:"गैस एजेंसी",
+        deptEn:"Gas Agency"
+    },
+
+    "Job Application":{
+        hi:"प्रबंधक",
+        en:"Manager",
+        deptHi:"संबंधित संस्थान",
+        deptEn:"Concerned Organization"
+    },
+
+    "Name Correction":{
+        hi:"संबंधित अधिकारी",
+        en:"Concerned Officer",
+        deptHi:"संबंधित विभाग",
+        deptEn:"Concerned Department"
+    },
+
+    "Birth Certificate":{
+        hi:"जन्म एवं मृत्यु पंजीकरण अधिकारी",
+        en:"Birth and Death Registration Officer",
+        deptHi:"नगर निकाय / ग्राम पंचायत",
+        deptEn:"Local Authority / Gram Panchayat"
+    },
+
+    "Pension Application":{
+        hi:"संबंधित पेंशन अधिकारी",
+        en:"Concerned Pension Officer",
+        deptHi:"पेंशन विभाग",
+        deptEn:"Pension Department"
+    },
+
+    "Other Reason":{
+        hi:"संबंधित अधिकारी",
+        en:"Concerned Officer",
+        deptHi:"संबंधित विभाग",
+        deptEn:"Concerned Department"
+    }
+
+};
+
+
+/* =========================================================
+   AUTO RECEIVER
+========================================================= */
+
+function setReasonReceiver(){
+
+    const reason =
+        document.getElementById("reason");
+
+    const receiver =
+        document.getElementById("receiver");
+
+    const department =
+        document.getElementById("department");
+
+    const language =
+        document.getElementById("language");
+
+
+    if(!reason){
+        return;
+    }
+
+
+    const data =
+        receiverDatabase[reason.value];
+
+
+    if(!data){
+        return;
+    }
+
+
+    const lang =
+        language?.value || "hindi";
+
+
+    if(receiver){
+
+        receiver.value =
+            lang === "english"
+            ? data.en
+            : data.hi;
+
+    }
+
+
+    if(department){
+
+        department.value =
+            lang === "english"
+            ? data.deptEn
+            : data.deptHi;
+
+    }
+
+
+    if(receiver){
+
+        receiver.dispatchEvent(
+            new Event("input")
+        );
+
+    }
+
+
+    if(department){
+
+        department.dispatchEvent(
+            new Event("input")
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE PART 2
+========================================================= */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        setupHindiPreview(
+            "name",
+            "nameHindi"
+        );
+
+        setupHindiPreview(
+            "father",
+            "fatherHindi"
+        );
+
+        setupHindiPreview(
+            "mother",
+            "motherHindi"
+        );
+
+        setupHindiPreview(
+            "village",
+            "villageHindi"
+        );
+
+        setupHindiPreview(
+            "district",
+            "districtHindi"
+        );
+
+        setupHindiPreview(
+            "receiver",
+            "receiverHindi"
+        );
+
+        setupHindiPreview(
+            "department",
+            "departmentHindi"
+        );
+
+        setupHindiPreview(
+            "address",
+            "addressHindi"
+        );
+
+        setupHindiPreview(
+            "place",
+            "placeHindi"
+        );
+
+
+        const reason =
+            document.getElementById("reason");
+
+
+        if(reason){
+
+            reason.addEventListener(
+                "change",
+                setReasonReceiver
+            );
+
+        }
+
+
+        const language =
+            document.getElementById("language");
+
+
+        if(language){
+
+            language.addEventListener(
+                "change",
+                setReasonReceiver
+            );
+
+        }
+
+
+        setReasonReceiver();
+
+    }
+);
+
+
+/* =========================================================
+   END PART 2
+========================================================= */
+/* =========================================================
+   PART 3
+   APPLICATION GENERATOR
+   HINDI / ENGLISH
+   GENDER SUPPORT
+   COPY / PRINT / PDF
+========================================================= */
+
+
+/* =========================================================
+   APPLICATION GENERATOR
+========================================================= */
 
 function generateApplication(){
 
-let language=document.getElementById("language").value;
-let gender=document.getElementById("gender").value;
-let reason=document.getElementById("reason").value;
+    const language =
+        document.getElementById("language")?.value || "hindi";
 
-let receiver=document.getElementById("receiver").value;
-let department=document.getElementById("department").value;
+    const gender =
+        document.getElementById("gender")?.value || "male";
 
-let name=document.getElementById("name").value;
-let father=document.getElementById("father").value;
-let mobile=document.getElementById("mobile").value;
-let email=document.getElementById("email").value;
+    const reason =
+        document.getElementById("reason")?.value || "Other Reason";
 
-let address=document.getElementById("address").value;
-let details=document.getElementById("details").value;
+    const name =
+        document.getElementById("name")?.value.trim() || "";
 
-let place=document.getElementById("place").value;
-let date=document.getElementById("date").value;
+    const father =
+        document.getElementById("father")?.value.trim() || "";
 
+    const mother =
+        document.getElementById("mother")?.value.trim() || "";
 
+    const mobile =
+        document.getElementById("mobile")?.value.trim() || "";
 
-if(name=="" || receiver=="" || details==""){
+    const email =
+        document.getElementById("email")?.value.trim() || "";
 
-alert("Please fill all required fields.");
+    const village =
+        document.getElementById("village")?.value.trim() || "";
 
-return;
+    const district =
+        document.getElementById("district")?.value.trim() || "";
 
-}
+    const receiver =
+        document.getElementById("receiver")?.value.trim() || "";
 
+    const department =
+        document.getElementById("department")?.value.trim() || "";
 
+    const address =
+        document.getElementById("address")?.value.trim() || "";
 
-let endingHindi="";
+    const details =
+        document.getElementById("details")?.value.trim() || "";
 
+    const place =
+        document.getElementById("place")?.value.trim() || "";
 
-
-if(gender=="male"){
-
-endingHindi="इसके लिए मैं आपका सदैव आभारी एवं कृतज्ञ रहूंगा।";
-
-}
-
-else if(gender=="female"){
-
-endingHindi="इसके लिए मैं आपकी सदैव आभारी एवं कृतज्ञ रहूंगी।";
-
-}
-
-else{
-
-endingHindi="इसके लिए मैं आपके प्रति सदैव आभार व्यक्त करता/करती रहूंगा/रहूंगी।";
-
-}
+    const date =
+        document.getElementById("date")?.value || "";
 
 
+    /* =====================================================
+       VALIDATION
+    ===================================================== */
 
-let hindiApplication=`
+    if(name === ""){
+
+        alert(
+            language === "english"
+            ? "Please enter Applicant Name."
+            : "कृपया आवेदक का नाम लिखें।"
+        );
+
+        document.getElementById("name")?.focus();
+
+        return;
+    }
+
+
+    if(details === ""){
+
+        alert(
+            language === "english"
+            ? "Please enter Application Details."
+            : "कृपया आवेदन का विवरण लिखें।"
+        );
+
+        document.getElementById("details")?.focus();
+
+        return;
+    }
+
+
+    /* =====================================================
+       GENDER ENDING
+    ===================================================== */
+
+    let hindiEnding = "";
+
+    let englishEnding = "";
+
+
+    if(gender === "male"){
+
+        hindiEnding =
+        "इसके लिए मैं आपका सदैव आभारी एवं कृतज्ञ रहूंगा।";
+
+        englishEnding =
+        "I shall always remain grateful to you for your kind consideration and support.";
+
+    }
+
+    else if(gender === "female"){
+
+        hindiEnding =
+        "इसके लिए मैं आपकी सदैव आभारी एवं कृतज्ञ रहूंगी।";
+
+        englishEnding =
+        "I shall always remain grateful to you for your kind consideration and support.";
+
+    }
+
+    else{
+
+        hindiEnding =
+        "इसके लिए मैं आपका सदैव आभारी/आभारी रहूंगा/रहूंगी।";
+
+        englishEnding =
+        "I shall always remain grateful to you for your kind consideration and support.";
+
+    }
+
+
+    /* =====================================================
+       HINDI APPLICATION
+    ===================================================== */
+
+    const hindiApplication = `
 
 सेवा में,
 ${receiver}
@@ -426,31 +2302,32 @@ ${department}
 महोदय / महोदया,
 
 सविनय निवेदन है कि मैं ${name},
-पिता/माता : ${father},
+पिता का नाम : ${father},
+माता का नाम : ${mother},
+ग्राम / गाँव : ${village},
+जिला : ${district},
 निवासी : ${address} हूँ।
 
-मैं आपके कार्यालय में
-"${reason}"
-के संबंध में यह आवेदन प्रस्तुत कर रहा/रही हूँ।
+मैं आपके समक्ष "${reason}" के संबंध में
+यह आवेदन पत्र प्रस्तुत कर रहा/रही हूँ।
 
 मेरी समस्या / निवेदन का पूरा विवरण निम्नलिखित है -
 
 ${details}
 
-मैं आपसे विनम्र अनुरोध करता/करती हूँ कि
-मेरे आवेदन पर सहानुभूतिपूर्वक विचार किया जाए।
+अतः आपसे विनम्र निवेदन है कि मेरे आवेदन पर
+सहानुभूतिपूर्वक विचार करते हुए आवश्यक कार्यवाही
+करने की कृपा करें।
 
-मेरी परिस्थिति को देखते हुए
-आवश्यक कार्यवाही करने की कृपा करें।
+मेरी परिस्थिति को ध्यान में रखते हुए यदि आप
+मेरे आवेदन को स्वीकार कर उचित समाधान प्रदान
+करते हैं, तो यह मेरे लिए अत्यंत महत्वपूर्ण होगा।
 
-आपके द्वारा की गई सहायता
-मेरे लिए अत्यंत महत्वपूर्ण होगी।
+मुझे पूर्ण विश्वास है कि आप मेरे आवेदन पर
+उचित विचार करेंगे तथा नियमानुसार आवश्यक
+कार्यवाही करने की कृपा करेंगे।
 
-मुझे पूर्ण विश्वास है कि
-आप मेरे आवेदन को स्वीकार करेंगे
-तथा उचित समाधान प्रदान करेंगे।
-
-${endingHindi}
+${hindiEnding}
 
 धन्यवाद।
 
@@ -458,14 +2335,23 @@ ${endingHindi}
 
 ${name}
 
-मोबाइल : ${mobile}
-
+पिता का नाम : ${father}
+माता का नाम : ${mother}
+मोबाइल नंबर : ${mobile}
 ईमेल : ${email}
+ग्राम / गाँव : ${village}
+जिला : ${district}
 
 स्थान : ${place}
+दिनांक : ${date}
+`;
 
-दिनांक : ${date}`;
-let englishApplication = `
+
+    /* =====================================================
+       ENGLISH APPLICATION
+    ===================================================== */
+
+    const englishApplication = `
 
 To,
 ${receiver}
@@ -475,27 +2361,33 @@ Subject: Application regarding ${reason}.
 
 Respected Sir/Madam,
 
-With due respect, I would like to state that I am ${name},
-son/daughter of ${father},
-and a resident of ${address}.
+With due respect, I would like to state that I am
+${name},
+Father's Name: ${father},
+Mother's Name: ${mother},
+Village: ${village},
+District: ${district},
+and resident of ${address}.
 
-I am submitting this application regarding
+I am submitting this application before you regarding
 "${reason}".
 
-The complete details of my request are given below:
+The complete details of my request/problem are
+given below:
 
 ${details}
 
-I kindly request you to consider my application
-sympathetically and take the necessary action.
+Therefore, I humbly request you to kindly consider
+my application sympathetically and take the necessary
+action as per the applicable rules.
 
-Your support and cooperation will be highly appreciated.
+Considering my situation, your kind consideration
+and appropriate action will be highly appreciated.
 
-I sincerely hope that my request will be accepted
-and resolved at the earliest.
+I sincerely hope that you will consider my request
+and provide an appropriate solution at the earliest.
 
-I shall always remain grateful for your valuable time,
-kindness and support.
+${englishEnding}
 
 Thank You.
 
@@ -503,94 +2395,283 @@ Yours Faithfully,
 
 ${name}
 
-Mobile : ${mobile}
+Father's Name: ${father}
+Mother's Name: ${mother}
+Mobile Number: ${mobile}
+Email: ${email}
+Village: ${village}
+District: ${district}
 
-Email : ${email}
+Place: ${place}
+Date: ${date}
+`;
 
-Place : ${place}
 
-Date : ${date}`;
+    /* =====================================================
+       FINAL APPLICATION
+    ===================================================== */
 
-let finalApplication="";
+    let finalApplication = "";
 
-if(language=="hindi"){
 
-finalApplication=hindiApplication;
+    if(language === "hindi"){
+
+        finalApplication =
+            hindiApplication;
+
+    }
+
+    else if(language === "english"){
+
+        finalApplication =
+            englishApplication;
+
+    }
+
+
+    /* =====================================================
+       OUTPUT
+    ===================================================== */
+
+    const output =
+        document.getElementById("output");
+
+
+    if(output){
+
+        output.innerText =
+            finalApplication.trim();
+
+        output.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
 
 }
 
-else if(language=="english"){
 
-finalApplication=englishApplication;
-
-}
-
-else{
-
-finalApplication=
-hindiApplication+
-"\n\n==============================\n\n"+
-englishApplication;
-
-}
-
-document.getElementById("output").innerText=finalApplication;
-
-}
-// Copy Application
+/* =========================================================
+   COPY APPLICATION
+========================================================= */
 
 function copyApplication(){
 
-let text=document.getElementById("output").innerText;
+    const output =
+        document.getElementById("output");
 
-if(text==""){
+    if(!output){
 
-alert("पहले Application Generate करें");
+        return;
 
-return;
+    }
+
+
+    const text =
+        output.innerText.trim();
+
+
+    if(
+        text === "" ||
+        text.includes(
+            "Your Professional Application"
+        )
+    ){
+
+        alert(
+            "पहले Application Generate करें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        navigator.clipboard &&
+        window.isSecureContext
+    ){
+
+        navigator.clipboard
+        .writeText(text)
+        .then(function(){
+
+            alert(
+                "Application Copied Successfully."
+            );
+
+        })
+        .catch(function(){
+
+            copyFallback(text);
+
+        });
+
+    }
+
+    else{
+
+        copyFallback(text);
+
+    }
 
 }
 
-navigator.clipboard.writeText(text);
 
-alert("Application Copied Successfully");
+/* =========================================================
+   COPY FALLBACK
+========================================================= */
+
+function copyFallback(text){
+
+    const area =
+        document.createElement("textarea");
+
+    area.value =
+        text;
+
+    area.style.position =
+        "fixed";
+
+    area.style.left =
+        "-9999px";
+
+    document.body.appendChild(area);
+
+    area.select();
+
+    try{
+
+        document.execCommand("copy");
+
+        alert(
+            "Application Copied Successfully."
+        );
+
+    }
+
+    catch(error){
+
+        alert(
+            "Copy नहीं हो पाया। Text को manually select करके copy करें।"
+        );
+
+    }
+
+    document.body.removeChild(area);
 
 }
 
 
-
-// Print Application
+/* =========================================================
+   PRINT APPLICATION
+========================================================= */
 
 function printApplication(){
 
-let content=document.getElementById("output").innerHTML;
+    const output =
+        document.getElementById("output");
 
 
-let printWindow=window.open("");
+    if(!output){
+
+        return;
+
+    }
 
 
-printWindow.document.write(`
+    const text =
+        output.innerText.trim();
+
+
+    if(
+        text === "" ||
+        text.includes(
+            "Your Professional Application"
+        )
+    ){
+
+        alert(
+            "पहले Application Generate करें।"
+        );
+
+        return;
+
+    }
+
+
+    const printWindow =
+        window.open(
+            "",
+            "_blank"
+        );
+
+
+    if(!printWindow){
+
+        alert(
+            "Print window open नहीं हो सकी। Browser में pop-up allow करें।"
+        );
+
+        return;
+
+    }
+
+
+    const safeText =
+        text
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+
+
+    printWindow.document.write(`
+
+<!DOCTYPE html>
 
 <html>
 
 <head>
 
-<title>Application Print</title>
+<meta charset="UTF-8">
+
+<title>
+Application Print
+</title>
 
 <style>
 
 body{
 
-font-family:Arial;
-padding:40px;
-line-height:2;
-font-size:18px;
+    font-family:
+    Arial,
+    "Noto Sans Devanagari",
+    sans-serif;
+
+    padding:40px;
+
+    color:#000;
+
+    font-size:17px;
+
+    line-height:1.9;
 
 }
 
-h2{
+.application{
 
-text-align:center;
+    white-space:pre-wrap;
+
+}
+
+@media print{
+
+    body{
+
+        padding:20px;
+
+    }
 
 }
 
@@ -598,14 +2679,21 @@ text-align:center;
 
 </head>
 
-
 <body>
 
+<div class="application">
+${safeText}
+</div>
 
-<h2>Application</h2>
+<script>
 
-${content}
+window.onload=function(){
 
+    window.print();
+
+};
+
+<\/script>
 
 </body>
 
@@ -614,98 +2702,532 @@ ${content}
 `);
 
 
-printWindow.document.close();
-
-printWindow.print();
+    printWindow.document.close();
 
 }
 
 
-
-
-// Download PDF
+/* =========================================================
+   DOWNLOAD PDF
+========================================================= */
 
 function downloadPDF(){
 
+    const output =
+        document.getElementById("output");
 
-let text=document.getElementById("output").innerText;
+
+    if(!output){
+
+        return;
+
+    }
 
 
-if(text==""){
+    const text =
+        output.innerText.trim();
 
-alert("पहले Application Generate करें");
 
-return;
+    if(
+        text === "" ||
+        text.includes(
+            "Your Professional Application"
+        )
+    ){
+
+        alert(
+            "पहले Application Generate करें।"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !window.jspdf ||
+        !window.jspdf.jsPDF
+    ){
+
+        alert(
+            "PDF system load नहीं हुआ। Internet connection check करें।"
+        );
+
+        return;
+
+    }
+
+
+    const {
+        jsPDF
+    } = window.jspdf;
+
+
+    const pdf =
+        new jsPDF({
+            orientation:"p",
+            unit:"mm",
+            format:"a4"
+        });
+
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+
+    pdf.setFontSize(12);
+
+
+    const pageWidth =
+        pdf.internal.pageSize.getWidth();
+
+
+    const pageHeight =
+        pdf.internal.pageSize.getHeight();
+
+
+    const margin = 20;
+
+
+    const usableWidth =
+        pageWidth -
+        margin * 2;
+
+
+    const lines =
+        pdf.splitTextToSize(
+            text,
+            usableWidth
+        );
+
+
+    let y = 20;
+
+
+    lines.forEach(function(line){
+
+        if(
+            y >
+            pageHeight - 20
+        ){
+
+            pdf.addPage();
+
+            y = 20;
+
+        }
+
+
+        pdf.text(
+            line,
+            margin,
+            y
+        );
+
+
+        y += 7;
+
+    });
+
+
+    const name =
+        document.getElementById("name")
+        ?.value.trim()
+        || "Application";
+
+
+    const cleanName =
+        name
+        .replace(
+            /[^a-zA-Z0-9_-]/g,
+            "_"
+        );
+
+
+    pdf.save(
+        "Application_" +
+        cleanName +
+        ".pdf"
+    );
 
 }
 
 
-
-const {jsPDF}=window.jspdf;
-
-
-let pdf=new jsPDF();
-
-
-pdf.setFontSize(12);
-
-
-let lines=pdf.splitTextToSize(text,170);
-
-
-let y=20;
-
-
-lines.forEach(function(line){
-
-if(y>280){
-
-pdf.addPage();
-
-y=20;
-
-}
-
-
-pdf.text(line,20,y);
-
-y+=8;
-
-
-});
-
-
-pdf.save("Professional_Application.pdf");
-
-
-}
-
-
-
-
-
-// Clear Form
+/* =========================================================
+   CLEAR FORM
+========================================================= */
 
 function clearForm(){
 
-
-document.querySelectorAll("input,textarea").forEach(function(field){
-
-field.value="";
-
-});
+    const fields =
+        document.querySelectorAll(
+            "input, textarea"
+        );
 
 
-document.getElementById("output").innerText=
+    fields.forEach(function(field){
 
-"Your professional application will appear here...";
+        field.value = "";
+
+    });
 
 
-alert("New Application Ready");
+    const gender =
+        document.getElementById("gender");
 
+    if(gender){
+
+        gender.value =
+            "male";
+
+    }
+
+
+    const language =
+        document.getElementById("language");
+
+    if(language){
+
+        language.value =
+            "hindi";
+
+    }
+
+
+    const reason =
+        document.getElementById("reason");
+
+    if(reason){
+
+        reason.selectedIndex =
+            0;
+
+    }
+
+
+    const output =
+        document.getElementById("output");
+
+
+    if(output){
+
+        output.innerText =
+            "Your Professional Application Will Appear Here...";
+
+    }
+
+
+    document.querySelectorAll(
+        ".hindi-preview"
+    ).forEach(function(preview){
+
+        preview.innerText =
+            "Hindi Preview: -";
+
+    });
+
+
+    setReasonReceiver();
+
+
+    alert(
+        "New Application Ready."
+    );
 
 }
+
+
+/* =========================================================
+   LANGUAGE LABEL SYSTEM
+========================================================= */
+
+function updateLanguageLabels(){
+
+    const language =
+        document.getElementById("language")?.value
+        || "hindi";
+
+
+    const labels = {
+
+        genderLabel:{
+            hi:"लिंग",
+            en:"Gender"
+        },
+
+        nameLabel:{
+            hi:"आवेदक का नाम",
+            en:"Applicant Name"
+        },
+
+        fatherLabel:{
+            hi:"पिता का नाम",
+            en:"Father Name"
+        },
+
+        motherLabel:{
+            hi:"माता का नाम",
+            en:"Mother Name"
+        },
+
+        mobileLabel:{
+            hi:"मोबाइल नंबर",
+            en:"Mobile Number"
+        },
+
+        emailLabel:{
+            hi:"ईमेल",
+            en:"Email"
+        },
+
+        villageLabel:{
+            hi:"ग्राम / गाँव",
+            en:"Village"
+        },
+
+        districtLabel:{
+            hi:"जिला",
+            en:"District"
+        },
+
+        reasonLabel:{
+            hi:"आवेदन का कारण",
+            en:"Application Reason"
+        },
+
+        receiverLabel:{
+            hi:"प्राप्तकर्ता",
+            en:"Receiver"
+        },
+
+        departmentLabel:{
+            hi:"विभाग / कार्यालय",
+            en:"Department / Office"
+        },
+
+        addressLabel:{
+            hi:"पूरा पता",
+            en:"Full Address"
+        },
+
+        detailsLabel:{
+            hi:"आवेदन का पूरा विवरण",
+            en:"Application Details"
+        },
+
+        placeLabel:{
+            hi:"स्थान",
+            en:"Place"
+        },
+
+        dateLabel:{
+            hi:"दिनांक",
+            en:"Date"
+        }
+
+    };
+
+
+    Object.keys(labels)
+    .forEach(function(id){
+
+        const label =
+            document.getElementById(id);
+
+
+        if(!label){
+            return;
+        }
+
+
+        if(language === "english"){
+
+            label.innerText =
+                labels[id].en;
+
+        }
+
+        else{
+
+            label.innerText =
+                labels[id].hi;
+
+        }
+
+    });
+
+
+    updateGenderOptions();
+
+    setReasonReceiver();
+
+}
+
+
+/* =========================================================
+   GENDER LANGUAGE
+========================================================= */
+
+function updateGenderOptions(){
+
+    const gender =
+        document.getElementById("gender");
+
+
+    if(!gender){
+        return;
+    }
+
+
+    const language =
+        document.getElementById("language")?.value
+        || "hindi";
+
+
+    const current =
+        gender.value;
+
+
+    if(language === "english"){
+
+        gender.innerHTML = `
+
+            <option value="male">
+                Male
+            </option>
+
+            <option value="female">
+                Female
+            </option>
+
+            <option value="other">
+                Other
+            </option>
+
+        `;
+
+    }
+
+    else{
+
+        gender.innerHTML = `
+
+            <option value="male">
+                पुरुष
+            </option>
+
+            <option value="female">
+                महिला
+            </option>
+
+            <option value="other">
+                अन्य
+            </option>
+
+        `;
+
+    }
+
+
+    gender.value =
+        current || "male";
+
+}
+
+
+/* =========================================================
+   LANGUAGE EVENT
+========================================================= */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const language =
+            document.getElementById("language");
+
+
+        if(language){
+
+            language.addEventListener(
+                "change",
+                function(){
+
+                    updateLanguageLabels();
+
+                }
+            );
+
+        }
+
+
+        updateLanguageLabels();
+
+    }
+);
+
+
+/* =========================================================
+   DATE AUTO SET
+========================================================= */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const date =
+            document.getElementById("date");
+
+
+        if(date && !date.value){
+
+            const today =
+                new Date();
+
+
+            const year =
+                today.getFullYear();
+
+
+            const month =
+                String(
+                    today.getMonth() + 1
+                ).padStart(2,"0");
+
+
+            const day =
+                String(
+                    today.getDate()
+                ).padStart(2,"0");
+
+
+            date.value =
+                year +
+                "-" +
+                month +
+                "-" +
+                day;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   END PART 3
+========================================================= */
 </script>
 
+
 </body>
+
+</html>
+</script>
+
+
+</body>
+
 </html>
