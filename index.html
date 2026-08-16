@@ -553,7 +553,7 @@ footer{
 </h1>
 
 <p>
-Professional Hindi & English Application Maker
+Professional Hindi & English Application Maker (Online Available Site)
 </p>
 
 </header>
@@ -1221,13 +1221,14 @@ Created by Amit Kumar Singh
    WILL BE ADDED BELOW THIS LINE
 ===================================================== -->
 
+
 <script>
 
 /* =========================================================
    PART 2
    SMART HINDI + ENGLISH SYSTEM
-   NAME CONVERTER
-   RECEIVER / DEPARTMENT AUTO SYSTEM
+   NAME + KUMAR + CASTE/SURNAME
+   AUTO RECEIVER SYSTEM
 ========================================================= */
 
 
@@ -1236,6 +1237,10 @@ Created by Amit Kumar Singh
 ========================================================= */
 
 const indianNames = {
+
+    /* =========================
+       BOY NAMES
+    ========================= */
 
     amit:"अमित",
     ankit:"अंकित",
@@ -1338,6 +1343,11 @@ const indianNames = {
     anupam:"अनुपम",
     alok:"आलोक",
 
+
+    /* =========================
+       GIRL NAMES 80+
+    ========================= */
+
     pooja:"पूजा",
     puja:"पूजा",
     neha:"नेहा",
@@ -1384,29 +1394,133 @@ const indianNames = {
     isha:"ईशा",
     aarti:"आरती",
     arti:"आरती",
+    shikha:"शिखा",
+    sonali:"सोनाली",
+    monika:"मोनिका",
+    poornima:"पूर्णिमा",
+    purnima:"पूर्णिमा",
+    jyoti:"ज्योति",
+    madhuri:"माधुरी",
+    madhu:"मधु",
+    rashi:"राशि",
+    rashmi:"रश्मि",
+    ritu:"ऋतु",
+    ritika:"रितिका",
+    riya:"रिया",
+    tanya:"तान्या",
+    tanvi:"तन्वी",
+    kriti:"कृति",
+    kirti:"कीर्ति",
+    kanchan:"कंचन",
+    kajal:"काजल",
+    khushi:"खुशी",
+    khushbu:"खुशबू",
+    muskan:"मुस्कान",
+    nidhi:"निधि",
+    naina:"नैना",
+    navya:"नव्या",
+    nandini:"नंदिनी",
+    shreya:"श्रेया",
+    shriya:"श्रिया",
+    sneha:"स्नेहा",
+    swati:"स्वाति",
+    megha:"मेघा",
+    garima:"गरिमा",
+    harshita:"हर्षिता",
+    neetu:"नीतू",
+    poonam:"पूनम",
+    pinky:"पिंकी",
+    rupal:"रूपल",
+    rupali:"रूपाली",
+    shalu:"शालू",
+    shilpa:"शिल्पा",
+    shobha:"शोभा",
+    usha:"उषा",
+    uma:"उमा",
+    veena:"वीणा",
+    vidya:"विद्या",
+    vijaya:"विजया",
+    vibha:"विभा",
+    varsha:"वर्षा",
+    yamini:"यामिनी",
+    yashika:"याशिका",
+    yashvi:"यश्वी",
+    aaradhya:"आराध्या",
+    ananya:"अनन्या",
+    avani:"अवनी",
+    bhavna:"भावना",
+    bhavya:"भाव्या",
+    charu:"चारु",
+    diya:"दिया",
+    ekta:"एकता",
+    falak:"फलक",
+    ishita:"इशिता",
+    janhvi:"जान्हवी",
+    jaya:"जया",
+    kaushiki:"कौशिकी",
+    lavanya:"लावण्या",
+    mahima:"महिमा",
+    mansi:"मानसी",
+    manisha:"मनीषा",
+    mehak:"महक",
+    mohini:"मोहिनी",
+    parul:"पारुल",
+    pragya:"प्रज्ञा",
+    prarthana:"प्रार्थना",
+    riddhi:"रिद्धि",
+    roshni:"रोशनी",
+    saloni:"सलोनी",
+    sangeeta:"संगीता",
+    sarita:"सरिता",
+    sarika:"सारिका",
+    shanti:"शांति",
+    sharda:"शारदा",
+    shivani:"शिवानी",
+    shraddha:"श्रद्धा",
+    tanu:"तनु",
+    tanisha:"तनिशा",
+    tripti:"तृप्ति",
+    vaishnavi:"वैष्णवी",
+    vaidehi:"वैदेही",
+    vidhi:"विधि",
+    yogita:"योगिता"
+
+};
+
+
+/* =========================================================
+   CASTE / SURNAME DICTIONARY
+========================================================= */
+
+const casteNames = {
 
     singh:"सिंह",
     kumar:"कुमार",
     kumari:"कुमारी",
+
     sharma:"शर्मा",
     verma:"वर्मा",
     gupta:"गुप्ता",
     yadav:"यादव",
+
     mishra:"मिश्र",
     pandey:"पांडेय",
     tiwari:"तिवारी",
     tripathi:"त्रिपाठी",
     dubey:"दुबे",
     dube:"दुबे",
+
     chauhan:"चौहान",
     rajput:"राजपूत",
     thakur:"ठाकुर",
     patel:"पटेल",
+
     jaiswal:"जायसवाल",
     agarwal:"अग्रवाल",
     agrawal:"अग्रवाल",
     srivastava:"श्रीवास्तव",
     sinha:"सिन्हा",
+
     kushwaha:"कुशवाहा",
     maurya:"मौर्य",
     soni:"सोनी",
@@ -1414,7 +1528,29 @@ const indianNames = {
     saini:"सैनी",
     rajbhar:"राजभर",
     pal:"पाल",
-    gujjar:"गुर्जर"
+    gujjar:"गुर्जर",
+
+    rathore:"राठौर",
+    tomar:"तोमर",
+    solanki:"सोलंकी",
+    bhardwaj:"भारद्वाज",
+    saxena:"सक्सेना",
+    mathur:"माथुर",
+    srivastav:"श्रीवास्तव",
+    agnihotri:"अग्निहोत्री",
+    bajpai:"बाजपेयी",
+    vajpayee:"बाजपेयी",
+    awasthi:"अवस्थी",
+    dwivedi:"द्विवेदी",
+    chaturvedi:"चतुर्वेदी",
+    upadhyay:"उपाध्याय",
+    pathak:"पाठक",
+    ojha:"ओझा",
+    rai:"राय",
+    roy:"रॉय",
+    das:"दास",
+    kumar:"कुमार"
+
 };
 
 
@@ -1449,36 +1585,7 @@ const indianPlaces = {
 
 
 /* =========================================================
-   COMMON WORD DICTIONARY
-========================================================= */
-
-const commonWords = {
-
-    village:"गाँव",
-    gaon:"गाँव",
-    post:"पोस्ट",
-    police:"पुलिस",
-    station:"थाना",
-    district:"जिला",
-    tehsil:"तहसील",
-    block:"विकास खंड",
-    road:"सड़क",
-    market:"बाज़ार",
-    school:"विद्यालय",
-    college:"महाविद्यालय",
-    bank:"बैंक",
-    office:"कार्यालय",
-    near:"के पास",
-    house:"मकान",
-    road:"रोड",
-    nagar:"नगर",
-    mohalla:"मोहल्ला",
-    gram:"ग्राम"
-};
-
-
-/* =========================================================
-   PHONETIC CONVERTER
+   SMART PHONETIC HINDI
 ========================================================= */
 
 function phoneticHindi(word){
@@ -1495,18 +1602,13 @@ function phoneticHindi(word){
         return indianNames[w];
     }
 
+    if(casteNames[w]){
+        return casteNames[w];
+    }
+
     if(indianPlaces[w]){
         return indianPlaces[w];
     }
-
-    if(commonWords[w]){
-        return commonWords[w];
-    }
-
-
-    /*
-       Long combinations पहले
-    */
 
     const rules = [
 
@@ -1562,27 +1664,23 @@ function phoneticHindi(word){
 
     ];
 
-
     let result = w;
-
 
     rules.forEach(function(rule){
 
-        result =
-            result.replace(
-                rule[0],
-                rule[1]
-            );
+        result = result.replace(
+            rule[0],
+            rule[1]
+        );
 
     });
-
 
     return result;
 }
 
 
 /* =========================================================
-   SMART HINDI
+   FULL SMART CONVERSION
 ========================================================= */
 
 function smartHindi(text){
@@ -1591,53 +1689,32 @@ function smartHindi(text){
         return "";
     }
 
-
     text = text.trim();
 
-
-    /*
-       अगर पहले से Hindi है
-    */
-
     if(/[\u0900-\u097F]/.test(text)){
-
         return text;
-
     }
 
-
-    let lower =
-        text
+    let lower = text
         .toLowerCase()
         .replace(/\s+/g," ")
         .trim();
-
-
-    /*
-       पूरा नाम dictionary में
-    */
 
     if(indianNames[lower]){
         return indianNames[lower];
     }
 
+    if(casteNames[lower]){
+        return casteNames[lower];
+    }
 
     if(indianPlaces[lower]){
         return indianPlaces[lower];
     }
 
-
-    if(commonWords[lower]){
-        return commonWords[lower];
-    }
-
-
-    let words =
-        lower.split(/\s+/);
-
+    let words = lower.split(/\s+/);
 
     let converted = [];
-
 
     words.forEach(function(word){
 
@@ -1649,18 +1726,18 @@ function smartHindi(text){
 
         }
 
-        else if(indianPlaces[word]){
+        else if(casteNames[word]){
 
             converted.push(
-                indianPlaces[word]
+                casteNames[word]
             );
 
         }
 
-        else if(commonWords[word]){
+        else if(indianPlaces[word]){
 
             converted.push(
-                commonWords[word]
+                indianPlaces[word]
             );
 
         }
@@ -1675,14 +1752,12 @@ function smartHindi(text){
 
     });
 
-
     return converted.join(" ");
-
 }
 
 
 /* =========================================================
-   PREVIEW SETUP
+   HINDI PREVIEW
 ========================================================= */
 
 function setupHindiPreview(
@@ -1696,17 +1771,14 @@ function setupHindiPreview(
     const preview =
         document.getElementById(previewId);
 
-
     if(!input || !preview){
         return;
     }
 
-
     function updatePreview(){
 
-        const value =
+        let value =
             input.value.trim();
-
 
         if(value === ""){
 
@@ -1714,9 +1786,7 @@ function setupHindiPreview(
                 "Hindi Preview: -";
 
             return;
-
         }
-
 
         preview.innerText =
             "Hindi Preview: " +
@@ -1724,16 +1794,71 @@ function setupHindiPreview(
 
     }
 
-
     input.addEventListener(
         "input",
         updatePreview
     );
 
-
     updatePreview();
 
 }
+
+
+/* =========================================================
+   START PREVIEWS
+========================================================= */
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        setupHindiPreview(
+            "name",
+            "nameHindi"
+        );
+
+        setupHindiPreview(
+            "father",
+            "fatherHindi"
+        );
+
+        setupHindiPreview(
+            "mother",
+            "motherHindi"
+        );
+
+        setupHindiPreview(
+            "village",
+            "villageHindi"
+        );
+
+        setupHindiPreview(
+            "district",
+            "districtHindi"
+        );
+
+        setupHindiPreview(
+            "receiver",
+            "receiverHindi"
+        );
+
+        setupHindiPreview(
+            "department",
+            "departmentHindi"
+        );
+
+        setupHindiPreview(
+            "address",
+            "addressHindi"
+        );
+
+        setupHindiPreview(
+            "place",
+            "placeHindi"
+        );
+
+    }
+);
 
 
 /* =========================================================
@@ -1998,56 +2123,46 @@ function setReasonReceiver(){
     const department =
         document.getElementById("department");
 
-    const language =
-        document.getElementById("language");
-
-
-    if(!reason){
+    if(!reason || !receiver){
         return;
     }
 
-
     const data =
         receiverDatabase[reason.value];
-
 
     if(!data){
         return;
     }
 
+    const language =
+        document.getElementById("language")?.value
+        || "hindi";
 
-    const lang =
-        language?.value || "hindi";
-
-
-    if(receiver){
+    if(language === "english"){
 
         receiver.value =
-            lang === "english"
-            ? data.en
-            : data.hi;
+            data.en;
+
+        if(department){
+            department.value =
+                data.deptEn;
+        }
+
+    }else{
+
+        receiver.value =
+            data.hi;
+
+        if(department){
+            department.value =
+                data.deptHi;
+        }
 
     }
 
-
-    if(department){
-
-        department.value =
-            lang === "english"
-            ? data.deptEn
-            : data.deptHi;
-
-    }
-
-
-    if(receiver){
-
-        receiver.dispatchEvent(
-            new Event("input")
-        );
-
-    }
-
+    receiver.dispatchEvent(
+        new Event("input")
+    );
 
     if(department){
 
@@ -2061,96 +2176,45 @@ function setReasonReceiver(){
 
 
 /* =========================================================
-   INITIALIZE PART 2
+   REASON + LANGUAGE EVENTS
 ========================================================= */
 
 window.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        setupHindiPreview(
-            "name",
-            "nameHindi"
-        );
-
-        setupHindiPreview(
-            "father",
-            "fatherHindi"
-        );
-
-        setupHindiPreview(
-            "mother",
-            "motherHindi"
-        );
-
-        setupHindiPreview(
-            "village",
-            "villageHindi"
-        );
-
-        setupHindiPreview(
-            "district",
-            "districtHindi"
-        );
-
-        setupHindiPreview(
-            "receiver",
-            "receiverHindi"
-        );
-
-        setupHindiPreview(
-            "department",
-            "departmentHindi"
-        );
-
-        setupHindiPreview(
-            "address",
-            "addressHindi"
-        );
-
-        setupHindiPreview(
-            "place",
-            "placeHindi"
-        );
-
-
         const reason =
             document.getElementById("reason");
 
+        const language =
+            document.getElementById("language");
 
         if(reason){
 
             reason.addEventListener(
                 "change",
-                setReasonReceiver
+                function(){
+                    setReasonReceiver();
+                }
             );
 
         }
-
-
-        const language =
-            document.getElementById("language");
-
 
         if(language){
 
             language.addEventListener(
                 "change",
-                setReasonReceiver
+                function(){
+                    setReasonReceiver();
+                }
             );
 
         }
-
 
         setReasonReceiver();
 
     }
 );
-
-
-/* =========================================================
-   END PART 2
-========================================================= */
 /* =========================================================
    PART 3
    APPLICATION GENERATOR
@@ -3219,14 +3283,7 @@ window.addEventListener(
 /* =========================================================
    END PART 3
 ========================================================= */
-</script>
-
-
-</body>
-
-</html>
-</script>
-
+       </script>
 
 </body>
 
