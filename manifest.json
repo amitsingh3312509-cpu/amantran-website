@@ -1,3 +1,4 @@
+</script>
 const CACHE_NAME = "application-website-v1";
 
 self.addEventListener("install", function(event) {
@@ -21,3 +22,4 @@ self.addEventListener("fetch", function(event) {
     })
   );
 });
+</script>
