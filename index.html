@@ -2,7 +2,11 @@
 <html lang="hi">
 
 <head>
-
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0d6efd">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -3503,6 +3507,24 @@ window.addEventListener(
 /* =========================================================
    END PART 3
 ========================================================= */
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(function (registration) {
+                console.log(
+                    "Service Worker Registered:",
+                    registration.scope
+                );
+            })
+            .catch(function (error) {
+                console.error(
+                    "Service Worker Error:",
+                    error
+                );
+            });
+    });
+}
 </script>
 
 </body>
