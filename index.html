@@ -3286,7 +3286,8 @@ window.addEventListener(
 /* =========================================================
    END PART 3
 ========================================================= */
-if ("serviceWorker" in navigator) {
+
+   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
         navigator.serviceWorker.register("./service-worker.js")
         .then(function () {
