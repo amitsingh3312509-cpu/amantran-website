@@ -1,3530 +1,2365 @@
 <!DOCTYPE html>
-<html lang="hi">
-
+<html lang="en">
 <head>
- <meta name="content" content="default">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<link rel="manifest" href="./manifest.json">
-<meta name="theme-color" content="#0d6efd">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Smart Online Application Generator</title>
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href=
-"https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-
-<script src=
-"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
-</script>
-
+<title>Amit Cake House | Amit Kumar Singh</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:Arial,sans-serif;
 }
 
-
-/* =====================================================
-   BODY
-===================================================== */
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-    background:#eef5ff;
+    background:#fff7fb;
     color:#222;
-    min-height:100vh;
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 header{
-    background:linear-gradient(
-        135deg,
-        #003366,
-        #0066ff
-    );
-
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#8b005d;
     color:white;
-    text-align:center;
-    padding:25px 15px;
-
-    box-shadow:
-    0 5px 18px
-    rgba(0,0,0,.20);
+    box-shadow:0 3px 15px #0003;
 }
 
-header h1{
-    font-size:30px;
-    font-weight:700;
-}
-
-header p{
-    margin-top:7px;
-    font-size:15px;
-}
-
-
-/* =====================================================
-   MOVING BANNER
-===================================================== */
-
-marquee{
-    background:#ff6a00;
-    color:white;
-    padding:9px;
-    font-weight:600;
-    font-size:14px;
-}
-
-
-/* =====================================================
-   MAIN CONTAINER
-===================================================== */
-
-.container{
-    width:95%;
-    max-width:1150px;
-    margin:22px auto;
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:
-    0 10px 30px
-    rgba(0,0,0,.14);
-}
-
-
-/* =====================================================
-   TITLE
-===================================================== */
-
-.title{
-    text-align:center;
-    color:#003366;
-    margin-bottom:20px;
-    font-size:27px;
-}
-
-
-/* =====================================================
-   LANGUAGE BOX
-===================================================== */
-
-.language-box{
-    background:#f2f7ff;
-
-    border:1px solid #d7e5ff;
-
-    padding:15px;
-
-    border-radius:13px;
-
-    margin-bottom:20px;
-}
-
-.language-box h3{
-    color:#003366;
-    margin-bottom:8px;
-    font-size:17px;
-}
-
-
-/* =====================================================
-   GRID
-===================================================== */
-
-.grid{
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr;
-
-    gap:17px;
-}
-
-
-/* =====================================================
-   FULL WIDTH
-===================================================== */
-
-.full{
-    grid-column:1 / 3;
-}
-
-
-/* =====================================================
-   LABEL
-===================================================== */
-
-label{
-    display:block;
-
-    margin-bottom:6px;
-
-    font-weight:600;
-
-    color:#222;
-
-    font-size:14px;
-}
-
-
-/* =====================================================
-   INPUT / SELECT / TEXTAREA
-===================================================== */
-
-input,
-select,
-textarea{
-
-    width:100%;
-
-    padding:11px;
-
-    border:1px solid #ccc;
-
-    border-radius:9px;
-
-    font-size:14px;
-
-    outline:none;
-
-    background:white;
-}
-
-
-input:focus,
-select:focus,
-textarea:focus{
-
-    border-color:#0066ff;
-
-    box-shadow:
-    0 0 0 2px
-    rgba(0,102,255,.10);
-}
-
-
-/* =====================================================
-   TEXTAREA
-===================================================== */
-
-textarea{
-
-    min-height:100px;
-
-    resize:vertical;
-}
-
-
-/* =====================================================
-   HINDI PREVIEW
-===================================================== */
-
-.hindi-preview{
-
-    margin-top:5px;
-
-    padding:5px 8px;
-
-    background:#fff8e8;
-
-    border-radius:6px;
-
-    color:#7a5200;
-
-    font-size:12px;
-
-    min-height:25px;
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.btn{
-
-    width:100%;
-
-    padding:13px;
-
-    background:#0066ff;
-
-    color:white;
-
-    border:none;
-
-    border-radius:9px;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.btn:hover{
-
-    background:#004dcc;
-
-    transform:translateY(-1px);
-}
-
-
-/* =====================================================
-   BUTTON GROUP
-===================================================== */
-
-.btn-group{
-
+.header{
+    max-width:1200px;
+    margin:auto;
+    min-height:65px;
+    padding:10px 5%;
     display:flex;
-
-    gap:9px;
-
-    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.btn-group button{
-
-    flex:1;
-
-    min-width:120px;
-
-    padding:11px;
-
-    border:none;
-
-    border-radius:9px;
-
-    background:#0066ff;
-
-    color:white;
-
-    cursor:pointer;
-
-    font-size:14px;
-}
-
-.btn-group button:hover{
-
-    background:#004dcc;
-}
-
-
-/* =====================================================
-   OUTPUT
-===================================================== */
-
-#output{
-
-    margin-top:15px;
-
-    border:1px solid #ccc;
-
-    padding:18px;
-
-    min-height:280px;
-
-    border-radius:9px;
-
-    line-height:1.45;
-
-    white-space:pre-wrap;
-
-    background:#fff;
-
-    font-size:13px;
-
-    overflow-wrap:break-word;
-}
-
-
-/* =====================================================
-   APPLICATION PAGE
-===================================================== */
-
-.application-page{
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-
-    line-height:1.4;
-
-    color:#111;
-}
-
-.application-page p{
-
-    margin:3px 0;
-}
-
-.application-page .subject{
-
-    margin:7px 0;
-
+.logo{
+    font-size:23px;
     font-weight:bold;
 }
 
-.application-page .body{
-
-    margin-top:7px;
-
-    text-align:justify;
+nav{
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
 
-/* =====================================================
-   FOOTER
-===================================================== */
+.language{
+    padding:9px;
+    border:0;
+    border-radius:7px;
+}
 
-footer{
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
 
-    background:#003366;
+/* NOTICE */
 
+.notice{
+    background:#ffd633;
+    color:#650044;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:9px;
+    font-weight:bold;
+}
+
+.notice span{
+    display:inline-block;
+    animation:scrollText 18s linear infinite;
+}
+
+@keyframes scrollText{
+    from{
+        transform:translateX(100%);
+    }
+    to{
+        transform:translateX(-100%);
+    }
+}
+
+/* HERO */
+
+.hero{
+    min-height:460px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
     color:white;
 
+    background:
+    linear-gradient(#780052bb,#e22c8bbb),
+    radial-gradient(circle,#ffd1e8,#8b005d);
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.main-btn{
+    display:inline-block;
+    background:#ffd633;
+    color:#650044;
+    padding:13px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* SECTION */
+
+.section{
+    padding:55px 5%;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section h2{
     text-align:center;
+    color:#8b005d;
+    font-size:32px;
+    margin-bottom:30px;
+}
 
+/* ABOUT */
+
+.about{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    line-height:1.8;
+    font-size:17px;
+}
+
+/* CAKES */
+
+.cake-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.cake-card{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 5px 20px #8b005d22;
+    transition:.3s;
+}
+
+.cake-card:hover{
+    transform:translateY(-6px);
+}
+
+.cake-image{
+    height:160px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ffd6e9,#fff1f7);
+    font-size:75px;
+    margin-bottom:15px;
+}
+
+.cake-card h3{
+    color:#8b005d;
+    margin-bottom:8px;
+}
+
+.price{
+    color:#d00067;
+    font-size:24px;
+    font-weight:bold;
+    margin:13px;
+}
+
+.add-btn{
+    border:0;
+    background:#008a43;
+    color:white;
+    padding:11px 20px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.add-btn:hover{
+    background:#006c35;
+}
+
+/* ORDER */
+
+.order-section{
+    background:#4c0035;
+    color:white;
+}
+
+.order-section h2{
+    color:#ffd633;
+}
+
+.order-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.cart-box,
+.order-form{
+    background:white;
+    color:#222;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px #0003;
+}
+
+.cart-box h3,
+.order-form h3{
+    color:#8b005d;
+    margin-bottom:20px;
+}
+
+/* CART */
+
+.cart-item{
+    padding:13px 0;
+    border-bottom:1px solid #ddd;
+    display:grid;
+    grid-template-columns:1fr auto auto auto;
+    align-items:center;
+    gap:8px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.qty button{
+    width:30px;
+    height:30px;
+    border:0;
+    border-radius:5px;
+    background:#8b005d;
+    color:white;
+    cursor:pointer;
+}
+
+.remove-btn{
+    border:0;
+    background:#d00000;
+    color:white;
+    padding:7px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.total{
+    border-top:2px solid #8b005d;
+    margin-top:20px;
+    padding-top:15px;
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    margin:9px 0;
+}
+
+.grand-total{
+    color:#008a43;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* FORM */
+
+.order-form label{
+    display:block;
+    margin-top:11px;
+    font-weight:bold;
+    color:#555;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.order-form textarea{
+    min-height:80px;
+    resize:vertical;
+}
+
+/* PAYMENT */
+
+.payment-box{
+    margin-top:20px;
     padding:18px;
+    border:2px solid #8b005d;
+    border-radius:12px;
+    background:#fff5fa;
+    text-align:center;
+}
 
-    margin-top:25px;
+.payment-box h3{
+    color:#8b005d;
+}
 
+.pay-amount{
+    margin:15px 0;
+    font-size:18px;
+}
+
+.pay-amount strong{
+    color:#008a43;
+    font-size:25px;
+}
+
+.pay-btn{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:9px;
+    background:#008a43;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.payment-status{
+    margin-top:12px;
+    padding:10px;
+    border-radius:8px;
+    background:#fff3cd;
+    color:#664d03;
     font-size:14px;
 }
 
+.upi-id{
+    margin-top:12px;
+    color:#555;
+    word-break:break-all;
+}
 
-/* =====================================================
-   MOBILE
-===================================================== */
+.submit-btn,
+.whatsapp-btn{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:9px;
+    margin-top:15px;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-@media(max-width:768px){
+.submit-btn{
+    background:#0066ff;
+}
 
-    header h1{
-        font-size:23px;
+.whatsapp-btn{
+    background:#25d366;
+}
+
+.note{
+    color:#777;
+    font-size:13px;
+    margin-top:8px;
+}
+
+/* OFFERS */
+
+.offer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.offer{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:16px;
+    box-shadow:0 5px 18px #0002;
+}
+
+.offer h3{
+    color:#8b005d;
+    margin-bottom:10px;
+}
+
+.offer strong{
+    display:block;
+    color:#d00067;
+    font-size:25px;
+    margin-top:10px;
+}
+
+/* CONTACT */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.contact-card{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:16px;
+    box-shadow:0 5px 18px #0002;
+}
+
+.contact-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.contact-card h3{
+    color:#8b005d;
+    margin-bottom:10px;
+}
+
+.contact-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:10px 18px;
+    background:#8b005d;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#26001c;
+    color:white;
+    text-align:center;
+    padding:30px 15px;
+}
+
+footer p{
+    margin:8px;
+}
+
+/* FLOATING */
+
+.floating{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:999;
+}
+
+.float{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:white;
+    font-size:24px;
+}
+
+.float-whatsapp{
+    background:#25d366;
+}
+
+.float-call{
+    background:#0066ff;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background:#8b005d;
+        flex-direction:column;
+        padding:20px;
     }
 
-    .container{
-        padding:17px;
+    nav.active{
+        display:flex;
     }
 
-    .grid{
+    .menu-btn{
+        display:block;
+    }
+
+    .cake-grid,
+    .offer-grid,
+    .contact-grid,
+    .order-layout{
         grid-template-columns:1fr;
     }
 
-    .full{
-        grid-column:1;
+    .hero h1{
+        font-size:34px;
     }
 
-    .title{
-        font-size:22px;
+    .hero p{
+        font-size:17px;
     }
 
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media(max-width:480px){
-
-    header{
-        padding:20px 10px;
+    .cart-item{
+        grid-template-columns:1fr auto;
     }
-
-    header h1{
-        font-size:20px;
-    }
-
-    header p{
-        font-size:13px;
-    }
-
-    .container{
-        width:96%;
-        padding:13px;
-    }
-
-    #output{
-        padding:13px;
-        font-size:12px;
-        line-height:1.4;
-        min-height:240px;
-    }
-
-    .btn-group button{
-        min-width:100px;
-        font-size:13px;
-    }
-
-}
-
-
-/* =====================================================
-   PRINT
-===================================================== */
-
-@media print{
-
-    body{
-        background:white;
-    }
-
-    header,
-    marquee,
-    .language-box,
-    .grid,
-    footer,
-    .title{
-        display:none !important;
-    }
-
-    .container{
-        width:100%;
-        max-width:none;
-        margin:0;
-        padding:0;
-        box-shadow:none;
-        border:none;
-    }
-
-    #output{
-        border:none;
-        padding:10px;
-        margin:0;
-        min-height:0;
-        font-size:12px;
-        line-height:1.35;
-    }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-   HEADER
-===================================================== -->
+<!-- HEADER -->
 
 <header>
 
-<h1>
-📝 Smart Online Application Generator
-</h1>
+<div class="header">
 
-<p>
-Professional Hindi & English Application Maker
-</p>
+<div class="logo">
+🎂 Amit's Cake House
+</div>
+
+<div class="menu-btn" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="navMenu">
+
+<a href="#home"
+data-en="Home"
+data-hi="होम">Home</a>
+
+<a href="#cakes"
+data-en="Cakes"
+data-hi="केक">Cakes</a>
+
+<a href="#order"
+data-en="Order"
+data-hi="ऑर्डर">Order</a>
+
+<a href="#offers"
+data-en="Offers"
+data-hi="ऑफर">Offers</a>
+
+<a href="#contact"
+data-en="Contact"
+data-hi="संपर्क">Contact</a>
+
+<select id="languageSelect"
+class="language"
+onchange="changeLanguage(this.value)">
+
+<option value="en">English 🇬🇧</option>
+<option value="hi">हिंदी 🇮🇳</option>
+
+</select>
+
+</nav>
+
+</div>
 
 </header>
 
 
-<!-- =====================================================
-   BANNER
-===================================================== -->
+<!-- NOTICE -->
 
-<marquee>
+<div class="notice">
 
-Hindi | English | Police | Tehsil | Bank | School |
-College | Government Office | Complaint | Certificate |
-PDF | Print | Copy
+<span
+data-en="🎂 Fresh Cakes • Birthday Cakes • Custom Cakes • Online UPI Payment • Home Delivery • Order Now!"
+data-hi="🎂 ताज़ा केक • बर्थडे केक • कस्टम केक • ऑनलाइन UPI भुगतान • होम डिलीवरी • अभी ऑर्डर करें!">
 
-</marquee>
+🎂 Fresh Cakes • Birthday Cakes • Custom Cakes • Online UPI Payment • Home Delivery • Order Now!
+
+</span>
+
+</div>
 
 
-<!-- =====================================================
-   MAIN
-===================================================== -->
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+<div>
+
+<h1
+data-en="Amit's Cake House 🎂"
+data-hi="अमित केक हाउस 🎂">
+
+Amit's Cake House 🎂
+
+</h1>
+
+<p
+data-en="Fresh Cakes • Beautiful Designs • Online Delivery"
+data-hi="ताज़ा केक • सुंदर डिजाइन • ऑनलाइन डिलीवरी">
+
+Fresh Cakes • Beautiful Designs • Online Delivery
+
+</p>
+
+<a href="#cakes"
+class="main-btn"
+data-en="View Cakes 🎂"
+data-hi="केक देखें 🎂">
+
+View Cakes 🎂
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section">
 
 <div class="container">
 
+<h2
+data-en="About Our Cake Shop"
+data-hi="हमारी केक शॉप के बारे में">
 
-<h2 class="title">
-
-Application Form / आवेदन फॉर्म
+About Our Cake Shop
 
 </h2>
 
+<div class="about">
 
-<!-- =====================================================
-   LANGUAGE
-===================================================== -->
+<p
+data-en="Welcome to Amit's Cake House. We provide fresh and delicious cakes for birthdays, celebrations and special occasions. Select your favourite cake, add it to your cart and place your order online."
+data-hi="अमित केक हाउस में आपका स्वागत है। हम जन्मदिन, समारोह और विशेष अवसरों के लिए ताज़ा और स्वादिष्ट केक उपलब्ध कराते हैं। अपना पसंदीदा केक चुनें, कार्ट में जोड़ें और ऑनलाइन ऑर्डर करें।">
 
-<div class="language-box">
+Welcome to Amit's Cake House. We provide fresh and delicious cakes for birthdays, celebrations and special occasions. Select your favourite cake, add it to your cart and place your order online.
 
-<h3 id="languageTitle">
+</p>
 
-🌐 Select Application Language
+<br>
+
+<p>
+<strong>Owner:</strong>
+Amit Kumar Singh
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CAKE MENU -->
+
+<section id="cakes" class="section">
+
+<div class="container">
+
+<h2
+data-en="Our Cake Menu 🎂"
+data-hi="हमारा केक मेन्यू 🎂">
+
+Our Cake Menu 🎂
+
+</h2>
+
+<div class="cake-grid">
+
+
+<div class="cake-card">
+
+<div class="cake-image">🎂</div>
+
+<h3
+data-en="Birthday Cake"
+data-hi="बर्थडे केक">
+Birthday Cake
+</h3>
+
+<p
+data-en="Perfect for birthday celebrations"
+data-hi="जन्मदिन के लिए शानदार">
+Perfect for birthday celebrations
+</p>
+
+<div class="price">₹499</div>
+
+<button class="add-btn"
+onclick="addCart('Birthday Cake',499)">
+🛒 Add to Cart
+</button>
+
+</div>
+
+
+<div class="cake-card">
+
+<div class="cake-image">🍫</div>
+
+<h3
+data-en="Chocolate Cake"
+data-hi="चॉकलेट केक">
+Chocolate Cake
+</h3>
+
+<p
+data-en="Rich chocolate flavour"
+data-hi="रिच चॉकलेट फ्लेवर">
+Rich chocolate flavour
+</p>
+
+<div class="price">₹599</div>
+
+<button class="add-btn"
+onclick="addCart('Chocolate Cake',599)">
+🛒 Add to Cart
+</button>
+
+</div>
+
+
+<div class="cake-card">
+
+<div class="cake-image">🍓</div>
+
+<h3
+data-en="Strawberry Cake"
+data-hi="स्ट्रॉबेरी केक">
+Strawberry Cake
+</h3>
+
+<p
+data-en="Fresh strawberry flavour"
+data-hi="फ्रेश स्ट्रॉबेरी फ्लेवर">
+Fresh strawberry flavour
+</p>
+
+<div class="price">₹549</div>
+
+<button class="add-btn"
+onclick="addCart('Strawberry Cake',549)">
+🛒 Add to Cart
+</button>
+
+</div>
+
+
+<div class="cake-card">
+
+<div class="cake-image">🍍</div>
+
+<h3
+data-en="Pineapple Cake"
+data-hi="पाइनएप्पल केक">
+Pineapple Cake
+</h3>
+
+<p
+data-en="Fresh pineapple flavour"
+data-hi="फ्रेश पाइनएप्पल फ्लेवर">
+Fresh pineapple flavour
+</p>
+
+<div class="price">₹499</div>
+
+<button class="add-btn"
+onclick="addCart('Pineapple Cake',499)">
+🛒 Add to Cart
+</button>
+
+</div>
+
+
+<div class="cake-card">
+
+<div class="cake-image">❤️</div>
+
+<h3
+data-en="Red Velvet Cake"
+data-hi="रेड वेलवेट केक">
+Red Velvet Cake
+</h3>
+
+<p
+data-en="Premium red velvet flavour"
+data-hi="प्रीमियम रेड वेलवेट फ्लेवर">
+Premium red velvet flavour
+</p>
+
+<div class="price">₹699</div>
+
+<button class="add-btn"
+onclick="addCart('Red Velvet Cake',699)">
+🛒 Add to Cart
+</button>
+
+</div>
+
+
+<div class="cake-card">
+
+<div class="cake-image">🎨</div>
+
+<h3
+data-en="Custom Cake"
+data-hi="कस्टम केक">
+Custom Cake
+</h3>
+
+<p
+data-en="Special design according to your choice"
+data-hi="आपकी पसंद के अनुसार विशेष डिजाइन">
+Special design according to your choice
+</p>
+
+<div class="price">₹799</div>
+
+<button class="add-btn"
+onclick="addCart('Custom Cake',799)">
+🛒 Add to Cart
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<section id="order"
+class="section order-section">
+
+<div class="container">
+
+<h2
+data-en="Online Cake Order 🛒"
+data-hi="ऑनलाइन केक ऑर्डर 🛒">
+
+Online Cake Order 🛒
+
+</h2>
+
+<div class="order-layout">
+
+
+<!-- CART -->
+
+<div class="cart-box">
+
+<h3
+data-en="🛒 Your Cart"
+data-hi="🛒 आपका कार्ट">
+
+🛒 Your Cart
+
+</h3>
+
+<div id="cartItems">
+
+<p>
+🛒 Cart is empty / कार्ट खाली है
+</p>
+
+</div>
+
+
+<div class="total">
+
+<div class="total-row">
+
+<span
+data-en="Cake Total"
+data-hi="केक टोटल">
+Cake Total
+</span>
+
+<strong id="cakeTotal">₹0</strong>
+
+</div>
+
+
+<div class="total-row">
+
+<span
+data-en="Delivery Charge"
+data-hi="डिलीवरी चार्ज">
+Delivery Charge
+</span>
+
+<strong id="deliveryAmount">₹0</strong>
+
+</div>
+
+
+<div class="total-row grand-total">
+
+<span
+data-en="Grand Total"
+data-hi="कुल राशि">
+Grand Total
+</span>
+
+<strong id="grandTotal">₹0</strong>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FORM -->
+
+<div class="order-form">
+
+<h3
+data-en="📝 Customer Order Form"
+data-hi="📝 ग्राहक ऑर्डर फॉर्म">
+
+📝 Customer Order Form
 
 </h3>
 
 
-<select id="language">
+<form
+id="cakeOrderForm"
+action="https://formsubmit.co/YOUR_EMAIL@gmail.com"
+method="POST"
+onsubmit="return prepareOrder()">
 
-<option value="hindi">
-🇮🇳 हिन्दी
+
+<input type="hidden"
+name="_subject"
+value="New Cake Order - Amit Cake House">
+
+<input type="hidden"
+name="_captcha"
+value="false">
+
+<input type="hidden"
+name="_template"
+value="table">
+
+<input type="hidden"
+id="orderItems"
+name="Order Items">
+
+<input type="hidden"
+id="cakeTotalInput"
+name="Cake Total">
+
+<input type="hidden"
+id="deliveryInput"
+name="Delivery Charge">
+
+<input type="hidden"
+id="grandTotalInput"
+name="Grand Total">
+
+<input type="hidden"
+id="paymentStatus"
+name="Payment Status"
+value="Not Paid">
+
+
+<label
+data-en="Customer Name"
+data-hi="ग्राहक का नाम">
+Customer Name
+</label>
+
+<input type="text"
+name="Customer Name"
+placeholder="Enter your name / अपना नाम"
+required>
+
+
+<label
+data-en="Mobile Number"
+data-hi="मोबाइल नंबर">
+Mobile Number
+</label>
+
+<input type="tel"
+name="Mobile Number"
+placeholder="10 digit mobile number"
+pattern="[0-9]{10}"
+required>
+
+
+<label
+data-en="Email"
+data-hi="ईमेल">
+Email
+</label>
+
+<input type="email"
+name="Email"
+placeholder="example@gmail.com">
+
+
+<label
+data-en="Delivery Date"
+data-hi="डिलीवरी की तारीख">
+Delivery Date
+</label>
+
+<input type="date"
+id="deliveryDate"
+name="Delivery Date"
+required>
+
+
+<label
+data-en="Delivery Time"
+data-hi="डिलीवरी का समय">
+Delivery Time
+</label>
+
+<input type="time"
+id="deliveryTime"
+name="Delivery Time"
+required>
+
+
+<label
+data-en="Village / Area"
+data-hi="गाँव / क्षेत्र">
+Village / Area
+</label>
+
+<input type="text"
+name="Village / Area"
+placeholder="Village / Area / गाँव"
+required>
+
+
+<label
+data-en="Pincode"
+data-hi="पिनकोड">
+Pincode
+</label>
+
+<input type="text"
+name="Pincode"
+placeholder="6 digit pincode"
+pattern="[0-9]{6}"
+required>
+
+
+<label
+data-en="Delivery Charge"
+data-hi="डिलीवरी चार्ज">
+Delivery Charge
+</label>
+
+<select
+id="deliveryCharge"
+name="Delivery Area Charge"
+onchange="updateTotal()">
+
+<option value="0">
+Pickup / दुकान से लें — ₹0
 </option>
 
-<option value="english">
-🇬🇧 English
+<option value="20">
+0–3 KM — ₹20
+</option>
+
+<option value="40">
+3–7 KM — ₹40
+</option>
+
+<option value="60">
+7–12 KM — ₹60
+</option>
+
+<option value="100">
+12 KM+ — ₹100
 </option>
 
 </select>
 
-</div>
 
-
-<!-- =====================================================
-   FORM
-===================================================== -->
-
-<div class="grid">
-
-
-<!-- GENDER -->
-
-<div>
-
-<label id="genderLabel">
-
-लिंग / Gender
-
+<label
+data-en="Full Address"
+data-hi="पूरा पता">
+Full Address
 </label>
-
-
-<select id="gender">
-
-<option value="male">
-👨 पुरुष / Male
-</option>
-
-<option value="female">
-👩 महिला / Female
-</option>
-
-<option value="other">
-⚧ अन्य / Other
-</option>
-
-</select>
-
-</div>
-
-
-<!-- NAME -->
-
-<div>
-
-<label id="nameLabel">
-
-आवेदक का नाम / Applicant Name
-
-</label>
-
-
-<input
-type="text"
-id="name"
-placeholder="अपना नाम लिखें / Enter your name"
->
-
-
-<div
-class="hindi-preview"
-id="nameHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- FATHER -->
-
-<div>
-
-<label id="fatherLabel">
-
-पिता का नाम / Father Name
-
-</label>
-
-
-<input
-type="text"
-id="father"
-placeholder="पिता का नाम लिखें / Enter father's name"
->
-
-
-<div
-class="hindi-preview"
-id="fatherHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- MOTHER -->
-
-<div>
-
-<label id="motherLabel">
-
-माता का नाम / Mother Name
-
-</label>
-
-
-<input
-type="text"
-id="mother"
-placeholder="माता का नाम लिखें / Enter mother's name"
->
-
-
-<div
-class="hindi-preview"
-id="motherHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- MOBILE -->
-
-<div>
-
-<label id="mobileLabel">
-
-मोबाइल नंबर / Mobile Number
-
-</label>
-
-
-<input
-type="tel"
-id="mobile"
-maxlength="10"
-placeholder="10 अंकों का मोबाइल नंबर"
->
-
-</div>
-
-
-<!-- EMAIL -->
-
-<div>
-
-<label id="emailLabel">
-
-ईमेल / Email
-
-</label>
-
-
-<input
-type="email"
-id="email"
-placeholder="example@email.com"
->
-
-</div>
-
-
-<!-- VILLAGE -->
-
-<div>
-
-<label id="villageLabel">
-
-ग्राम / गाँव / Village
-
-</label>
-
-
-<input
-type="text"
-id="village"
-placeholder="गाँव का नाम लिखें / Enter village"
->
-
-
-<div
-class="hindi-preview"
-id="villageHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- DISTRICT -->
-
-<div>
-
-<label id="districtLabel">
-
-जिला / District
-
-</label>
-
-
-<input
-type="text"
-id="district"
-placeholder="जिले का नाम / Enter district"
->
-
-
-<div
-class="hindi-preview"
-id="districtHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-   APPLICATION REASON
-===================================================== -->
-
-<div class="full">
-
-<label id="reasonLabel">
-
-आवेदन का कारण / Application Reason
-
-</label>
-
-
-<select id="reason">
-
-
-<!-- POLICE -->
-
-<option value="Police Complaint">
-Police Complaint / पुलिस शिकायत
-</option>
-
-<option value="Police Verification">
-Police Verification / पुलिस सत्यापन
-</option>
-
-<option value="FIR Related Application">
-FIR Related Application / FIR संबंधी आवेदन
-</option>
-
-<option value="Lost Document Report">
-Lost Document Report / दस्तावेज खोने की शिकायत
-</option>
-
-<option value="Missing Person Complaint">
-Missing Person Complaint / गुमशुदा व्यक्ति शिकायत
-</option>
-
-<option value="Character Verification">
-Character Verification / चरित्र सत्यापन
-</option>
-
-<option value="Tenant Verification">
-Tenant Verification / किरायेदार सत्यापन
-</option>
-
-<option value="NOC Application">
-NOC Application / अनापत्ति प्रमाण पत्र
-</option>
-
-
-<!-- TEHSIL -->
-
-<option value="Tehsil Application">
-Tehsil Application / तहसील आवेदन
-</option>
-
-<option value="Income Certificate">
-Income Certificate / आय प्रमाण पत्र
-</option>
-
-<option value="Caste Certificate">
-Caste Certificate / जाति प्रमाण पत्र
-</option>
-
-<option value="Residence Certificate">
-Residence Certificate / निवास प्रमाण पत्र
-</option>
-
-<option value="Domicile Certificate">
-Domicile Certificate / मूल निवास प्रमाण पत्र
-</option>
-
-<option value="Land Complaint">
-Land Complaint / भूमि शिकायत
-</option>
-
-<option value="Revenue Complaint">
-Revenue Complaint / राजस्व शिकायत
-</option>
-
-<option value="Encroachment Complaint">
-Encroachment Complaint / अतिक्रमण शिकायत
-</option>
-
-<option value="Land Record Correction">
-Land Record Correction / भूमि अभिलेख सुधार
-</option>
-
-<option value="Mutation Application">
-Mutation Application / नामांतरण आवेदन
-</option>
-
-
-<!-- DEVELOPMENT -->
-
-<option value="Road Repair Complaint">
-Road Repair Complaint / सड़क मरम्मत शिकायत
-</option>
-
-<option value="Development Complaint">
-Development Complaint / विकास संबंधी शिकायत
-</option>
-
-<option value="Street Light Complaint">
-Street Light Complaint / स्ट्रीट लाइट शिकायत
-</option>
-
-<option value="Drainage Complaint">
-Drainage Complaint / नाली शिकायत
-</option>
-
-<option value="Cleanliness Complaint">
-Cleanliness Complaint / सफाई शिकायत
-</option>
-
-<option value="Water Complaint">
-Water Complaint / पानी संबंधी शिकायत
-</option>
-
-
-<!-- SCHOOL -->
-
-<option value="Leave Application">
-Leave Application / अवकाश आवेदन
-</option>
-
-<option value="Medical Leave">
-Medical Leave / चिकित्सा अवकाश
-</option>
-
-<option value="Scholarship Application">
-Scholarship Application / छात्रवृत्ति आवेदन
-</option>
-
-<option value="Fee Waiver">
-Fee Waiver / शुल्क में छूट
-</option>
-
-<option value="Transfer Certificate">
-Transfer Certificate / स्थानांतरण प्रमाण पत्र
-</option>
-
-<option value="Character Certificate">
-Character Certificate / चरित्र प्रमाण पत्र
-</option>
-
-<option value="Bonafide Certificate">
-Bonafide Certificate / बोनाफाइड प्रमाण पत्र
-</option>
-
-<option value="Admission Application">
-Admission Application / प्रवेश आवेदन
-</option>
-
-<option value="Marksheet Correction">
-Marksheet Correction / अंकपत्र सुधार
-</option>
-
-<option value="School Complaint">
-School Complaint / विद्यालय शिकायत
-</option>
-
-
-<!-- BANK -->
-
-<option value="Bank Application">
-Bank Application / बैंक आवेदन
-</option>
-
-<option value="ATM Card Lost">
-ATM Card Lost / एटीएम कार्ड खोने का आवेदन
-</option>
-
-<option value="New ATM Card">
-New ATM Card / नया एटीएम कार्ड
-</option>
-
-<option value="Passbook Application">
-Passbook Application / पासबुक आवेदन
-</option>
-
-<option value="Cheque Book Application">
-Cheque Book Application / चेक बुक आवेदन
-</option>
-
-<option value="Bank Account Correction">
-Bank Account Correction / बैंक खाता सुधार
-</option>
-
-<option value="KYC Update">
-KYC Update / KYC अपडेट
-</option>
-
-
-<!-- OTHER -->
-
-<option value="Electricity Complaint">
-Electricity Complaint / बिजली शिकायत
-</option>
-
-<option value="Water Supply Complaint">
-Water Supply Complaint / जल आपूर्ति शिकायत
-</option>
-
-<option value="Gas Connection">
-Gas Connection / गैस कनेक्शन आवेदन
-</option>
-
-<option value="Job Application">
-Job Application / नौकरी आवेदन
-</option>
-
-<option value="Name Correction">
-Name Correction / नाम सुधार आवेदन
-</option>
-
-<option value="Birth Certificate">
-Birth Certificate / जन्म प्रमाण पत्र
-</option>
-
-<option value="Death Certificate">
-Death Certificate / मृत्यु प्रमाण पत्र
-</option>
-
-<option value="Pension Application">
-Pension Application / पेंशन आवेदन
-</option>
-
-<option value="Disability Certificate">
-Disability Certificate / दिव्यांग प्रमाण पत्र
-</option>
-
-<option value="Senior Citizen Certificate">
-Senior Citizen Certificate / वरिष्ठ नागरिक प्रमाण पत्र
-</option>
-
-<option value="Marriage Certificate">
-Marriage Certificate / विवाह प्रमाण पत्र
-</option>
-
-<option value="Ration Card Application">
-Ration Card Application / राशन कार्ड आवेदन
-</option>
-
-<option value="Ayushman Card Application">
-Ayushman Card Application / आयुष्मान कार्ड आवेदन
-</option>
-
-<option value="Job Card Application">
-Job Card Application / जॉब कार्ड आवेदन
-</option>
-
-<option value="Other Reason">
-Other Reason / अन्य कारण
-</option>
-
-</select>
-
-</div>
-
-
-<!-- RECEIVER -->
-
-<div>
-
-<label id="receiverLabel">
-
-प्राप्तकर्ता / Receiver
-
-</label>
-
-
-<input
-type="text"
-id="receiver"
-placeholder="SHO / Tehsildar / Principal"
->
-
-
-<div
-class="hindi-preview"
-id="receiverHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- DEPARTMENT -->
-
-<div>
-
-<label id="departmentLabel">
-
-विभाग / कार्यालय / Department
-
-</label>
-
-
-<input
-type="text"
-id="department"
-placeholder="Department / Office"
->
-
-
-<div
-class="hindi-preview"
-id="departmentHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- ADDRESS -->
-
-<div class="full">
-
-<label id="addressLabel">
-
-पूरा पता / Full Address
-
-</label>
-
 
 <textarea
-id="address"
-placeholder="अपना पूरा पता लिखें / Enter full address"
-></textarea>
+name="Full Address"
+placeholder="House, village, landmark / पूरा पता"
+required></textarea>
 
 
-<div
-class="hindi-preview"
-id="addressHindi"
->
-
-Hindi Preview: -
-
-</div>
-
-</div>
-
-
-<!-- DETAILS -->
-
-<div class="full">
-
-<label id="detailsLabel">
-
-आवेदन का पूरा विवरण / Application Details
-
+<label
+data-en="Cake Message / Design"
+data-hi="केक पर मैसेज / डिजाइन">
+Cake Message / Design
 </label>
-
 
 <textarea
-id="details"
-placeholder="अपनी समस्या या आवेदन का पूरा विवरण लिखें..."
-></textarea>
+name="Cake Message or Design"
+placeholder="Example: Happy Birthday Amit"></textarea>
+
+
+<label
+data-en="Special Instructions"
+data-hi="विशेष निर्देश">
+Special Instructions
+</label>
+
+<textarea
+name="Special Instructions"
+placeholder="Any special request / कोई विशेष अनुरोध"></textarea>
+
+
+<!-- ONLINE PAYMENT -->
+
+<div class="payment-box">
+
+<h3
+data-en="💳 Online UPI Payment"
+data-hi="💳 ऑनलाइन UPI भुगतान">
+
+💳 Online UPI Payment
+
+</h3>
+
+<p
+data-en="Pay the order amount using any UPI app"
+data-hi="किसी भी UPI ऐप से ऑर्डर की राशि का भुगतान करें">
+
+Pay the order amount using any UPI app
+
+</p>
+
+<div class="pay-amount">
+
+<span
+data-en="Payable Amount:"
+data-hi="भुगतान राशि:">
+Payable Amount:
+</span>
+
+<strong id="onlinePayAmount">
+₹0
+</strong>
 
 </div>
 
 
-<!-- PLACE -->
+<button
+type="button"
+class="pay-btn"
+onclick="payOnline()">
 
-<div>
+💳 Pay Online with UPI
 
-<label id="placeLabel">
-
-स्थान / Place
-
-</label>
+</button>
 
 
-<input
-type="text"
-id="place"
-placeholder="स्थान का नाम / Enter place"
->
+<p class="upi-id">
+
+UPI ID:
+<strong id="upiDisplay">
+7309277213@ibl
+</strong>
+
+</p>
 
 
 <div
-class="hindi-preview"
-id="placeHindi"
->
+id="paymentStatusBox"
+class="payment-status">
 
-Hindi Preview: -
-
-</div>
+⚠️ Payment not completed yet.
 
 </div>
 
-
-<!-- DATE -->
-
-<div>
-
-<label id="dateLabel">
-
-दिनांक / Date
-
-</label>
-
-
-<input
-type="date"
-id="date"
->
-
 </div>
 
-
-<!-- GENERATE -->
-
-<div class="full">
 
 <button
-class="btn"
-id="generateButton"
-onclick="generateApplication()"
->
+type="submit"
+class="submit-btn">
 
-📝 Generate Application
+✅ Submit Cake Order
 
-</button>
-
-</div>
-
-
-<!-- ACTIONS -->
-
-<div class="full btn-group">
-
-<button
-type="button"
-onclick="copyApplication()"
->
-📋 Copy
 </button>
 
 
 <button
 type="button"
-onclick="printApplication()"
->
-🖨 Print
+class="whatsapp-btn"
+onclick="whatsappOrder()">
+
+💬 Order on WhatsApp
+
 </button>
 
 
-<button
-type="button"
-onclick="downloadPDF()"
->
-📄 Download PDF
-</button>
+<p class="note"
+data-en="After making UPI payment, submit the order form."
+data-hi="UPI भुगतान करने के बाद ऑर्डर फॉर्म सबमिट करें।">
 
+After making UPI payment, submit the order form.
 
-<button
-type="button"
-onclick="clearForm()"
->
-🗑 Clear
-</button>
+</p>
+
+</form>
 
 </div>
 
+</div>
 
-<!-- OUTPUT -->
+</div>
 
-<div class="full">
+</section>
+
+
+<!-- PART 1 END -->
+ <!-- ================= PART 2 START ================= -->
+
+<!-- SPECIAL OFFERS -->
+
+<section id="offers" class="section">
+
+<div class="container">
 
 <h2
-style="
-text-align:center;
-margin-top:20px;
-margin-bottom:10px;
-color:#003366;
-font-size:21px;
-"
->
+data-en="Special Cake Offers 🎁"
+data-hi="विशेष केक ऑफर 🎁">
+Special Cake Offers 🎁
+</h2>
 
-Application Preview
+<div class="offer-grid">
 
+<div class="offer">
+
+<h3>🎂 Birthday Special</h3>
+
+<p
+data-en="Birthday Cake"
+data-hi="बर्थडे केक">
+Birthday Cake
+</p>
+
+<strong>₹499</strong>
+
+</div>
+
+
+<div class="offer">
+
+<h3>🍫 Chocolate Special</h3>
+
+<p
+data-en="Chocolate Cake"
+data-hi="चॉकलेट केक">
+Chocolate Cake
+</p>
+
+<strong>₹599</strong>
+
+</div>
+
+
+<div class="offer">
+
+<h3>🎨 Custom Design</h3>
+
+<p
+data-en="Custom Cake"
+data-hi="कस्टम केक">
+Custom Cake
+</p>
+
+<strong>₹799</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="section">
+
+<div class="container">
+
+<h2
+data-en="Contact Us 📞"
+data-hi="हमसे संपर्क करें 📞">
+Contact Us 📞
 </h2>
 
 
-<div id="output">
+<div class="contact-grid">
 
-Your Professional Application Will Appear Here...
+
+<div class="contact-card">
+
+<div class="contact-icon">
+📞
+</div>
+
+<h3
+data-en="Call"
+data-hi="कॉल">
+Call
+</h3>
+
+<p>
++91 XXXXXXXXXX
+</p>
+
+<a
+href="tel:+91XXXXXXXXXX"
+class="contact-btn"
+data-en="Call Now"
+data-hi="अभी कॉल करें">
+
+Call Now
+
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">
+💬
+</div>
+
+<h3>
+WhatsApp
+</h3>
+
+<p
+data-en="Order your cake on WhatsApp"
+data-hi="व्हाट्सऐप पर केक ऑर्डर करें">
+
+Order your cake on WhatsApp
+
+</p>
+
+<a
+href="https://wa.me/91XXXXXXXXXX"
+target="_blank"
+class="contact-btn">
+
+WhatsApp
+
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">
+📍
+</div>
+
+<h3
+data-en="Delivery Area"
+data-hi="डिलीवरी क्षेत्र">
+
+Delivery Area
+
+</h3>
+
+<p
+data-en="Home Delivery Available"
+data-hi="होम डिलीवरी उपलब्ध">
+
+Home Delivery Available
+
+</p>
+
+<p>
+Ballia, Uttar Pradesh
+</p>
 
 </div>
 
 </div>
 
-
 </div>
 
-</div>
+</section>
 
 
-<!-- =====================================================
-   FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-© 2026 Smart Online Application Generator
+<h2>
+🎂 Amit's Cake House
+</h2>
 
-<br>
+<p>
+<strong>Owner:</strong>
+Amit Kumar Singh
+</p>
 
+<p
+data-en="Fresh Cakes • Online Ordering • UPI Payment"
+data-hi="ताज़ा केक • ऑनलाइन ऑर्डर • UPI भुगतान">
+
+Fresh Cakes • Online Ordering • UPI Payment
+
+</p>
+
+<hr>
+
+<p>
+© 2026 Amit's Cake House
+</p>
+
+<p>
 Created by Amit Kumar Singh
+</p>
 
 </footer>
 
 
-<!-- =====================================================
-   PART 2 और PART 3
-   इसी SCRIPT के अंदर आगे जोड़े जाएंगे
-===================================================== -->
+<!-- FLOATING BUTTONS -->
+
+<div class="floating">
+
+<a
+href="https://wa.me/91XXXXXXXXXX"
+target="_blank"
+class="float float-whatsapp">
+💬
+</a>
+
+<a
+href="tel:+91XXXXXXXXXX"
+class="float float-call">
+📞
+</a>
 
-<script>
-/* =========================================================
-   PART 2
-   SMART HINDI + ENGLISH SYSTEM
-========================================================= */
-
-
-/* =========================================================
-   COMMON INDIAN NAME DICTIONARY
-========================================================= */
-
-const indianNames = {
-
-    amit:"अमित",
-    ankit:"अंकित",
-    anil:"अनिल",
-    sunil:"सुनील",
-    rahul:"राहुल",
-    rohit:"रोहित",
-    mohit:"मोहित",
-    sumit:"सुमित",
-    ravi:"रवि",
-    raj:"राज",
-    rajesh:"राजेश",
-    rakesh:"राकेश",
-    suresh:"सुरेश",
-    naresh:"नरेश",
-    mahesh:"महेश",
-    dinesh:"दिनेश",
-    mukesh:"मुकेश",
-    lokesh:"लोकेश",
-    yogesh:"योगेश",
-    hitesh:"हितेश",
-    jitesh:"जितेश",
-    nitish:"नितीश",
-    manish:"मनीष",
-    ashish:"आशीष",
-    vishal:"विशाल",
-    vikas:"विकास",
-    akash:"आकाश",
-    aakash:"आकाश",
-    sachin:"सचिन",
-    pankaj:"पंकज",
-    deepak:"दीपक",
-    pradeep:"प्रदीप",
-    sandeep:"संदीप",
-    arun:"अरुण",
-    varun:"वरुण",
-    tarun:"तरुण",
-    karan:"करण",
-    kiran:"किरण",
-    vijay:"विजय",
-    ajay:"अजय",
-    sanjay:"संजय",
-    abhay:"अभय",
-    vinay:"विनय",
-    vivek:"विवेक",
-    vimal:"विमल",
-    dharmendra:"धर्मेंद्र",
-    mahendra:"महेंद्र",
-    surendra:"सुरेंद्र",
-    narendra:"नरेंद्र",
-    ravindra:"रविंद्र",
-    devendra:"देवेंद्र",
-    rajendra:"राजेंद्र",
-    virendra:"वीरेंद्र",
-    upendra:"उपेंद्र",
-    rajiv:"राजीव",
-    manoj:"मनोज",
-    sanjeev:"संजीव",
-    sanjiv:"संजीव",
-    ramesh:"रमेश",
-    dhananjay:"धनंजय",
-    shivam:"शिवम",
-    shubham:"शुभम",
-    krishna:"कृष्ण",
-    vishnu:"विष्णु",
-    shiv:"शिव",
-    shankar:"शंकर",
-    omprakash:"ओमप्रकाश",
-    ramprakash:"रामप्रकाश",
-    rajkumar:"राजकुमार",
-    ramkumar:"रामकुमार",
-    ajit:"अजीत",
-    abhishek:"अभिषेक",
-    aditya:"आदित्य",
-    anurag:"अनुराग",
-    mayank:"मयंक",
-    harsh:"हर्ष",
-    harshit:"हर्षित",
-    naveen:"नवीन",
-    pawan:"पवन",
-    roshan:"रोशन",
-    mohan:"मोहन",
-    sohan:"सोहन",
-    gopal:"गोपाल",
-    govind:"गोविंद",
-    santosh:"संतोष",
-    ashok:"अशोक",
-    brajesh:"ब्रजेश",
-    brijesh:"बृजेश",
-    umesh:"उमेश",
-    rishabh:"ऋषभ",
-    ritesh:"रितेश",
-    kamlesh:"कमलेश",
-    raman:"रमन",
-    gaurav:"गौरव",
-    saurabh:"सौरभ",
-    vaibhav:"वैभव",
-    atul:"अतुल",
-    anup:"अनूप",
-    anupam:"अनुपम",
-    alok:"आलोक",
-
-    /* GIRL NAMES */
-
-    pooja:"पूजा",
-    puja:"पूजा",
-    neha:"नेहा",
-    rani:"रानी",
-    reena:"रीना",
-    rina:"रीना",
-    seema:"सीमा",
-    meena:"मीना",
-    meera:"मीरा",
-    sunita:"सुनीता",
-    anita:"अनीता",
-    kavita:"कविता",
-    savita:"सविता",
-    mamta:"ममता",
-    rekha:"रेखा",
-    geeta:"गीता",
-    gita:"गीता",
-    sita:"सीता",
-    radha:"राधा",
-    richa:"रिचा",
-    nikita:"निकिता",
-    shweta:"श्वेता",
-    sweta:"श्वेता",
-    priyanka:"प्रियंका",
-    sonam:"सोनम",
-    simran:"सिमरन",
-    sakshi:"साक्षी",
-    anushka:"अनुष्का",
-    neelam:"नीलम",
-    vandana:"वंदना",
-    archana:"अर्चना",
-    anjali:"अंजलि",
-    komal:"कोमल",
-    payal:"पायल",
-    ruchi:"रुचि",
-    smriti:"स्मृति",
-    shruti:"श्रुति",
-    deepika:"दीपिका",
-    divya:"दिव्या",
-    priya:"प्रिया",
-    preeti:"प्रीति",
-    pallavi:"पल्लवी",
-    nisha:"निशा",
-    isha:"ईशा",
-    aarti:"आरती",
-    arti:"आरती",
-    shivani:"शिवानी",
-    poonam:"पूनम",
-    kiran:"किरण",
-    kirti:"कीर्ति",
-    kirti:"कीर्ति",
-    jyoti:"ज्योति",
-    mamta:"ममता",
-    bhavna:"भावना",
-    bhawna:"भावना",
-    archana:"अर्चना",
-    swati:"स्वाति",
-    sonali:"सोनाली",
-    kajal:"काजल",
-    muskan:"मुस्कान",
-    khushi:"खुशी",
-    tamanna:"तमन्ना",
-    tanya:"तान्या",
-    tanvi:"तन्वी",
-    avni:"अवनी",
-    akanksha:"आकांक्षा",
-    shreya:"श्रेया",
-    sneha:"स्नेहा",
-    sakina:"सकीना",
-    sana:"सना",
-    sanaa:"सना",
-    sanaa:"सना",
-    aayushi:"आयुषी",
-    ayushi:"आयुषी",
-    ananya:"अनन्या",
-    aditi:"अदिति",
-    aaradhya:"आराध्या",
-    aradhya:"आराध्या",
-    vaishnavi:"वैष्णवी",
-    muskaan:"मुस्कान",
-    payal:"पायल",
-    ritu:"रितु",
-    rituu:"रितु",
-    monika:"मोनिका",
-    monika:"मोनिका",
-    manisha:"मनीषा",
-    mamta:"ममता",
-    seema:"सीमा",
-    sapna:"सपना",
-    sarita:"सरिता",
-    sangeeta:"संगीता",
-    poornima:"पूर्णिमा",
-    purnima:"पूर्णिमा",
-    rakhi:"राखी",
-    radhika:"राधिका",
-    nandini:"नंदिनी",
-    nandita:"नंदिता",
-    soniya:"सोनिया",
-    sonia:"सोनिया",
-    komal:"कोमल",
-    karishma:"करिश्मा",
-    kajal:"काजल",
-    lalita:"ललिता",
-    lata:"लता",
-    madhu:"मधु",
-    madhuri:"माधुरी",
-    mamta:"ममता",
-    manju:"मंजू",
-    manjari:"मंजरी",
-    megha:"मेघा",
-    meghna:"मेघना",
-    naina:"नैना",
-    navya:"नव्या",
-    nikita:"निकिता",
-    palak:"पलक",
-    parul:"पारुल",
-    payal:"पायल",
-    rashi:"राशि",
-    rashmi:"रश्मि",
-    riya:"रिया",
-    ruhi:"रुही",
-    sakshi:"साक्षी",
-    saloni:"सलोनी",
-    shalini:"शालिनी",
-    shivangi:"शिवांगी",
-    shikha:"शिखा",
-    shilpa:"शिल्पा",
-    simran:"सिमरन",
-    sonam:"सोनम",
-    swara:"स्वरा",
-    vaidehi:"वैदेही",
-    varsha:"वर्षा",
-    vidhi:"विधि",
-    yashika:"याशिका",
-    zoya:"ज़ोया",
-
-    /* SURNAMES */
-
-    singh:"सिंह",
-    kumar:"कुमार",
-    kumari:"कुमारी",
-    sharma:"शर्मा",
-    verma:"वर्मा",
-    gupta:"गुप्ता",
-    yadav:"यादव",
-    mishra:"मिश्र",
-    pandey:"पांडेय",
-    tiwari:"तिवारी",
-    tripathi:"त्रिपाठी",
-    dubey:"दुबे",
-    dube:"दुबे",
-    chauhan:"चौहान",
-    rajput:"राजपूत",
-    thakur:"ठाकुर",
-    patel:"पटेल",
-    jaiswal:"जायसवाल",
-    agarwal:"अग्रवाल",
-    agrawal:"अग्रवाल",
-    srivastava:"श्रीवास्तव",
-    sinha:"सिन्हा",
-    kushwaha:"कुशवाहा",
-    maurya:"मौर्य",
-    soni:"सोनी",
-    sahu:"साहू",
-    saini:"सैनी",
-    rajbhar:"राजभर",
-    pal:"पाल",
-    gujjar:"गुर्जर"
-
-};
-
-
-/* =========================================================
-   PLACE DICTIONARY
-========================================================= */
-
-const indianPlaces = {
-
-    ballia:"बलिया",
-    bansdih:"बांसडीह",
-    jaunpur:"जौनपुर",
-    varanasi:"वाराणसी",
-    lucknow:"लखनऊ",
-    kanpur:"कानपुर",
-    prayagraj:"प्रयागराज",
-    ayodhya:"अयोध्या",
-    gorakhpur:"गोरखपुर",
-    delhi:"दिल्ली",
-    mumbai:"मुंबई",
-    patna:"पटना",
-    ara:"आरा",
-    chapra:"छपरा",
-    narayanpur:"नारायणपुर",
-    "vidya bhawan":"विद्या भवन",
-    deoria:"देवरिया",
-    mau:"मऊ",
-    azamgarh:"आजमगढ़",
-    ghazipur:"गाज़ीपुर",
-    mirzapur:"मिर्जापुर",
-    bansdih:"बांसडीह",
-    seriya:"सेरिया",
-    "chhotaki seriya":"छोटकी सेरिया",
-    "chhotaki seriaya":"छोटकी सेरैया"
-
-};
-
-
-/* =========================================================
-   ENGLISH → HINDI PHONETIC
-========================================================= */
-
-function phoneticHindi(word){
-
-    if(!word){
-        return "";
-    }
-
-    let w = word
-        .toLowerCase()
-        .trim();
-
-
-    if(indianNames[w]){
-        return indianNames[w];
-    }
-
-
-    if(indianPlaces[w]){
-        return indianPlaces[w];
-    }
-
-
-    const rules = [
-
-        [/ksh/g,"क्ष"],
-        [/shr/g,"श्र"],
-        [/chh/g,"छ"],
-        [/ch/g,"च"],
-        [/sh/g,"श"],
-        [/th/g,"थ"],
-        [/dh/g,"ध"],
-        [/ph/g,"फ"],
-        [/bh/g,"भ"],
-        [/gh/g,"घ"],
-        [/kh/g,"ख"],
-        [/jh/g,"झ"],
-
-        [/aa/g,"आ"],
-        [/ee/g,"ई"],
-        [/ii/g,"ई"],
-        [/oo/g,"ऊ"],
-        [/uu/g,"ऊ"],
-
-        [/ai/g,"ऐ"],
-        [/au/g,"औ"],
-
-        [/a/g,"अ"],
-        [/i/g,"इ"],
-        [/u/g,"उ"],
-        [/e/g,"ए"],
-        [/o/g,"ओ"],
-
-        [/b/g,"ब"],
-        [/c/g,"क"],
-        [/d/g,"द"],
-        [/f/g,"फ"],
-        [/g/g,"ग"],
-        [/h/g,"ह"],
-        [/j/g,"ज"],
-        [/k/g,"क"],
-        [/l/g,"ल"],
-        [/m/g,"म"],
-        [/n/g,"न"],
-        [/p/g,"प"],
-        [/q/g,"क"],
-        [/r/g,"र"],
-        [/s/g,"स"],
-        [/t/g,"त"],
-        [/v/g,"व"],
-        [/w/g,"व"],
-        [/x/g,"क्स"],
-        [/y/g,"य"],
-        [/z/g,"ज़"]
-
-    ];
-
-
-    let result = w;
-
-
-    rules.forEach(function(rule){
-
-        result =
-            result.replace(
-                rule[0],
-                rule[1]
-            );
-
-    });
-
-
-    return result;
-
-}
-
-
-/* =========================================================
-   SMART FULL TEXT CONVERTER
-========================================================= */
-
-function smartHindi(text){
-
-    if(!text){
-        return "";
-    }
-
-
-    text = text.trim();
-
-
-    /* Already Hindi */
-
-    if(/[\u0900-\u097F]/.test(text)){
-
-        return text;
-
-    }
-
-
-    let lower = text
-        .toLowerCase()
-        .replace(/\s+/g," ")
-        .trim();
-
-
-    /* Complete known name/place */
-
-    if(indianNames[lower]){
-        return indianNames[lower];
-    }
-
-
-    if(indianPlaces[lower]){
-        return indianPlaces[lower];
-    }
-
-
-    /*
-       पहले पूरे phrase को
-       known place में खोजें
-    */
-
-    let converted = [];
-
-    let words = lower.split(/\s+/);
-
-
-    words.forEach(function(word){
-
-        if(indianNames[word]){
-
-            converted.push(
-                indianNames[word]
-            );
-
-        }
-
-        else if(indianPlaces[word]){
-
-            converted.push(
-                indianPlaces[word]
-            );
-
-        }
-
-        else{
-
-            converted.push(
-                phoneticHindi(word)
-            );
-
-        }
-
-    });
-
-
-    return converted.join(" ");
-
-}
-
-
-/* =========================================================
-   PREVIEW SETUP
-========================================================= */
-
-function setupHindiPreview(
-    inputId,
-    previewId
-){
-
-    const input =
-        document.getElementById(inputId);
-
-    const preview =
-        document.getElementById(previewId);
-
-
-    if(!input || !preview){
-        return;
-    }
-
-
-    function updatePreview(){
-
-        let value =
-            input.value.trim();
-
-
-        if(value === ""){
-
-            preview.innerText =
-                "Hindi Preview: -";
-
-            return;
-
-        }
-
-
-        preview.innerText =
-            "Hindi Preview: " +
-            smartHindi(value);
-
-    }
-
-
-    input.addEventListener(
-        "input",
-        updatePreview
-    );
-
-
-    updatePreview();
-
-}
-
-
-/* =========================================================
-   START PREVIEWS
-========================================================= */
-
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        setupHindiPreview(
-            "name",
-            "nameHindi"
-        );
-
-        setupHindiPreview(
-            "father",
-            "fatherHindi"
-        );
-
-        setupHindiPreview(
-            "mother",
-            "motherHindi"
-        );
-
-        setupHindiPreview(
-            "village",
-            "villageHindi"
-        );
-
-        setupHindiPreview(
-            "district",
-            "districtHindi"
-        );
-
-        setupHindiPreview(
-            "receiver",
-            "receiverHindi"
-        );
-
-        setupHindiPreview(
-            "department",
-            "departmentHindi"
-        );
-
-        setupHindiPreview(
-            "address",
-            "addressHindi"
-        );
-
-        setupHindiPreview(
-            "place",
-            "placeHindi"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   LANGUAGE LABELS
-========================================================= */
-
-const languageTexts = {
-
-    hindi:{
-
-        languageTitle:
-        "🌐 आवेदन की भाषा चुनें",
-
-        genderLabel:
-        "लिंग",
-
-        nameLabel:
-        "आवेदक का नाम",
-
-        fatherLabel:
-        "पिता का नाम",
-
-        motherLabel:
-        "माता का नाम",
-
-        mobileLabel:
-        "मोबाइल नंबर",
-
-        emailLabel:
-        "ईमेल",
-
-        villageLabel:
-        "ग्राम / गाँव",
-
-        districtLabel:
-        "जिला",
-
-        reasonLabel:
-        "आवेदन का कारण",
-
-        receiverLabel:
-        "प्राप्तकर्ता",
-
-        departmentLabel:
-        "विभाग / कार्यालय",
-
-        addressLabel:
-        "पूरा पता",
-
-        detailsLabel:
-        "आवेदन का पूरा विवरण",
-
-        placeLabel:
-        "स्थान",
-
-        dateLabel:
-        "दिनांक",
-
-        generateButton:
-        "📝 आवेदन तैयार करें",
-
-        outputTitle:
-        "आवेदन का पूर्वावलोकन"
-
-    },
-
-
-    english:{
-
-        languageTitle:
-        "🌐 Select Application Language",
-
-        genderLabel:
-        "Gender",
-
-        nameLabel:
-        "Applicant Name",
-
-        fatherLabel:
-        "Father Name",
-
-        motherLabel:
-        "Mother Name",
-
-        mobileLabel:
-        "Mobile Number",
-
-        emailLabel:
-        "Email",
-
-        villageLabel:
-        "Village",
-
-        districtLabel:
-        "District",
-
-        reasonLabel:
-        "Application Reason",
-
-        receiverLabel:
-        "Receiver",
-
-        departmentLabel:
-        "Department / Office",
-
-        addressLabel:
-        "Full Address",
-
-        detailsLabel:
-        "Application Details",
-
-        placeLabel:
-        "Place",
-
-        dateLabel:
-        "Date",
-
-        generateButton:
-        "📝 Generate Application",
-
-        outputTitle:
-        "Application Preview"
-
-    }
-
-};
-
-
-/* =========================================================
-   PLACEHOLDERS
-========================================================= */
-
-const placeholders = {
-
-    hindi:{
-
-        name:
-        "अपना नाम लिखें",
-
-        father:
-        "पिता का नाम लिखें",
-
-        mother:
-        "माता का नाम लिखें",
-
-        mobile:
-        "10 अंकों का मोबाइल नंबर",
-
-        email:
-        "ईमेल लिखें",
-
-        village:
-        "गाँव का नाम लिखें",
-
-        district:
-        "जिले का नाम लिखें",
-
-        receiver:
-        "प्राप्तकर्ता",
-
-        department:
-        "विभाग / कार्यालय",
-
-        address:
-        "अपना पूरा पता लिखें",
-
-        details:
-        "अपनी समस्या या आवेदन का पूरा विवरण लिखें",
-
-        place:
-        "स्थान का नाम"
-
-    },
-
-
-    english:{
-
-        name:
-        "Enter your name",
-
-        father:
-        "Enter father's name",
-
-        mother:
-        "Enter mother's name",
-
-        mobile:
-        "Enter 10 digit mobile number",
-
-        email:
-        "Enter email",
-
-        village:
-        "Enter village",
-
-        district:
-        "Enter district",
-
-        receiver:
-        "Receiver",
-
-        department:
-        "Department / Office",
-
-        address:
-        "Enter full address",
-
-        details:
-        "Enter your problem or complete application details",
-
-        place:
-        "Enter place"
-
-    }
-
-};
-
-
-/* =========================================================
-   UPDATE FORM LANGUAGE
-========================================================= */
-
-function updateFormLanguage(){
-
-    const language =
-        document.getElementById("language")?.value
-        || "hindi";
-
-
-    const text =
-        languageTexts[language];
-
-
-    const ph =
-        placeholders[language];
-
-
-    if(!text){
-        return;
-    }
-
-
-    Object.keys(text).forEach(function(key){
-
-        const element =
-            document.getElementById(key);
-
-        if(element){
-
-            if(
-                key === "generateButton"
-            ){
-
-                element.innerText =
-                    text[key];
-
-            }
-
-            else{
-
-                element.innerText =
-                    text[key];
-
-            }
-
-        }
-
-    });
-
-
-    /* Output heading */
-
-    const outputHeading =
-        document.querySelector(
-            "#output"
-        )?.previousElementSibling;
-
-
-    if(outputHeading){
-
-        outputHeading.innerText =
-            text.outputTitle;
-
-    }
-
-
-    /* Input placeholders */
-
-    Object.keys(ph).forEach(function(id){
-
-        const input =
-            document.getElementById(id);
-
-        if(input){
-
-            input.placeholder =
-                ph[id];
-
-        }
-
-    });
-
-
-    /* Gender */
-
-    const gender =
-        document.getElementById("gender");
-
-
-    if(gender){
-
-        if(language === "hindi"){
-
-            gender.innerHTML = `
-
-                <option value="male">
-                👨 पुरुष
-                </option>
-
-                <option value="female">
-                👩 महिला
-                </option>
-
-                <option value="other">
-                ⚧ अन्य
-                </option>
-
-            `;
-
-        }
-
-        else{
-
-            gender.innerHTML = `
-
-                <option value="male">
-                👨 Male
-                </option>
-
-                <option value="female">
-                👩 Female
-                </option>
-
-                <option value="other">
-                ⚧ Other
-                </option>
-
-            `;
-
-        }
-
-    }
-
-
-    /*
-       Reason dropdown की दिखाई देने वाली
-       language Part 3 में dynamically बदली जाएगी.
-    */
-
-    updateReasonOptions(language);
-
-}
-
-
-/* =========================================================
-   LANGUAGE CHANGE
-========================================================= */
-
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        const language =
-            document.getElementById("language");
-
-
-        if(language){
-
-            language.addEventListener(
-                "change",
-                function(){
-
-                    updateFormLanguage();
-
-                    setReasonReceiver();
-
-                }
-            );
-
-        }
-
-
-        updateFormLanguage();
-
-    }
-);
-
-
-/* =========================================================
-   HINDI PREVIEW LABEL UPDATE
-========================================================= */
-
-function updatePreviewLabels(){
-
-    const language =
-        document.getElementById("language")?.value
-        || "hindi";
-
-
-    document.querySelectorAll(
-        ".hindi-preview"
-    ).forEach(function(el){
-
-        if(language === "hindi"){
-
-            el.style.display =
-                "none";
-
-        }
-
-        else{
-
-            el.style.display =
-                "block";
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   LANGUAGE CHANGE PREVIEW
-========================================================= */
-
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        const language =
-            document.getElementById("language");
-
-
-        if(language){
-
-            language.addEventListener(
-                "change",
-                updatePreviewLabels
-            );
-
-        }
-
-
-        updatePreviewLabels();
-
-    }
-);
-/* =========================================================
-   PART 3
-   APPLICATION GENERATOR
-   HINDI / ENGLISH
-   GENDER SUPPORT
-   COPY / PRINT / PDF
-========================================================= */
-
-
-/* =========================================================
-   APPLICATION GENERATOR
-========================================================= */
-
-function generateApplication(){
-
-    const language =
-        document.getElementById("language")?.value || "hindi";
-
-    const gender =
-        document.getElementById("gender")?.value || "male";
-
-    const reason =
-        document.getElementById("reason")?.value || "Other Reason";
-
-    const name =
-        document.getElementById("name")?.value.trim() || "";
-
-    const father =
-        document.getElementById("father")?.value.trim() || "";
-
-    const mother =
-        document.getElementById("mother")?.value.trim() || "";
-
-    const mobile =
-        document.getElementById("mobile")?.value.trim() || "";
-
-    const email =
-        document.getElementById("email")?.value.trim() || "";
-
-    const village =
-        document.getElementById("village")?.value.trim() || "";
-
-    const district =
-        document.getElementById("district")?.value.trim() || "";
-
-    const receiver =
-        document.getElementById("receiver")?.value.trim() || "";
-
-    const department =
-        document.getElementById("department")?.value.trim() || "";
-
-    const address =
-        document.getElementById("address")?.value.trim() || "";
-
-    const details =
-        document.getElementById("details")?.value.trim() || "";
-
-    const place =
-        document.getElementById("place")?.value.trim() || "";
-
-    const date =
-        document.getElementById("date")?.value || "";
-
-
-    /* =====================================================
-       VALIDATION
-    ===================================================== */
-
-    if(name === ""){
-
-        alert(
-            language === "english"
-            ? "Please enter Applicant Name."
-            : "कृपया आवेदक का नाम लिखें।"
-        );
-
-        document.getElementById("name")?.focus();
-
-        return;
-    }
-
-
-    if(details === ""){
-
-        alert(
-            language === "english"
-            ? "Please enter Application Details."
-            : "कृपया आवेदन का विवरण लिखें।"
-        );
-
-        document.getElementById("details")?.focus();
-
-        return;
-    }
-
-
-    /* =====================================================
-       GENDER ENDING
-    ===================================================== */
-
-    let hindiEnding = "";
-
-    let englishEnding = "";
-
-
-    if(gender === "male"){
-
-        hindiEnding =
-        "इसके लिए मैं आपका सदैव आभारी एवं कृतज्ञ रहूंगा।";
-
-        englishEnding =
-        "I shall always remain grateful to you for your kind consideration and support.";
-
-    }
-
-    else if(gender === "female"){
-
-        hindiEnding =
-        "इसके लिए मैं आपकी सदैव आभारी एवं कृतज्ञ रहूंगी।";
-
-        englishEnding =
-        "I shall always remain grateful to you for your kind consideration and support.";
-
-    }
-
-    else{
-
-        hindiEnding =
-        "इसके लिए मैं आपका सदैव आभारी/आभारी रहूंगा/रहूंगी।";
-
-        englishEnding =
-        "I shall always remain grateful to you for your kind consideration and support.";
-
-    }
-
-
-    /* =====================================================
-       HINDI APPLICATION
-    ===================================================== */
-
-    const hindiApplication = `
-
-सेवा में,
-${receiver}
-${department}
-
-विषय : ${reason} के संबंध में आवेदन पत्र।
-
-महोदय / महोदया,
-
-सविनय निवेदन है कि मैं ${name},
-पिता का नाम : ${father},
-माता का नाम : ${mother},
-ग्राम / गाँव : ${village},
-जिला : ${district},
-निवासी : ${address} हूँ।
-
-मैं आपके समक्ष "${reason}" के संबंध में
-यह आवेदन पत्र प्रस्तुत कर रहा/रही हूँ।
-
-मेरी समस्या / निवेदन का पूरा विवरण निम्नलिखित है -
-
-${details}
-
-अतः आपसे विनम्र निवेदन है कि मेरे आवेदन पर
-सहानुभूतिपूर्वक विचार करते हुए आवश्यक कार्यवाही
-करने की कृपा करें।
-
-मेरी परिस्थिति को ध्यान में रखते हुए यदि आप
-मेरे आवेदन को स्वीकार कर उचित समाधान प्रदान
-करते हैं, तो यह मेरे लिए अत्यंत महत्वपूर्ण होगा।
-
-मुझे पूर्ण विश्वास है कि आप मेरे आवेदन पर
-उचित विचार करेंगे तथा नियमानुसार आवश्यक
-कार्यवाही करने की कृपा करेंगे।
-
-${hindiEnding}
-
-धन्यवाद।
-
-भवदीय,
-
-${name}
-
-पिता का नाम : ${father}
-माता का नाम : ${mother}
-मोबाइल नंबर : ${mobile}
-ईमेल : ${email}
-ग्राम / गाँव : ${village}
-जिला : ${district}
-
-स्थान : ${place}
-दिनांक : ${date}
-`;
-
-
-    /* =====================================================
-       ENGLISH APPLICATION
-    ===================================================== */
-
-    const englishApplication = `
-
-To,
-${receiver}
-${department}
-
-Subject: Application regarding ${reason}.
-
-Respected Sir/Madam,
-
-With due respect, I would like to state that I am
-${name},
-Father's Name: ${father},
-Mother's Name: ${mother},
-Village: ${village},
-District: ${district},
-and resident of ${address}.
-
-I am submitting this application before you regarding
-"${reason}".
-
-The complete details of my request/problem are
-given below:
-
-${details}
-
-Therefore, I humbly request you to kindly consider
-my application sympathetically and take the necessary
-action as per the applicable rules.
-
-Considering my situation, your kind consideration
-and appropriate action will be highly appreciated.
-
-I sincerely hope that you will consider my request
-and provide an appropriate solution at the earliest.
-
-${englishEnding}
-
-Thank You.
-
-Yours Faithfully,
-
-${name}
-
-Father's Name: ${father}
-Mother's Name: ${mother}
-Mobile Number: ${mobile}
-Email: ${email}
-Village: ${village}
-District: ${district}
-
-Place: ${place}
-Date: ${date}
-`;
-
-
-    /* =====================================================
-       FINAL APPLICATION
-    ===================================================== */
-
-    let finalApplication = "";
-
-
-    if(language === "hindi"){
-
-        finalApplication =
-            hindiApplication;
-
-    }
-
-    else if(language === "english"){
-
-        finalApplication =
-            englishApplication;
-
-    }
-
-
-    /* =====================================================
-       OUTPUT
-    ===================================================== */
-
-    const output =
-        document.getElementById("output");
-
-
-    if(output){
-
-        output.innerText =
-            finalApplication.trim();
-
-        output.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-        });
-
-    }
-
-}
-
-
-/* =========================================================
-   COPY APPLICATION
-========================================================= */
-
-function copyApplication(){
-
-    const output =
-        document.getElementById("output");
-
-    if(!output){
-
-        return;
-
-    }
-
-
-    const text =
-        output.innerText.trim();
-
-
-    if(
-        text === "" ||
-        text.includes(
-            "Your Professional Application"
-        )
-    ){
-
-        alert(
-            "पहले Application Generate करें।"
-        );
-
-        return;
-
-    }
-
-
-    if(
-        navigator.clipboard &&
-        window.isSecureContext
-    ){
-
-        navigator.clipboard
-        .writeText(text)
-        .then(function(){
-
-            alert(
-                "Application Copied Successfully."
-            );
-
-        })
-        .catch(function(){
-
-            copyFallback(text);
-
-        });
-
-    }
-
-    else{
-
-        copyFallback(text);
-
-    }
-
-}
-
-
-/* =========================================================
-   COPY FALLBACK
-========================================================= */
-
-function copyFallback(text){
-
-    const area =
-        document.createElement("textarea");
-
-    area.value =
-        text;
-
-    area.style.position =
-        "fixed";
-
-    area.style.left =
-        "-9999px";
-
-    document.body.appendChild(area);
-
-    area.select();
-
-    try{
-
-        document.execCommand("copy");
-
-        alert(
-            "Application Copied Successfully."
-        );
-
-    }
-
-    catch(error){
-
-        alert(
-            "Copy नहीं हो पाया। Text को manually select करके copy करें।"
-        );
-
-    }
-
-    document.body.removeChild(area);
-
-}
-
-
-/* =========================================================
-   PRINT APPLICATION
-========================================================= */
-
-function printApplication(){
-
-    const output =
-        document.getElementById("output");
-
-
-    if(!output){
-
-        return;
-
-    }
-
-
-    const text =
-        output.innerText.trim();
-
-
-    if(
-        text === "" ||
-        text.includes(
-            "Your Professional Application"
-        )
-    ){
-
-        alert(
-            "पहले Application Generate करें।"
-        );
-
-        return;
-
-    }
-
-
-    const printWindow =
-        window.open(
-            "",
-            "_blank"
-        );
-
-
-    if(!printWindow){
-
-        alert(
-            "Print window open नहीं हो सकी। Browser में pop-up allow करें।"
-        );
-
-        return;
-
-    }
-
-
-    const safeText =
-        text
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;");
-
-
-    printWindow.document.write(`
-
-<!DOCTYPE html>
-
-<html>
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>
-Application Print
-</title>
-
-<style>
-
-body{
-
-    font-family:
-    Arial,
-    "Noto Sans Devanagari",
-    sans-serif;
-
-    padding:40px;
-
-    color:#000;
-
-    font-size:17px;
-
-    line-height:1.9;
-
-}
-
-.application{
-
-    white-space:pre-wrap;
-
-}
-
-@media print{
-
-    body{
-
-        padding:20px;
-
-    }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="application">
-${safeText}
 </div>
 
+
 <script>
 
-window.onload=function(){
+/* ==========================================
+   IMPORTANT SHOP SETTINGS
+========================================== */
 
-    window.print();
+/*
+   अपना UPI ID यहां डालें.
+   
+   Example:
+   amitkumar@upi
+   
+   अपनी वास्तविक UPI ID ही डालें.
+*/
 
-};
-
-<\/script>
-
-</body>
-
-</html>
-
-`);
+const SHOP_UPI_ID = "YOURUPI@upi";
 
 
-    printWindow.document.close();
+/*
+   Shop name
+*/
+
+const SHOP_NAME = "Amit Cake House";
+
+
+/* ==========================================
+   LANGUAGE SYSTEM
+========================================== */
+
+function changeLanguage(language){
+
+    document.documentElement.lang = language;
+
+
+    document
+    .querySelectorAll("[data-en]")
+    .forEach(function(element){
+
+        if(language === "hi"){
+
+            element.innerHTML =
+                element.getAttribute("data-hi");
+
+        }else{
+
+            element.innerHTML =
+                element.getAttribute("data-en");
+
+        }
+
+    });
+
+
+    /*
+       Change Add To Cart buttons
+    */
+
+    document
+    .querySelectorAll(".add-btn")
+    .forEach(function(button){
+
+        if(language === "hi"){
+
+            button.innerHTML =
+                "🛒 कार्ट में जोड़ें";
+
+        }else{
+
+            button.innerHTML =
+                "🛒 Add to Cart";
+
+        }
+
+    });
 
 }
 
 
-/* =========================================================
-   DOWNLOAD PDF
-========================================================= */
+/* ==========================================
+   MOBILE MENU
+========================================== */
 
-function downloadPDF(){
+function toggleMenu(){
 
-    const output =
-        document.getElementById("output");
+    const menu =
+        document.getElementById("navMenu");
 
+    menu.classList.toggle("active");
 
-    if(!output){
-
-        return;
-
-    }
+}
 
 
-    const text =
-        output.innerText.trim();
+/* ==========================================
+   CART
+========================================== */
+
+let cart = [];
 
 
-    if(
-        text === "" ||
-        text.includes(
-            "Your Professional Application"
-        )
-    ){
+/* ADD CAKE */
 
-        alert(
-            "पहले Application Generate करें।"
-        );
+function addCart(name,price){
 
-        return;
+    const existing =
+        cart.find(function(item){
 
-    }
+            return item.name === name;
 
-
-    if(
-        !window.jspdf ||
-        !window.jspdf.jsPDF
-    ){
-
-        alert(
-            "PDF system load नहीं हुआ। Internet connection check करें।"
-        );
-
-        return;
-
-    }
-
-
-    const {
-        jsPDF
-    } = window.jspdf;
-
-
-    const pdf =
-        new jsPDF({
-            orientation:"p",
-            unit:"mm",
-            format:"a4"
         });
 
 
-    pdf.setFont(
-        "helvetica",
-        "normal"
-    );
+    if(existing){
+
+        existing.qty++;
+
+    }else{
+
+        cart.push({
+
+            name:name,
+
+            price:Number(price),
+
+            qty:1
+
+        });
+
+    }
 
 
-    pdf.setFontSize(12);
-
-
-    const pageWidth =
-        pdf.internal.pageSize.getWidth();
-
-
-    const pageHeight =
-        pdf.internal.pageSize.getHeight();
-
-
-    const margin = 20;
-
-
-    const usableWidth =
-        pageWidth -
-        margin * 2;
-
-
-    const lines =
-        pdf.splitTextToSize(
-            text,
-            usableWidth
-        );
-
-
-    let y = 20;
-
-
-    lines.forEach(function(line){
-
-        if(
-            y >
-            pageHeight - 20
-        ){
-
-            pdf.addPage();
-
-            y = 20;
-
-        }
-
-
-        pdf.text(
-            line,
-            margin,
-            y
-        );
-
-
-        y += 7;
-
-    });
-
-
-    const name =
-        document.getElementById("name")
-        ?.value.trim()
-        || "Application";
-
-
-    const cleanName =
-        name
-        .replace(
-            /[^a-zA-Z0-9_-]/g,
-            "_"
-        );
-
-
-    pdf.save(
-        "Application_" +
-        cleanName +
-        ".pdf"
-    );
+    showCart();
 
 }
 
 
-/* =========================================================
-   CLEAR FORM
-========================================================= */
+/* ==========================================
+   SHOW CART
+========================================== */
 
-function clearForm(){
+function showCart(){
 
-    const fields =
-        document.querySelectorAll(
-            "input, textarea"
-        );
+    const cartBox =
+        document.getElementById("cartItems");
 
 
-    fields.forEach(function(field){
+    if(cart.length === 0){
 
-        field.value = "";
+        cartBox.innerHTML = `
+            <p>
+            🛒 Cart is empty / कार्ट खाली है
+            </p>
+        `;
 
-    });
+        updateTotal();
 
-
-    const gender =
-        document.getElementById("gender");
-
-    if(gender){
-
-        gender.value =
-            "male";
-
-    }
-
-
-    const language =
-        document.getElementById("language");
-
-    if(language){
-
-        language.value =
-            "hindi";
-
-    }
-
-
-    const reason =
-        document.getElementById("reason");
-
-    if(reason){
-
-        reason.selectedIndex =
-            0;
-
-    }
-
-
-    const output =
-        document.getElementById("output");
-
-
-    if(output){
-
-        output.innerText =
-            "Your Professional Application Will Appear Here...";
-
-    }
-
-
-    document.querySelectorAll(
-        ".hindi-preview"
-    ).forEach(function(preview){
-
-        preview.innerText =
-            "Hindi Preview: -";
-
-    });
-
-
-    setReasonReceiver();
-
-
-    alert(
-        "New Application Ready."
-    );
-
-}
-
-
-/* =========================================================
-   LANGUAGE LABEL SYSTEM
-========================================================= */
-
-function updateLanguageLabels(){
-
-    const language =
-        document.getElementById("language")?.value
-        || "hindi";
-
-
-    const labels = {
-
-        genderLabel:{
-            hi:"लिंग",
-            en:"Gender"
-        },
-
-        nameLabel:{
-            hi:"आवेदक का नाम",
-            en:"Applicant Name"
-        },
-
-        fatherLabel:{
-            hi:"पिता का नाम",
-            en:"Father Name"
-        },
-
-        motherLabel:{
-            hi:"माता का नाम",
-            en:"Mother Name"
-        },
-
-        mobileLabel:{
-            hi:"मोबाइल नंबर",
-            en:"Mobile Number"
-        },
-
-        emailLabel:{
-            hi:"ईमेल",
-            en:"Email"
-        },
-
-        villageLabel:{
-            hi:"ग्राम / गाँव",
-            en:"Village"
-        },
-
-        districtLabel:{
-            hi:"जिला",
-            en:"District"
-        },
-
-        reasonLabel:{
-            hi:"आवेदन का कारण",
-            en:"Application Reason"
-        },
-
-        receiverLabel:{
-            hi:"प्राप्तकर्ता",
-            en:"Receiver"
-        },
-
-        departmentLabel:{
-            hi:"विभाग / कार्यालय",
-            en:"Department / Office"
-        },
-
-        addressLabel:{
-            hi:"पूरा पता",
-            en:"Full Address"
-        },
-
-        detailsLabel:{
-            hi:"आवेदन का पूरा विवरण",
-            en:"Application Details"
-        },
-
-        placeLabel:{
-            hi:"स्थान",
-            en:"Place"
-        },
-
-        dateLabel:{
-            hi:"दिनांक",
-            en:"Date"
-        }
-
-    };
-
-
-    Object.keys(labels)
-    .forEach(function(id){
-
-        const label =
-            document.getElementById(id);
-
-
-        if(!label){
-            return;
-        }
-
-
-        if(language === "english"){
-
-            label.innerText =
-                labels[id].en;
-
-        }
-
-        else{
-
-            label.innerText =
-                labels[id].hi;
-
-        }
-
-    });
-
-
-    updateGenderOptions();
-
-    setReasonReceiver();
-
-}
-
-
-/* =========================================================
-   GENDER LANGUAGE
-========================================================= */
-
-function updateGenderOptions(){
-
-    const gender =
-        document.getElementById("gender");
-
-
-    if(!gender){
         return;
+
     }
 
 
-    const language =
-        document.getElementById("language")?.value
-        || "hindi";
+    cartBox.innerHTML = "";
 
 
-    const current =
-        gender.value;
+    cart.forEach(function(item,index){
+
+        const itemTotal =
+            item.price * item.qty;
 
 
-    if(language === "english"){
+        const row =
+            document.createElement("div");
 
-        gender.innerHTML = `
 
-            <option value="male">
-                Male
-            </option>
+        row.className =
+            "cart-item";
 
-            <option value="female">
-                Female
-            </option>
 
-            <option value="other">
-                Other
-            </option>
+        row.innerHTML = `
+
+            <div>
+
+                <strong>
+                    ${item.name}
+                </strong>
+
+                <br>
+
+                <small>
+                    ₹${item.price} × ${item.qty}
+                </small>
+
+            </div>
+
+
+            <div class="qty">
+
+                <button
+                type="button"
+                onclick="changeQty(${index},-1)">
+                −
+                </button>
+
+                <strong>
+                    ${item.qty}
+                </strong>
+
+                <button
+                type="button"
+                onclick="changeQty(${index},1)">
+                +
+                </button>
+
+            </div>
+
+
+            <strong>
+                ₹${itemTotal}
+            </strong>
+
+
+            <button
+            type="button"
+            class="remove-btn"
+            onclick="removeItem(${index})">
+
+            ❌
+
+            </button>
 
         `;
 
-    }
 
-    else{
+        cartBox.appendChild(row);
 
-        gender.innerHTML = `
-
-            <option value="male">
-                पुरुष
-            </option>
-
-            <option value="female">
-                महिला
-            </option>
-
-            <option value="other">
-                अन्य
-            </option>
-
-        `;
-
-    }
+    });
 
 
-    gender.value =
-        current || "male";
+    updateTotal();
 
 }
 
 
-/* =========================================================
-   LANGUAGE EVENT
-========================================================= */
+/* ==========================================
+   CHANGE QUANTITY
+========================================== */
 
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
+function changeQty(index,change){
 
-        const language =
-            document.getElementById("language");
+    cart[index].qty += change;
 
 
-        if(language){
+    if(cart[index].qty <= 0){
 
-            language.addEventListener(
-                "change",
-                function(){
+        cart.splice(index,1);
 
-                    updateLanguageLabels();
+    }
 
-                }
+
+    showCart();
+
+}
+
+
+/* ==========================================
+   REMOVE ITEM
+========================================== */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    showCart();
+
+}
+
+
+/* ==========================================
+   CAKE TOTAL
+========================================== */
+
+function getCakeTotal(){
+
+    let total = 0;
+
+
+    cart.forEach(function(item){
+
+        total +=
+            item.price * item.qty;
+
+    });
+
+
+    return total;
+
+}
+
+
+/* ==========================================
+   UPDATE TOTAL
+========================================== */
+
+function updateTotal(){
+
+    const cakeTotal =
+        getCakeTotal();
+
+
+    const deliverySelect =
+        document.getElementById(
+            "deliveryCharge"
+        );
+
+
+    const delivery =
+        deliverySelect
+        ? Number(deliverySelect.value) || 0
+        : 0;
+
+
+    const grandTotal =
+        cakeTotal + delivery;
+
+
+    document.getElementById(
+        "cakeTotal"
+    ).innerText =
+        "₹" + cakeTotal;
+
+
+    document.getElementById(
+        "deliveryAmount"
+    ).innerText =
+        "₹" + delivery;
+
+
+    document.getElementById(
+        "grandTotal"
+    ).innerText =
+        "₹" + grandTotal;
+
+
+    document.getElementById(
+        "cakeTotalInput"
+    ).value =
+        "₹" + cakeTotal;
+
+
+    document.getElementById(
+        "deliveryInput"
+    ).value =
+        "₹" + delivery;
+
+
+    document.getElementById(
+        "grandTotalInput"
+    ).value =
+        "₹" + grandTotal;
+
+
+    /*
+       Online payment amount
+    */
+
+    const onlineAmount =
+        document.getElementById(
+            "onlinePayAmount"
+        );
+
+
+    if(onlineAmount){
+
+        onlineAmount.innerText =
+            "₹" + grandTotal;
+
+    }
+
+}
+
+
+/* ==========================================
+   ONLINE UPI PAYMENT
+========================================== */
+
+function payOnline(){
+
+    const cakeTotal =
+        getCakeTotal();
+
+
+    const delivery =
+        Number(
+            document.getElementById(
+                "deliveryCharge"
+            ).value
+        ) || 0;
+
+
+    const amount =
+        cakeTotal + delivery;
+
+
+    if(amount <= 0){
+
+        alert(
+            "Please add a cake first.\n\n" +
+            "कृपया पहले कार्ट में केक जोड़ें।"
+        );
+
+        return;
+
+    }
+
+
+    /*
+       UPI Payment Link
+
+       pa = UPI ID
+       pn = Shop Name
+       am = Amount
+       cu = Currency
+    */
+
+    const upiLink =
+        "upi://pay" +
+        "?pa=" +
+        encodeURIComponent(
+            SHOP_UPI_ID
+        ) +
+        "&pn=" +
+        encodeURIComponent(
+            SHOP_NAME
+        ) +
+        "&am=" +
+        encodeURIComponent(
+            amount.toFixed(2)
+        ) +
+        "&cu=INR" +
+        "&tn=" +
+        encodeURIComponent(
+            "Cake Order"
+        );
+
+
+    /*
+       Open UPI application
+    */
+
+    window.location.href =
+        upiLink;
+
+
+    /*
+       IMPORTANT:
+       We do NOT automatically mark
+       payment as successful here.
+    */
+
+}
+
+
+/* ==========================================
+   PAYMENT MARKING
+========================================== */
+
+function markPaymentDone(){
+
+    document.getElementById(
+        "paymentStatus"
+    ).value =
+        "Customer marked as Paid";
+
+
+    document.getElementById(
+        "paymentStatusBox"
+    ).innerHTML =
+        "✅ Payment marked by customer. " +
+        "Payment should be verified by the shop owner.";
+
+}
+
+
+/* ==========================================
+   PREPARE ORDER
+========================================== */
+
+function prepareOrder(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Please add a cake to your cart first.\n\n" +
+            "कृपया पहले कार्ट में केक जोड़ें।"
+        );
+
+        return false;
+
+    }
+
+
+    let items = "";
+
+
+    cart.forEach(function(item,index){
+
+        items +=
+
+            (index + 1) +
+            ". " +
+            item.name +
+            " × " +
+            item.qty +
+            " = ₹" +
+            (item.price * item.qty) +
+            "\n";
+
+    });
+
+
+    document.getElementById(
+        "orderItems"
+    ).value =
+        items;
+
+
+    updateTotal();
+
+
+    return true;
+
+}
+
+
+/* ==========================================
+   WHATSAPP ORDER
+========================================== */
+
+function whatsappOrder(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Please add a cake first.\n\n" +
+            "कृपया पहले केक जोड़ें।"
+        );
+
+        return;
+
+    }
+
+
+    let message =
+        "🎂 Amit's Cake House\n\n";
+
+
+    message +=
+        "🛒 NEW CAKE ORDER\n\n";
+
+
+    cart.forEach(function(item,index){
+
+        message +=
+
+            (index + 1) +
+            ". " +
+            item.name +
+            " × " +
+            item.qty +
+            " = ₹" +
+            (item.price * item.qty) +
+            "\n";
+
+    });
+
+
+    const cakeTotal =
+        getCakeTotal();
+
+
+    const delivery =
+        Number(
+            document.getElementById(
+                "deliveryCharge"
+            ).value
+        ) || 0;
+
+
+    const grandTotal =
+        cakeTotal + delivery;
+
+
+    message +=
+        "\n🎂 Cake Total: ₹" +
+        cakeTotal;
+
+
+    message +=
+        "\n🚚 Delivery: ₹" +
+        delivery;
+
+
+    message +=
+        "\n💰 Grand Total: ₹" +
+        grandTotal;
+
+
+    const date =
+        document.getElementById(
+            "deliveryDate"
+        ).value;
+
+
+    const time =
+        document.getElementById(
+            "deliveryTime"
+        ).value;
+
+
+    if(date){
+
+        message +=
+            "\n📅 Delivery Date: " +
+            date;
+
+    }
+
+
+    if(time){
+
+        message +=
+            "\n⏰ Delivery Time: " +
+            time;
+
+    }
+
+
+    message +=
+        "\n\nPlease confirm my order.";
+
+
+    /*
+       अपना WhatsApp नंबर यहां डालें
+    */
+
+    const phone =
+        "91XXXXXXXXXX";
+
+
+    const url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* ==========================================
+   DATE SETUP
+========================================== */
+
+function setToday(){
+
+    const input =
+        document.getElementById(
+            "deliveryDate"
+        );
+
+
+    if(!input) return;
+
+
+    const now =
+        new Date();
+
+
+    const year =
+        now.getFullYear();
+
+
+    const month =
+        String(
+            now.getMonth()+1
+        ).padStart(2,"0");
+
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(2,"0");
+
+
+    const today =
+        year +
+        "-" +
+        month +
+        "-" +
+        day;
+
+
+    input.min =
+        today;
+
+
+    input.value =
+        today;
+
+}
+
+
+/* ==========================================
+   TIME SETUP
+========================================== */
+
+function setTime(){
+
+    const input =
+        document.getElementById(
+            "deliveryTime"
+        );
+
+
+    if(!input) return;
+
+
+    const now =
+        new Date();
+
+
+    let hours =
+        now.getHours();
+
+
+    let minutes =
+        now.getMinutes() + 30;
+
+
+    if(minutes >= 60){
+
+        hours++;
+
+        minutes -= 60;
+
+    }
+
+
+    if(hours >= 24){
+
+        hours = 23;
+
+        minutes = 59;
+
+    }
+
+
+    const time =
+        String(hours)
+        .padStart(2,"0")
+        +
+        ":" +
+        String(minutes)
+        .padStart(2,"0");
+
+
+    input.min =
+        time;
+
+}
+
+
+/* ==========================================
+   CLOSE MOBILE MENU
+========================================== */
+
+document
+.querySelectorAll("#navMenu a")
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            document
+            .getElementById(
+                "navMenu"
+            )
+            .classList.remove(
+                "active"
             );
 
         }
+    );
+
+});
 
 
-        updateLanguageLabels();
+/* ==========================================
+   START WEBSITE
+========================================== */
 
-    }
-);
-
-
-/* =========================================================
-   DATE AUTO SET
-========================================================= */
-
-window.addEventListener(
+document.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        const date =
-            document.getElementById("date");
+        /*
+           Show UPI ID
+        */
+
+        document.getElementById(
+            "upiDisplay"
+        ).innerText =
+            SHOP_UPI_ID;
 
 
-        if(date && !date.value){
+        /*
+           Date and time
+        */
 
-            const today =
-                new Date();
+        setToday();
 
-
-            const year =
-                today.getFullYear();
-
-
-            const month =
-                String(
-                    today.getMonth() + 1
-                ).padStart(2,"0");
+        setTime();
 
 
-            const day =
-                String(
-                    today.getDate()
-                ).padStart(2,"0");
+        /*
+           Cart
+        */
 
+        showCart();
 
-            date.value =
-                year +
-                "-" +
-                month +
-                "-" +
-                day;
-
-        }
+        updateTotal();
 
     }
 );
 
-/* =========================================================
-   END PART 3
-========================================================= */
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-        navigator.serviceWorker.register("./service-worker.js")
-            .then(function (registration) {
-                console.log(
-                    "Service Worker Registered:",
-                    registration.scope
-                );
-            })
-            .catch(function (error) {
-                console.error(
-                    "Service Worker Error:",
-                    error
-                );
-            });
-    });
-}
 </script>
-</body>
 
+</body>
 </html>
+
+<!-- ================= PART 2 END ================= -->
