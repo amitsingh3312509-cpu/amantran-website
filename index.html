@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Amit's Cake House</title>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -19,834 +28,1535 @@ body{
     color:#222;
 }
 
+
+/* =========================
+   HEADER
+========================= */
+
 header{
-    background:linear-gradient(135deg,#ff4f81,#ff8fab);
+    background:linear-gradient(
+        135deg,
+        #e91e63,
+        #ff80ab
+    );
+
     color:white;
+
     padding:18px 15px;
+
     position:sticky;
     top:0;
+
     z-index:1000;
-    box-shadow:0 3px 15px rgba(0,0,0,.15);
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.18);
 }
 
 .header-box{
-    max-width:1100px;
+    max-width:1150px;
+
     margin:auto;
+
     display:flex;
-    align-items:center;
+
     justify-content:space-between;
-    gap:10px;
+
+    align-items:center;
+
+    gap:15px;
 }
 
 .logo h1{
-    font-size:25px;
+    font-size:27px;
 }
 
 .logo p{
-    font-size:12px;
-    margin-top:4px;
+    font-size:13px;
+
+    margin-top:5px;
 }
 
 .language select{
-    padding:9px 12px;
+    width:auto;
+
+    margin:0;
+
+    padding:10px 13px;
+
     border:none;
+
     border-radius:8px;
-    outline:none;
+
     font-weight:bold;
+
+    background:white;
+
+    color:#222;
 }
+
+
+/* =========================
+   NOTICE
+========================= */
 
 .notice{
     background:#222;
-    color:#fff;
+
+    color:white;
+
     padding:9px 0;
+
     overflow:hidden;
+
     white-space:nowrap;
 }
 
 .notice span{
     display:inline-block;
+
     padding-left:100%;
-    animation:scroll 18s linear infinite;
+
+    animation:
+    scrolling 18s linear infinite;
 }
 
-@keyframes scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-100%);}
+@keyframes scrolling{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+
 }
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-    max-width:1100px;
-    margin:20px auto;
-    padding:35px 20px;
+    max-width:1150px;
+
+    margin:22px auto;
+
+    padding:40px 20px;
+
     text-align:center;
-    background:linear-gradient(135deg,#ffe0ea,#fff);
-    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffe0eb,
+        #ffffff
+    );
+
+    border-radius:22px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.06);
 }
 
 .hero h2{
-    color:#e91e63;
-    font-size:30px;
-    margin-bottom:10px;
+    color:#d81b60;
+
+    font-size:32px;
+
+    margin-bottom:12px;
 }
 
 .hero p{
-    line-height:1.6;
+    max-width:850px;
+
+    margin:auto;
+
     color:#555;
+
+    line-height:1.7;
+
+    font-size:16px;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
-    max-width:1100px;
+    max-width:1150px;
+
     margin:auto;
+
     padding:15px;
 }
 
 .section-title{
     text-align:center;
+
     color:#d81b60;
-    margin:25px 0 18px;
-    font-size:25px;
+
+    margin:30px 0 20px;
+
+    font-size:26px;
 }
 
+
+/* =========================
+   CAKE GRID
+========================= */
+
 .cake-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
 }
 
 .cake-card{
-    background:#fff;
-    border-radius:16px;
+
+    background:white;
+
+    border-radius:17px;
+
     overflow:hidden;
-    box-shadow:0 5px 18px rgba(0,0,0,.1);
+
+    box-shadow:
+    0 5px 18px
+    rgba(0,0,0,.10);
+
     transition:.3s;
 }
 
 .cake-card:hover{
-    transform:translateY(-5px);
+
+    transform:
+    translateY(-6px);
+
+    box-shadow:
+    0 9px 25px
+    rgba(0,0,0,.15);
 }
 
 .cake-photo{
+
     width:100%;
-    height:200px;
+
+    height:210px;
+
     object-fit:cover;
+
     display:block;
+
     background:#eee;
 }
 
 .card-content{
-    padding:15px;
+
+    padding:16px;
 }
 
 .cake-name{
+
     font-size:20px;
+
     font-weight:bold;
-    color:#333;
+
     margin-bottom:8px;
+
+    color:#333;
 }
 
 .quality{
+
     display:inline-block;
+
     background:#fff0f5;
+
     color:#d81b60;
-    padding:5px 9px;
+
+    padding:6px 10px;
+
     border-radius:20px;
+
     font-size:12px;
+
     font-weight:bold;
+
     margin-bottom:10px;
 }
 
 .price{
-    font-size:21px;
-    font-weight:bold;
-    color:#e91e63;
-    margin-bottom:12px;
-}
 
-button{
-    border:none;
-    cursor:pointer;
+    color:#e91e63;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:13px;
 }
 
 .add-btn{
+
     width:100%;
-    padding:11px;
+
+    padding:12px;
+
+    border:none;
+
     border-radius:9px;
+
     background:#e91e63;
+
     color:white;
+
     font-size:15px;
+
     font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
 }
 
 .add-btn:hover{
+
     background:#c2185b;
 }
+
+
+/* =========================
+   BOXES
+========================= */
 
 .cart-box,
 .payment-box,
 .order-box,
 .contact-box{
-    background:#fff;
+
+    background:white;
+
     padding:20px;
-    margin-top:25px;
-    border-radius:16px;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+    margin-top:28px;
+
+    border-radius:17px;
+
+    box-shadow:
+    0 5px 18px
+    rgba(0,0,0,.08);
 }
 
+
+/* =========================
+   CART
+========================= */
+
 .cart-item{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    gap:10px;
-    padding:12px 0;
-    border-bottom:1px solid #eee;
+
+    gap:12px;
+
+    padding:13px 0;
+
+    border-bottom:
+    1px solid #eee;
 }
 
 .cart-name{
+
     font-weight:bold;
+
+    margin-bottom:4px;
 }
 
 .qty{
+
     display:flex;
+
     align-items:center;
+
     gap:8px;
 }
 
 .qty button{
-    width:30px;
-    height:30px;
-    border-radius:6px;
+
+    width:32px;
+
+    height:32px;
+
+    border:none;
+
+    border-radius:7px;
+
     background:#f8d7e3;
+
+    font-size:18px;
+
     font-weight:bold;
+
+    cursor:pointer;
 }
 
 .remove-btn{
+
+    border:none;
+
     background:#ffebee;
+
     color:#d32f2f;
-    padding:7px 10px;
-    border-radius:6px;
+
+    padding:8px 11px;
+
+    border-radius:7px;
+
+    cursor:pointer;
 }
 
 .total-row{
+
     display:flex;
+
     justify-content:space-between;
-    padding:7px 0;
+
+    align-items:center;
+
+    padding:8px 0;
 }
 
 .grand{
-    font-size:21px;
-    font-weight:bold;
-    color:#e91e63;
-    border-top:1px solid #ddd;
+
+    border-top:
+    1px solid #ddd;
+
     margin-top:8px;
-    padding-top:12px;
+
+    padding-top:13px;
+
+    color:#e91e63;
+
+    font-size:21px;
+
+    font-weight:bold;
 }
 
 .advance{
+
     color:#00897b;
+
     font-weight:bold;
 }
 
 .cod{
+
     color:#ef6c00;
+
     font-weight:bold;
 }
 
-select,
+
+/* =========================
+   FORM
+========================= */
+
 input,
+select,
 textarea{
+
     width:100%;
-    padding:11px;
+
+    padding:12px;
+
     margin-top:6px;
-    margin-bottom:14px;
-    border:1px solid #ddd;
+
+    margin-bottom:15px;
+
+    border:
+    1px solid #ddd;
+
     border-radius:8px;
+
     outline:none;
+
     font-size:15px;
+
+    background:white;
 }
 
 textarea{
+
     min-height:90px;
+
     resize:vertical;
 }
 
 label{
+
+    display:block;
+
     font-weight:bold;
+
     font-size:14px;
+
+    margin-top:4px;
 }
 
+
+/* =========================
+   PAYMENT
+========================= */
+
 .payment-info{
+
     background:#fff8e1;
-    padding:15px;
+
+    padding:16px;
+
     border-radius:10px;
-    line-height:1.7;
-    margin:12px 0;
+
+    line-height:1.8;
+
+    margin-bottom:14px;
 }
 
 .pay-btn{
+
     width:100%;
-    padding:13px;
-    background:#00897b;
-    color:white;
+
+    padding:14px;
+
+    border:none;
+
     border-radius:9px;
+
+    background:#00897b;
+
+    color:white;
+
     font-size:16px;
+
     font-weight:bold;
+
+    cursor:pointer;
+
     margin-bottom:10px;
 }
 
+.pay-btn:hover{
+
+    background:#00695c;
+}
+
 .paid-btn{
+
     width:100%;
-    padding:13px;
-    background:#1976d2;
-    color:white;
+
+    padding:14px;
+
+    border:none;
+
     border-radius:9px;
+
+    background:#1976d2;
+
+    color:white;
+
     font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.paid-btn:hover{
+
+    background:#125aa0;
+}
+
+.status{
+
+    display:none;
+
+    margin-top:13px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#e8f5e9;
+
+    color:#2e7d32;
+
     font-weight:bold;
 }
 
 .submit-btn{
+
     width:100%;
-    padding:14px;
-    background:#e91e63;
-    color:#fff;
+
+    padding:15px;
+
+    border:none;
+
     border-radius:9px;
+
+    background:#e91e63;
+
+    color:white;
+
     font-size:17px;
+
     font-weight:bold;
+
+    cursor:pointer;
 }
 
-.status{
-    margin-top:12px;
-    padding:10px;
-    border-radius:8px;
-    background:#f1f8e9;
-    color:#33691e;
-    display:none;
+.submit-btn:hover{
+
+    background:#c2185b;
 }
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box p{
+
+    margin:9px 0;
+
+    line-height:1.5;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    margin-top:35px;
-    padding:25px 15px;
+
     background:#222;
+
     color:white;
+
     text-align:center;
+
+    margin-top:35px;
+
+    padding:27px 15px;
+
+    line-height:1.8;
 }
 
-footer p{
-    margin:6px;
-}
+
+/* =========================
+   FLOATING BUTTONS
+========================= */
 
 .floating{
+
     position:fixed;
+
     right:15px;
+
     bottom:15px;
+
     display:flex;
+
     flex-direction:column;
+
     gap:10px;
+
     z-index:999;
 }
 
 .float-btn{
-    width:50px;
-    height:50px;
+
+    width:52px;
+
+    height:52px;
+
     border-radius:50%;
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+
+    align-items:center;
+
     color:white;
+
     text-decoration:none;
+
     font-size:22px;
-    box-shadow:0 4px 12px rgba(0,0,0,.25);
+
+    box-shadow:
+    0 4px 12px
+    rgba(0,0,0,.25);
 }
 
 .whatsapp{
+
     background:#25d366;
 }
 
 .call{
+
     background:#1976d2;
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:850px){
+
     .cake-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
+
 }
 
 @media(max-width:600px){
-    .header-box{
-        flex-direction:column;
-    }
 
-    .logo{
+    .header-box{
+
+        flex-direction:column;
+
         text-align:center;
     }
 
+    .logo h1{
+
+        font-size:24px;
+    }
+
     .cake-grid{
+
         grid-template-columns:1fr;
     }
 
     .hero h2{
-        font-size:25px;
+
+        font-size:26px;
+    }
+
+    .hero{
+
+        margin:15px;
+
+        padding:30px 15px;
     }
 
     .cart-item{
+
         flex-wrap:wrap;
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <div class="header-box">
 
-        <div class="logo">
-            <h1 data-i18n="brand">Amit's Cake House</h1>
-            <p data-i18n="owner">Owner: Amit Kumar Singh</p>
-        </div>
+<div class="header-box">
 
-        <div class="language">
-            <select id="languageSelect" onchange="changeLanguage(this.value)">
-                <option value="en">🇬🇧 English</option>
-                <option value="hi">🇮🇳 हिन्दी</option>
-            </select>
-        </div>
+<div class="logo">
 
-    </div>
-</header>
+<h1 data-i18n="brand">
+Amit's Cake House
+</h1>
 
-<div class="notice">
-    <span data-i18n="notice">
-        🎂 Premium 12+ Quality Cakes | 50% Advance Payment | 50% Cash on Delivery | Fresh Cakes
-    </span>
+<p data-i18n="owner">
+Owner: Amit Kumar Singh
+</p>
+
 </div>
 
-<section class="hero">
-    <h2 data-i18n="heroTitle">Fresh & Premium Cakes</h2>
 
-    <p data-i18n="heroText">
-        Order delicious cakes online from Amit's Cake House.
-        Choose your favourite cake, select delivery details and pay only 50% in advance.
-        Remaining 50% will be paid by Cash on Delivery.
-    </p>
+<div class="language">
+
+<select
+id="languageSelect"
+onchange="changeLanguage(this.value)"
+>
+
+<option value="en">
+🇬🇧 English
+</option>
+
+<option value="hi">
+🇮🇳 हिन्दी
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     NOTICE
+========================= -->
+
+<div class="notice">
+
+<span data-i18n="notice">
+
+🎂 Premium 12+ Quality Cakes |
+50% Advance Payment |
+50% Cash on Delivery |
+Fresh Cakes
+
+</span>
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<h2 data-i18n="heroTitle">
+
+Fresh & Premium Cakes
+
+</h2>
+
+<p data-i18n="heroText">
+
+Order delicious cakes online from
+Amit's Cake House. Choose your
+favourite cake, select delivery details
+and pay 50% in advance. The remaining
+50% will be paid by Cash on Delivery.
+
+</p>
+
 </section>
+
 
 <div class="container">
 
-    <h2 class="section-title" data-i18n="menuTitle">
-        Our Cake Collection
-    </h2>
 
-    <!-- JavaScript will create all cake cards here -->
-    <div class="cake-grid" id="cakeList"></div>
+<!-- =========================
+     CAKE MENU
+========================= -->
 
+<h2
+class="section-title"
+data-i18n="menuTitle"
+>
 
-    <!-- CART -->
+Our Cake Collection
 
-    <div class="cart-box">
+</h2>
 
-        <h2 class="section-title" data-i18n="cartTitle">
-            🛒 Your Cart
-        </h2>
 
-        <div id="cartItems">
-            <p data-i18n="emptyCart">
-                Your cart is empty.
-            </p>
-        </div>
+<div
+class="cake-grid"
+id="cakeList"
+>
 
-        <div class="total-row">
-            <span data-i18n="cakeTotal">Cake Total</span>
-            <strong>₹<span id="cakeTotal">0</span></strong>
-        </div>
-
-        <label data-i18n="deliveryType">
-            Delivery Type
-        </label>
-
-        <select id="deliveryType" onchange="updateTotal()">
-
-            <option value="pickup" data-i18n="pickup">
-                Pickup — ₹0
-            </option>
-
-            <option value="0-3" data-i18n="km03">
-                0–3 KM — ₹20
-            </option>
-
-            <option value="3-7" data-i18n="km37">
-                3–7 KM — ₹40
-            </option>
-
-            <option value="7-12" data-i18n="km712">
-                7–12 KM — ₹60
-            </option>
-
-            <option value="12+" data-i18n="km12plus">
-                12 KM+ — ₹100
-            </option>
-
-        </select>
-
-        <div class="total-row">
-            <span data-i18n="deliveryCharge">
-                Delivery Charge
-            </span>
-
-            <strong>₹<span id="deliveryCharge">0</span></strong>
-        </div>
-
-        <div class="total-row grand">
-            <span data-i18n="grandTotal">
-                Grand Total
-            </span>
-
-            <strong>₹<span id="grandTotal">0</span></strong>
-        </div>
-
-        <div class="total-row advance">
-            <span data-i18n="advanceAmount">
-                50% Advance
-            </span>
-
-            <strong>₹<span id="advanceAmount">0</span></strong>
-        </div>
-
-        <div class="total-row cod">
-            <span data-i18n="codAmount">
-                50% Cash on Delivery
-            </span>
-
-            <strong>₹<span id="codAmount">0</span></strong>
-        </div>
-
-    </div>
-
-
-    <!-- PAYMENT -->
-
-    <div class="payment-box">
-
-        <h2 class="section-title" data-i18n="paymentTitle">
-            💳 Payment
-        </h2>
-
-        <div class="payment-info">
-
-            <strong data-i18n="paymentRule">
-                50% Advance Payment is compulsory.
-            </strong>
-
-            <br>
-
-            <span data-i18n="paymentExplain">
-                Pay 50% online through UPI and pay the remaining 50% by Cash on Delivery.
-            </span>
-
-            <br><br>
-
-            <span data-i18n="payNow">
-                Amount to Pay Now:
-            </span>
-
-            <strong>
-                ₹<span id="paymentAmount">0</span>
-            </strong>
-
-        </div>
-
-        <button class="pay-btn" onclick="payAdvance()" data-i18n="payButton">
-            💳 Pay 50% Advance by UPI
-        </button>
-
-        <button class="paid-btn" onclick="markPaid()" data-i18n="paidButton">
-            ✅ I Have Paid Advance
-        </button>
-
-        <div id="paymentStatus" class="status"></div>
-
-    </div>
-
-
-    <!-- ORDER FORM -->
-
-    <div class="order-box">
-
-        <h2 class="section-title" data-i18n="orderTitle">
-            📝 Customer & Delivery Details
-        </h2>
-
-        <form
-            id="orderForm"
-            action="https://formsubmit.co/YOUR_EMAIL@gmail.com"
-            method="POST"
-            onsubmit="return validateOrder()"
-        >
-
-            <input
-                type="hidden"
-                name="_subject"
-                value="New Cake Order - Amit's Cake House"
-            >
-
-            <input
-                type="hidden"
-                name="_captcha"
-                value="false"
-            >
-
-            <input
-                type="hidden"
-                name="_template"
-                value="table"
-            >
-
-            <input type="hidden" name="Order Details" id="orderData">
-
-            <input type="hidden" name="Cake Total" id="hiddenCakeTotal">
-
-            <input type="hidden" name="Delivery Charge" id="hiddenDelivery">
-
-            <input type="hidden" name="Grand Total" id="hiddenGrand">
-
-            <input type="hidden" name="50% Advance" id="hiddenAdvance">
-
-            <input type="hidden" name="50% COD" id="hiddenCOD">
-
-            <input
-                type="hidden"
-                name="Advance Payment Status"
-                id="hiddenPaymentStatus"
-            >
-
-
-            <label data-i18n="nameLabel">
-                Customer Name
-            </label>
-
-            <input
-                type="text"
-                name="Customer Name"
-                id="customerName"
-                required
-                placeholder="Enter your name"
-                data-placeholder="namePlaceholder"
-            >
-
-
-            <label data-i18n="mobileLabel">
-                Mobile Number
-            </label>
-
-            <input
-                type="tel"
-                name="Mobile"
-                id="mobile"
-                required
-                pattern="[0-9]{10}"
-                placeholder="10 digit mobile number"
-                data-placeholder="mobilePlaceholder"
-            >
-
-
-            <label data-i18n="emailLabel">
-                Email
-            </label>
-
-            <input
-                type="email"
-                name="Email"
-                id="email"
-                required
-                placeholder="Enter your email"
-                data-placeholder="emailPlaceholder"
-            >
-
-
-            <label data-i18n="dateLabel">
-                Delivery Date
-            </label>
-
-            <input
-                type="date"
-                name="Delivery Date"
-                id="deliveryDate"
-                required
-            >
-
-
-            <label data-i18n="timeLabel">
-                Delivery Time
-            </label>
-
-            <input
-                type="time"
-                name="Delivery Time"
-                id="deliveryTime"
-                required
-            >
-
-
-            <label data-i18n="areaLabel">
-                Village / Area
-            </label>
-
-            <input
-                type="text"
-                name="Village Area"
-                id="village"
-                required
-                placeholder="Enter village or area"
-                data-placeholder="areaPlaceholder"
-            >
-
-
-            <label data-i18n="pincodeLabel">
-                Pincode
-            </label>
-
-            <input
-                type="text"
-                name="Pincode"
-                id="pincode"
-                required
-                pattern="[0-9]{6}"
-                placeholder="6 digit pincode"
-                data-placeholder="pincodePlaceholder"
-            >
-
-
-            <label data-i18n="addressLabel">
-                Full Delivery Address
-            </label>
-
-            <textarea
-                name="Full Address"
-                id="address"
-                required
-                placeholder="Enter complete delivery address"
-                data-placeholder="addressPlaceholder"
-            ></textarea>
-
-
-            <label data-i18n="messageLabel">
-                Cake Message / Design
-            </label>
-
-            <textarea
-                name="Cake Message Design"
-                id="cakeMessage"
-                placeholder="Example: Happy Birthday Amit"
-                data-placeholder="messagePlaceholder"
-            ></textarea>
-
-
-            <label data-i18n="instructionLabel">
-                Special Instructions
-            </label>
-
-            <textarea
-                name="Special Instructions"
-                id="instructions"
-                placeholder="Any special requirement?"
-                data-placeholder="instructionPlaceholder"
-            ></textarea>
-
-
-            <button
-                type="submit"
-                class="submit-btn"
-                data-i18n="submitButton"
-            >
-                🎂 Place Cake Order
-            </button>
-
-        </form>
-
-    </div>
-
-
-    <!-- CONTACT -->
-
-    <div class="contact-box">
-
-        <h2 class="section-title" data-i18n="contactTitle">
-            📞 Contact
-        </h2>
-
-        <p>
-            <strong data-i18n="ownerLabel">Owner:</strong>
-            Amit Kumar Singh
-        </p>
-
-        <p>
-            <strong data-i18n="callLabel">Call:</strong>
-            <span>7309277213/span>
-        </p>
-
-        <p>
-            <strong data-i18n="whatsappLabel">WhatsApp:</strong>
-            <span>7309277213</span>
-        </p>
-
-    </div>
+<!-- Cakes will appear here -->
 
 </div>
 
 
+<!-- =========================
+     CART
+========================= -->
+
+<div class="cart-box">
+
+<h2
+class="section-title"
+data-i18n="cartTitle"
+>
+
+🛒 Your Cart
+
+</h2>
+
+
+<div id="cartItems">
+
+<p data-i18n="emptyCart">
+
+Your cart is empty.
+
+</p>
+
+</div>
+
+
+<div class="total-row">
+
+<span data-i18n="cakeTotal">
+Cake Total
+</span>
+
+<strong>
+₹<span id="cakeTotal">0.00</span>
+</strong>
+
+</div>
+
+
+<label
+data-i18n="deliveryType"
+>
+
+Delivery Type
+
+</label>
+
+
+<select
+id="deliveryType"
+onchange="updateTotal()"
+>
+
+<option
+value="pickup"
+data-i18n="pickup"
+>
+
+Pickup — ₹0
+
+</option>
+
+
+<option
+value="0-3"
+data-i18n="km03"
+>
+
+0–3 KM — ₹20
+
+</option>
+
+
+<option
+value="3-7"
+data-i18n="km37"
+>
+
+3–7 KM — ₹40
+
+</option>
+
+
+<option
+value="7-12"
+data-i18n="km712"
+>
+
+7–12 KM — ₹60
+
+</option>
+
+
+<option
+value="12+"
+data-i18n="km12plus"
+>
+
+12 KM+ — ₹100
+
+</option>
+
+</select>
+
+
+<div class="total-row">
+
+<span data-i18n="deliveryCharge">
+
+Delivery Charge
+
+</span>
+
+<strong>
+
+₹<span id="deliveryCharge">
+0.00
+</span>
+
+</strong>
+
+</div>
+
+
+<div class="total-row grand">
+
+<span data-i18n="grandTotal">
+
+Grand Total
+
+</span>
+
+<strong>
+
+₹<span id="grandTotal">
+0.00
+</span>
+
+</strong>
+
+</div>
+
+
+<div class="total-row advance">
+
+<span data-i18n="advanceAmount">
+
+50% Advance
+
+</span>
+
+<strong>
+
+₹<span id="advanceAmount">
+0.00
+</span>
+
+</strong>
+
+</div>
+
+
+<div class="total-row cod">
+
+<span data-i18n="codAmount">
+
+50% Cash on Delivery
+
+</span>
+
+<strong>
+
+₹<span id="codAmount">
+0.00
+</span>
+
+</strong>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     PAYMENT
+========================= -->
+
+<div class="payment-box">
+
+<h2
+class="section-title"
+data-i18n="paymentTitle"
+>
+
+💳 Payment
+
+</h2>
+
+
+<div class="payment-info">
+
+<strong data-i18n="paymentRule">
+
+50% Advance Payment is compulsory.
+
+</strong>
+
+<br>
+
+<span data-i18n="paymentExplain">
+
+Pay 50% online through UPI and pay
+the remaining 50% by Cash on Delivery.
+
+</span>
+
+<br><br>
+
+<span data-i18n="payNow">
+
+Amount to Pay Now:
+
+</span>
+
+<strong>
+
+₹<span id="paymentAmount">
+0.00
+</span>
+
+</strong>
+
+</div>
+
+
+<button
+class="pay-btn"
+onclick="payAdvance()"
+data-i18n="payButton"
+>
+
+💳 Pay 50% Advance by UPI
+
+</button>
+
+
+<button
+class="paid-btn"
+onclick="markPaid()"
+data-i18n="paidButton"
+>
+
+✅ I Have Paid Advance
+
+</button>
+
+
+<div
+id="paymentStatus"
+class="status"
+>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ORDER FORM
+========================= -->
+
+<div class="order-box">
+
+<h2
+class="section-title"
+data-i18n="orderTitle"
+>
+
+📝 Customer & Delivery Details
+
+</h2>
+
+
+<form
+id="orderForm"
+action="https://formsubmit.co/YOUR_EMAIL@gmail.com"
+method="POST"
+onsubmit="return validateOrder()"
+>
+
+
+<input
+type="hidden"
+name="_subject"
+value="New Cake Order - Amit's Cake House"
+>
+
+
+<input
+type="hidden"
+name="_captcha"
+value="false"
+>
+
+
+<input
+type="hidden"
+name="_template"
+value="table"
+>
+
+
+<input
+type="hidden"
+name="Order Details"
+id="orderData"
+>
+
+
+<input
+type="hidden"
+name="Cake Total"
+id="hiddenCakeTotal"
+>
+
+
+<input
+type="hidden"
+name="Delivery Charge"
+id="hiddenDelivery"
+>
+
+
+<input
+type="hidden"
+name="Grand Total"
+id="hiddenGrand"
+>
+
+
+<input
+type="hidden"
+name="50% Advance"
+id="hiddenAdvance"
+>
+
+
+<input
+type="hidden"
+name="50% COD"
+id="hiddenCOD"
+>
+
+
+<input
+type="hidden"
+name="Advance Payment Status"
+id="hiddenPaymentStatus"
+>
+
+
+<label data-i18n="nameLabel">
+
+Customer Name
+
+</label>
+
+<input
+type="text"
+name="Customer Name"
+id="customerName"
+required
+placeholder="Enter your name"
+data-placeholder="namePlaceholder"
+>
+
+
+<label data-i18n="mobileLabel">
+
+Mobile Number
+
+</label>
+
+<input
+type="tel"
+name="Mobile"
+id="mobile"
+required
+pattern="[0-9]{10}"
+placeholder="10 digit mobile number"
+data-placeholder="mobilePlaceholder"
+>
+
+
+<label data-i18n="emailLabel">
+
+Email
+
+</label>
+
+<input
+type="email"
+name="Email"
+id="email"
+required
+placeholder="Enter your email"
+data-placeholder="emailPlaceholder"
+>
+
+
+<label data-i18n="dateLabel">
+
+Delivery Date
+
+</label>
+
+<input
+type="date"
+name="Delivery Date"
+id="deliveryDate"
+required
+>
+
+
+<label data-i18n="timeLabel">
+
+Delivery Time
+
+</label>
+
+<input
+type="time"
+name="Delivery Time"
+id="deliveryTime"
+required
+>
+
+
+<label data-i18n="areaLabel">
+
+Village / Area
+
+</label>
+
+<input
+type="text"
+name="Village / Area"
+id="village"
+required
+placeholder="Enter village or area"
+data-placeholder="areaPlaceholder"
+>
+
+
+<label data-i18n="pincodeLabel">
+
+Pincode
+
+</label>
+
+<input
+type="text"
+name="Pincode"
+id="pincode"
+required
+pattern="[0-9]{6}"
+placeholder="6 digit pincode"
+data-placeholder="pincodePlaceholder"
+>
+
+
+<label data-i18n="addressLabel">
+
+Full Delivery Address
+
+</label>
+
+<textarea
+name="Full Address"
+id="address"
+required
+placeholder="Enter complete delivery address"
+data-placeholder="addressPlaceholder"
+></textarea>
+
+
+<label data-i18n="messageLabel">
+
+Cake Message / Design
+
+</label>
+
+<textarea
+name="Cake Message / Design"
+id="cakeMessage"
+placeholder="Example: Happy Birthday Amit"
+data-placeholder="messagePlaceholder"
+></textarea>
+
+
+<label data-i18n="instructionLabel">
+
+Special Instructions
+
+</label>
+
+<textarea
+name="Special Instructions"
+id="instructions"
+placeholder="Any special requirement?"
+data-placeholder="instructionPlaceholder"
+></textarea>
+
+
+<button
+type="submit"
+class="submit-btn"
+data-i18n="submitButton"
+>
+
+🎂 Place Cake Order
+
+</button>
+
+
+</form>
+
+</div>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<div class="contact-box">
+
+<h2
+class="section-title"
+data-i18n="contactTitle"
+>
+
+📞 Contact
+
+</h2>
+
+
+<p>
+
+<strong data-i18n="ownerLabel">
+Owner:
+</strong>
+
+Amit Kumar Singh
+
+</p>
+
+
+<p>
+
+<strong data-i18n="callLabel">
+Call:
+</strong>
+
+91XXXXXXXXXX
+
+</p>
+
+
+<p>
+
+<strong data-i18n="whatsappLabel">
+WhatsApp:
+</strong>
+
+91XXXXXXXXXX
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    <p>
-        <strong data-i18n="footerBrand">
-            Amit's Cake House
-        </strong>
-    </p>
+<p>
 
-    <p data-i18n="footerOwner">
-        Owner: Amit Kumar Singh
-    </p>
+<strong data-i18n="footerBrand">
 
-    <p data-i18n="footerCreated">
-        Created with ❤️ by Amit Kumar Singh
-    </p>
+Amit's Cake House
+
+</strong>
+
+</p>
+
+
+<p data-i18n="footerOwner">
+
+Owner: Amit Kumar Singh
+
+</p>
+
+
+<p data-i18n="footerCreated">
+
+Created with ❤️ by Amit Kumar Singh
+
+</p>
 
 </footer>
 
 
-<!-- FLOATING BUTTONS -->
+<!-- =========================
+     FLOATING BUTTONS
+========================= -->
 
 <div class="floating">
 
-    <a
-        class="float-btn whatsapp"
-        href="https://wa.me/91XXXXXXXXXX"
-        target="_blank"
-        title="WhatsApp"
-    >
-        💬
-    </a>
 
-    <a
-        class="float-btn call"
-        href="tel:+91XXXXXXXXXX"
-        title="Call"
-    >
-        📞
-    </a>
+<a
+class="float-btn whatsapp"
+href="https://wa.me/7309277213"
+target="_blank"
+>
+
+💬
+
+</a>
+
+
+<a
+class="float-btn call"
+href="tel:7309277213"
+>
+
+📞
+
+</a>
 
 </div>
+
+
+<!-- =========================
+     PART 2 JAVASCRIPT
+     WILL GO HERE
+========================= -->
 
 <script>
 
 /* =========================================
-   1. SHOP PAYMENT SETTINGS
+   UPI ID
+   अपनी असली UPI ID यहां डालें
 ========================================= */
 
-const SHOP_UPI_ID = "YOURUPI@upi";
+const SHOP_UPI_ID = "amitsingh3312509@oksbi";
 
 
 /* =========================================
-   2. CAKE DATA + REAL PHOTOS
+   CAKES
 ========================================= */
 
 const cakes = [
@@ -967,21 +1677,18 @@ const cakes = [
 
 
 /* =========================================
-   3. CART
+   LANGUAGE
 ========================================= */
 
-let cart = [];
-
-let paymentDone = false;
-
-
-/* =========================================
-   4. COMPLETE LANGUAGE DICTIONARY
-========================================= */
+let currentLanguage = "en";
 
 const translations = {
 
 en:{
+
+brand:"Amit's Cake House",
+
+owner:"Owner: Amit Kumar Singh",
 
 notice:
 "🎂 Premium 12+ Quality Cakes | 50% Advance Payment | 50% Cash on Delivery | Fresh Cakes",
@@ -990,7 +1697,7 @@ heroTitle:
 "Fresh & Premium Cakes",
 
 heroText:
-"Order delicious cakes online from Amit's Cake House. Choose your favourite cake, select delivery details and pay only 50% in advance. Remaining 50% will be paid by Cash on Delivery.",
+"Order delicious cakes online from Amit's Cake House. Choose your favourite cake, select delivery details and pay 50% in advance. The remaining 50% will be paid by Cash on Delivery.",
 
 menuTitle:
 "Our Cake Collection",
@@ -1137,6 +1844,10 @@ footerCreated:
 
 hi:{
 
+brand:"Amit's Cake House",
+
+owner:"मालिक: Amit Kumar Singh",
+
 notice:
 "🎂 प्रीमियम 12+ क्वालिटी केक | 50% एडवांस भुगतान | 50% कैश ऑन डिलीवरी | ताज़ा केक",
 
@@ -1144,7 +1855,7 @@ heroTitle:
 "ताज़ा और प्रीमियम केक",
 
 heroText:
-"Amit's Cake House से स्वादिष्ट केक ऑनलाइन ऑर्डर करें। अपना पसंदीदा केक चुनें, डिलीवरी की जानकारी भरें और केवल 50% एडवांस भुगतान करें। बाकी 50% भुगतान कैश ऑन डिलीवरी के समय करें।",
+"Amit's Cake House से स्वादिष्ट केक ऑनलाइन ऑर्डर करें। अपना पसंदीदा केक चुनें, डिलीवरी की जानकारी भरें और 50% एडवांस भुगतान करें। बाकी 50% भुगतान कैश ऑन डिलीवरी के समय करें।",
 
 menuTitle:
 "हमारे केक का संग्रह",
@@ -1293,24 +2004,27 @@ footerCreated:
 
 
 /* =========================================
-   5. CURRENT LANGUAGE
+   CART
 ========================================= */
 
-let currentLanguage = "en";
+let cart = [];
+
+let paymentDone = false;
 
 
 /* =========================================
-   6. CHANGE COMPLETE WEBSITE LANGUAGE
+   CHANGE LANGUAGE
 ========================================= */
 
 function changeLanguage(lang){
 
 currentLanguage = lang;
 
-const text = translations[lang];
+const text =
+translations[lang];
 
 
-/* Change all normal text */
+/* Normal text */
 
 document
 .querySelectorAll("[data-i18n]")
@@ -1320,13 +2034,14 @@ const key =
 element.getAttribute("data-i18n");
 
 if(text[key]){
-element.textContent = text[key];
+element.textContent =
+text[key];
 }
 
 });
 
 
-/* Change placeholders */
+/* Placeholders */
 
 document
 .querySelectorAll("[data-placeholder]")
@@ -1336,18 +2051,14 @@ const key =
 element.getAttribute("data-placeholder");
 
 if(text[key]){
-element.placeholder = text[key];
+element.placeholder =
+text[key];
 }
 
 });
 
 
-/* Change cake cards */
-
 displayCakes();
-
-
-/* Refresh cart */
 
 renderCart();
 
@@ -1355,7 +2066,7 @@ renderCart();
 
 
 /* =========================================
-   7. DISPLAY CAKES
+   DISPLAY CAKES
 ========================================= */
 
 function displayCakes(){
@@ -1365,12 +2076,14 @@ document.getElementById("cakeList");
 
 list.innerHTML = "";
 
+
 cakes.forEach(cake => {
 
 const name =
 currentLanguage === "hi"
 ? cake.hi
 : cake.en;
+
 
 list.innerHTML += `
 
@@ -1391,7 +2104,13 @@ ${name}
 </div>
 
 <div class="quality">
-⭐ 12+ Premium Quality
+
+⭐ ${
+currentLanguage === "hi"
+? "12+ प्रीमियम क्वालिटी"
+: "12+ Premium Quality"
+}
+
 </div>
 
 <div class="price">
@@ -1400,7 +2119,8 @@ ${name}
 
 <button
 class="add-btn"
-onclick="addToCart(${cake.id})">
+onclick="addToCart(${cake.id})"
+>
 
 ${
 currentLanguage === "hi"
@@ -1422,18 +2142,24 @@ currentLanguage === "hi"
 
 
 /* =========================================
-   8. ADD TO CART
+   ADD TO CART
 ========================================= */
 
 function addToCart(id){
 
 const cake =
-cakes.find(item => item.id === id);
+cakes.find(item =>
+item.id === id
+);
 
 if(!cake) return;
 
+
 const existing =
-cart.find(item => item.id === id);
+cart.find(item =>
+item.id === id
+);
+
 
 if(existing){
 
@@ -1451,45 +2177,44 @@ hi:cake.hi,
 
 price:cake.price,
 
-image:cake.image,
-
 qty:1
 
 });
 
 }
 
-renderCart();
 
-document
-.getElementById("cartItems")
-.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
+renderCart();
 
 }
 
 
 /* =========================================
-   9. CHANGE QUANTITY
+   QUANTITY
 ========================================= */
 
-function changeQty(id, amount){
+function changeQty(id,amount){
 
 const item =
-cart.find(item => item.id === id);
+cart.find(item =>
+item.id === id
+);
 
 if(!item) return;
 
+
 item.qty += amount;
+
 
 if(item.qty <= 0){
 
 cart =
-cart.filter(item => item.id !== id);
+cart.filter(item =>
+item.id !== id
+);
 
 }
+
 
 renderCart();
 
@@ -1497,13 +2222,15 @@ renderCart();
 
 
 /* =========================================
-   10. REMOVE FROM CART
+   REMOVE
 ========================================= */
 
 function removeItem(id){
 
 cart =
-cart.filter(item => item.id !== id);
+cart.filter(item =>
+item.id !== id
+);
 
 renderCart();
 
@@ -1511,13 +2238,14 @@ renderCart();
 
 
 /* =========================================
-   11. RENDER CART
+   RENDER CART
 ========================================= */
 
 function renderCart(){
 
 const box =
 document.getElementById("cartItems");
+
 
 if(cart.length === 0){
 
@@ -1573,7 +2301,8 @@ ${name}
 <div class="qty">
 
 <button
-onclick="changeQty(${item.id},-1)">
+onclick="changeQty(${item.id},-1)"
+>
 −
 </button>
 
@@ -1582,7 +2311,8 @@ ${item.qty}
 </strong>
 
 <button
-onclick="changeQty(${item.id},1)">
+onclick="changeQty(${item.id},1)"
+>
 +
 </button>
 
@@ -1591,7 +2321,8 @@ onclick="changeQty(${item.id},1)">
 
 <button
 class="remove-btn"
-onclick="removeItem(${item.id})">
+onclick="removeItem(${item.id})"
+>
 
 ${
 currentLanguage === "hi"
@@ -1614,30 +2345,28 @@ updateTotal();
 
 
 /* =========================================
-   12. DELIVERY CHARGE
+   DELIVERY
 ========================================= */
 
 function getDeliveryCharge(){
 
 const type =
-document.getElementById("deliveryType").value;
+document.getElementById(
+"deliveryType"
+).value;
 
 
 if(type === "0-3")
 return 20;
 
-
 if(type === "3-7")
 return 40;
-
 
 if(type === "7-12")
 return 60;
 
-
 if(type === "12+")
 return 100;
-
 
 return 0;
 
@@ -1645,7 +2374,7 @@ return 0;
 
 
 /* =========================================
-   13. TOTAL CALCULATION
+   TOTAL
 ========================================= */
 
 function updateTotal(){
@@ -1665,23 +2394,17 @@ const delivery =
 getDeliveryCharge();
 
 
-const grandTotal =
+const grand =
 cakeTotal + delivery;
 
 
-/*
-  EXACT 50%
-*/
-
 const advance =
-grandTotal / 2;
+grand / 2;
 
 
 const cod =
-grandTotal - advance;
+grand - advance;
 
-
-/* Display */
 
 document.getElementById(
 "cakeTotal"
@@ -1698,7 +2421,7 @@ delivery.toFixed(2);
 document.getElementById(
 "grandTotal"
 ).textContent =
-grandTotal.toFixed(2);
+grand.toFixed(2);
 
 
 document.getElementById(
@@ -1719,7 +2442,7 @@ document.getElementById(
 advance.toFixed(2);
 
 
-/* Hidden Form Data */
+/* Hidden fields */
 
 document.getElementById(
 "hiddenCakeTotal"
@@ -1736,7 +2459,7 @@ document.getElementById(
 document.getElementById(
 "hiddenGrand"
 ).value =
-"₹" + grandTotal.toFixed(2);
+"₹" + grand.toFixed(2);
 
 
 document.getElementById(
@@ -1754,7 +2477,7 @@ document.getElementById(
 
 
 /* =========================================
-   14. UPI PAYMENT
+   UPI PAYMENT
 ========================================= */
 
 function payAdvance(){
@@ -1762,9 +2485,13 @@ function payAdvance(){
 if(cart.length === 0){
 
 alert(
+
 currentLanguage === "hi"
+
 ? "पहले कार्ट में केक जोड़ें।"
-: "Please add a cake to your cart first."
+
+: "Please add a cake to your cart."
+
 );
 
 return;
@@ -1772,14 +2499,16 @@ return;
 }
 
 
-if(
-SHOP_UPI_ID === "amitsingh3312509@oksbi"
-){
+if(SHOP_UPI_ID === "YOURUPI@upi"){
 
 alert(
+
 currentLanguage === "hi"
+
 ? "कृपया कोड में अपनी असली UPI ID डालें।"
+
 : "Please add your real UPI ID in the code first."
+
 );
 
 return;
@@ -1810,19 +2539,19 @@ const advance =
 total / 2;
 
 
-/*
-  UPI Intent
-*/
-
 const upiLink =
 
 "upi://pay" +
 
 "?pa=" +
-encodeURIComponent(SHOP_UPI_ID) +
+encodeURIComponent(
+SHOP_UPI_ID
+) +
 
 "&pn=" +
-encodeURIComponent("Amit's Cake House") +
+encodeURIComponent(
+"Amit's Cake House"
+) +
 
 "&am=" +
 advance.toFixed(2) +
@@ -1836,7 +2565,7 @@ encodeURIComponent(
 
 
 /*
-  Open UPI application
+   Open UPI app
 */
 
 window.location.href =
@@ -1846,7 +2575,7 @@ upiLink;
 
 
 /* =========================================
-   15. PAYMENT CONFIRMATION
+   MARK PAYMENT
 ========================================= */
 
 function markPaid(){
@@ -1854,9 +2583,13 @@ function markPaid(){
 if(cart.length === 0){
 
 alert(
+
 currentLanguage === "hi"
+
 ? "पहले केक कार्ट में जोड़ें।"
-: "Please add a cake first."
+
+: "Please add a cake to your cart."
+
 );
 
 return;
@@ -1868,39 +2601,44 @@ paymentDone = true;
 
 
 const status =
-document.getElementById("paymentStatus");
+document.getElementById(
+"paymentStatus"
+);
 
 
-status.style.display = "block";
+status.style.display =
+"block";
 
 
 status.textContent =
 
 currentLanguage === "hi"
 
-? "✅ 50% एडवांस भुगतान पूरा किया गया है।"
+?
 
-: "✅ 50% advance payment marked as paid.";
+"✅ एडवांस भुगतान पूरा किया गया है। अब ऑर्डर सबमिट कर सकते हैं।"
+
+:
+
+"✅ Advance payment marked as paid. You can now submit the order.";
 
 
 document.getElementById(
 "hiddenPaymentStatus"
 ).value =
-
-currentLanguage === "hi"
-
-? "50% Advance Paid"
-
-: "50% Advance Paid";
+"50% Advance Paid - Customer Marked";
 
 }
 
 
 /* =========================================
-   16. ORDER VALIDATION
+   IMPORTANT:
+   FORM SUBMIT PAYMENT LOCK
 ========================================= */
 
 function validateOrder(){
+
+/* Cart check */
 
 if(cart.length === 0){
 
@@ -1919,7 +2657,9 @@ return false;
 }
 
 
-if(!paymentDone){
+/* PAYMENT CHECK */
+
+if(paymentDone !== true){
 
 alert(
 
@@ -1927,11 +2667,11 @@ currentLanguage === "hi"
 
 ?
 
-"ऑर्डर करने के लिए 50% एडवांस भुगतान अनिवार्य है। पहले भुगतान करें और फिर 'मैंने एडवांस भुगतान कर दिया है' बटन दबाएँ।"
+"ऑर्डर सबमिट करने से पहले 50% एडवांस भुगतान करना अनिवार्य है। पहले भुगतान करें।"
 
 :
 
-"50% advance payment is compulsory. Please pay the advance first and then click 'I Have Paid Advance'."
+"50% advance payment is compulsory before submitting the order. Please pay the advance first."
 
 );
 
@@ -1940,7 +2680,7 @@ return false;
 }
 
 
-/* Create complete order */
+/* Order details */
 
 let orderText = "";
 
@@ -1963,7 +2703,9 @@ item.qty +
 
 " = ₹" +
 
-(item.price * item.qty).toFixed(2) +
+(
+item.price * item.qty
+).toFixed(2) +
 
 "\n";
 
@@ -1976,16 +2718,12 @@ document.getElementById(
 orderText;
 
 
-/* Current date and time */
-
-const now =
-new Date();
-
+/* Final payment status */
 
 document.getElementById(
 "hiddenPaymentStatus"
 ).value =
-"50% Advance Paid";
+"50% Advance Paid - Customer Marked";
 
 
 return true;
@@ -1994,7 +2732,7 @@ return true;
 
 
 /* =========================================
-   17. MINIMUM DELIVERY DATE
+   MINIMUM DELIVERY DATE
 ========================================= */
 
 const today =
@@ -2010,7 +2748,7 @@ today;
 
 
 /* =========================================
-   18. INITIAL WEBSITE LOAD
+   INITIAL LOAD
 ========================================= */
 
 displayCakes();
@@ -2020,6 +2758,7 @@ renderCart();
 updateTotal();
 
 </script>
-    
+
 </body>
+
 </html>
